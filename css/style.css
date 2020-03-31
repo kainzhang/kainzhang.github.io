@@ -2,16 +2,10 @@
  *       Override CSS Framework
  * --------------------------------- */
 html {
-  font-size: 16px;
-}
-.menu-label {
   font-size: 14px;
 }
-.is-link {
-  background-color: #f40d69 !important;
-}
 body {
-  background-color: #f1f1f1;
+  background-color: #f7f7f7;
 }
 body,
 button,
@@ -83,7 +77,7 @@ img.thumbnail {
 }
 .navbar-logo img,
 .footer-logo img {
-  max-height: 3rem;
+  max-height: 1.75rem;
 }
 .navbar-main {
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
@@ -111,13 +105,11 @@ img.thumbnail {
 }
 .navbar-main .navbar-item {
   display: flex;
-  font-size: 18px;
   align-items: center;
   padding: 1.25rem 0.75rem;
 }
-.navbar-main .navbar-item.is-active,
-.navbar-main .navbar-item:hover {
-  color: #f40d69;
+.navbar-main .navbar-item.is-active {
+  color: #3273dc;
   background-color: transparent;
 }
 @media screen and (max-width: 1087px) {
@@ -288,7 +280,7 @@ img.thumbnail {
   border: none;
 }
 .is-size-7 {
-  font-size: 0.95rem !important;
+  font-size: 0.85rem !important;
 }
 .is-7by1 {
   padding-top: 42.8%;
@@ -339,6 +331,10 @@ img.thumbnail {
 .has-link-grey,
 .has-link-black-ter {
   transition: 0.2s ease;
+}
+.has-link-grey:hover,
+.has-link-black-ter:hover {
+  color: #3273dc !important;
 }
 .has-link-grey {
   color: #7a7a7a !important;
