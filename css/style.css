@@ -20,8 +20,16 @@ textarea {
     max-width: 960px;
     width: 960px;
   }
+  .is-3-column .container {
+    max-width: 1216px;
+    width: 1216px;
+  }
 }
 @media screen and (min-width: 1472px) {
+  .is-3-column .container {
+    max-width: 1344px;
+    width: 1344px;
+  }
   .is-2-column .container {
     max-width: 1152px;
     width: 1152px;
@@ -56,6 +64,9 @@ textarea {
 .card {
   border-radius: 4px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05), 0 0 1px rgba(0,0,0,0.1);
+}
+.card:hover {
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.1);
 }
 .card + .card,
 .card + .column-right-shadow {
