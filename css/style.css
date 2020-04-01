@@ -77,7 +77,7 @@ img.thumbnail {
 }
 .navbar-logo img,
 .footer-logo img {
-  max-height: 1.75rem;
+  max-height: 2.5rem;
 }
 .navbar-main {
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
@@ -91,6 +91,7 @@ img.thumbnail {
   flex-shrink: 0;
 }
 .navbar-main .navbar-menu {
+  height: 5rem;
   flex-grow: 1;
   flex-shrink: 0;
   overflow-x: auto;
@@ -104,6 +105,7 @@ img.thumbnail {
   margin-left: auto;
 }
 .navbar-main .navbar-item {
+  font-size: 16px;
   display: flex;
   align-items: center;
   padding: 1.25rem 0.75rem;
@@ -126,6 +128,9 @@ img.thumbnail {
 }
 .footer {
   background: #fff;
+}
+.footer .level {
+  height: 4rem;
 }
 .footer .field .button {
   background: transparent;
@@ -280,7 +285,7 @@ img.thumbnail {
   border: none;
 }
 .is-size-7 {
-  font-size: 0.85rem !important;
+  font-size: 0.95rem !important;
 }
 .is-7by1 {
   padding-top: 42.8%;
