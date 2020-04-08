@@ -172,6 +172,15 @@ img.thumbnail {
 .pagination .pagination-next {
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
+.post-copyright {
+  font-size: 1rem;
+  letter-spacing: 0.02rem;
+  word-break: break-all;
+  margin: 2.5rem 0 0;
+  padding: 1rem 1rem;
+  border-left: 3px solid #ff1700;
+  background-color: #f9f9f9;
+}
 .post-navigation {
   justify-content: space-around;
 }
@@ -227,6 +236,30 @@ img.thumbnail {
 }
 .article .content a {
   word-wrap: break-word;
+}
+.article {
+  counter-reset: section;
+}
+.article h2 {
+  counter-reset: sub-section;
+}
+.article h3 {
+  counter-reset: composite;
+}
+.article h4 {
+  counter-reset: detail;
+}
+.article h2:before {
+  content: counter(section) " ";
+  counter-increment: section;
+}
+.article h3:before {
+  content: counter(section) "." counter(sub-section) " ";
+  counter-increment: sub-section;
+}
+.article h4:before {
+  content: counter(section) "." counter(sub-section) "." counter(composite) " ";
+  counter-increment: composite;
 }
 .rtl {
   direction: rtl;
