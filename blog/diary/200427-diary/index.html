@@ -7,22 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>First diary, Hello world! - KZ.LOKKA</title>
+<title>Coding托管Hexo及CloudFlare域名解析 - KZ.LOKKA</title>
 
 
-    <meta name="description" content="&amp;emsp;&amp;emsp;很早就想搞个博客记录学习和生活，留给未来回首往日。Emmm…之所以拖到今天才开始着手，一方面是因为疫情一直宅家想充实，一方面是面临考研，发现自己两年半来居然一点学习笔记也没留下。想想CXK练习时长两年半都出道了，自己考研前的寒假还爆肝了四五周游戏（u1s1，DQB2是真的香），爆肝之后的贤者模式告诉我，不能继续在游戏中堕落下去（该换个方式堕落了)，这也是为什么我会在这里用小">
+    <meta name="description" content="&amp;emsp;&amp;emsp;心血来潮买了个域名，迫不及待地把它绑定到博客。为了提升加载速度分别尝试了Coding和Gitee托管以及CloudFlare的CDN加（减）速。最终决定使用Github和Coding的双托管，使用CloudFlare把域名解析到Coding。 &amp;emsp;&amp;emsp;这个.me的黑山国家域名我蛮喜欢的，虽然觉得.cc好像更可爱，但个人博客确实还是.me更适合。于是我的小博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="First diary, Hello world!">
-<meta property="og:url" content="http://lokka.me/blog/diary/200401-diary/index.html">
+<meta property="og:title" content="Coding托管Hexo及CloudFlare域名解析">
+<meta property="og:url" content="http://lokka.me/blog/diary/200427-diary/index.html">
 <meta property="og:site_name" content="KZ.LOKKA">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;很早就想搞个博客记录学习和生活，留给未来回首往日。Emmm…之所以拖到今天才开始着手，一方面是因为疫情一直宅家想充实，一方面是面临考研，发现自己两年半来居然一点学习笔记也没留下。想想CXK练习时长两年半都出道了，自己考研前的寒假还爆肝了四五周游戏（u1s1，DQB2是真的香），爆肝之后的贤者模式告诉我，不能继续在游戏中堕落下去（该换个方式堕落了)，这也是为什么我会在这里用小">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;心血来潮买了个域名，迫不及待地把它绑定到博客。为了提升加载速度分别尝试了Coding和Gitee托管以及CloudFlare的CDN加（减）速。最终决定使用Github和Coding的双托管，使用CloudFlare把域名解析到Coding。 &amp;emsp;&amp;emsp;这个.me的黑山国家域名我蛮喜欢的，虽然觉得.cc好像更可爱，但个人博客确实还是.me更适合。于是我的小博客">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://lokka.me/blog/diary/200401-diary/200401.jpg">
-<meta property="article:published_time" content="2020-03-31T16:28:08.813Z">
-<meta property="article:modified_time" content="2020-04-08T09:23:02.014Z">
+<meta property="og:image" content="http://lokka.me/blog/diary/200427-diary/louie-martinez-IocJwyqRv3M-unsplash.jpg">
+<meta property="article:published_time" content="2020-04-27T15:14:16.000Z">
+<meta property="article:modified_time" content="2020-04-27T17:28:59.120Z">
 <meta property="article:author" content="Kain Zhang">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://lokka.me/blog/diary/200401-diary/200401.jpg">
+<meta name="twitter:image" content="http://lokka.me/blog/diary/200427-diary/louie-martinez-IocJwyqRv3M-unsplash.jpg">
 
 
 
@@ -81,7 +81,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="First diary, Hello world!" height="28">
+                <img src="/images/logo.svg" alt="Coding托管Hexo及CloudFlare域名解析" height="28">
             
             </a>
         </div>
@@ -106,6 +106,10 @@
             <div class="navbar-end">
                 
                 
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
                     <i class="fas fa-search"></i>
@@ -124,7 +128,7 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="/blog/diary/200401-diary/200401.jpg" alt="First diary, Hello world!">
+            <img class="thumbnail" src="/blog/diary/200427-diary/louie-martinez-IocJwyqRv3M-unsplash.jpg" alt="Coding托管Hexo及CloudFlare域名解析">
         </span>
     </div>
     
@@ -132,13 +136,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-03-31T16:28:08.813Z">2020-04-01</time> -->
-                <time class="level-item has-text-grey" datetime="2020-03-31T16:28:08.813Z">
-                    <i class="far fa-calendar-alt">&nbsp;</i>2020-04-01
+                <!-- <time class="level-item has-text-grey" datetime="2020-04-27T15:14:16.000Z">2020-04-27</time> -->
+                <time class="level-item has-text-grey" datetime="2020-04-27T15:14:16.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-04-27
                 </time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-04-08T09:23:02.014Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-04-08
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-04-27T17:28:59.120Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2020-04-28
                 </time>
                 
                 
@@ -152,7 +156,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    7 minutes read (About 981 words)
+                    13 minutes read (About 1980 words)
                 </span>
                 
                 
@@ -161,28 +165,63 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                First diary, Hello world!
+                Coding托管Hexo及CloudFlare域名解析
             
         </h1>
         <div class="content">
-            <p>&emsp;&emsp;很早就想搞个博客记录学习和生活，留给未来回首往日。Emmm…之所以拖到今天才开始着手，一方面是因为疫情一直宅家想充实，一方面是面临考研，发现自己两年半来居然一点学习笔记也没留下。想想CXK练习时长两年半都出道了，自己考研前的寒假还爆肝了四五周游戏（u1s1，DQB2是真的香），爆肝之后的贤者模式告诉我，不能继续在游戏中堕落下去（该换个方式堕落了)，这也是为什么我会在这里用小学作文的水平码字。。。</p>
+            <p>&emsp;&emsp;心血来潮买了个域名，迫不及待地把它绑定到博客。为了提升加载速度分别尝试了Coding和Gitee托管以及CloudFlare的CDN加（减）速。最终决定使用Github和Coding的双托管，使用CloudFlare把域名解析到Coding。</p>
+<p>&emsp;&emsp;这个.me的黑山国家域名我蛮喜欢的，虽然觉得.cc好像更可爱，但个人博客确实还是.me更适合。于是我的小博客迎来全新的域名，Github Page也沦为备胎，嘻嘻。</p>
 <a id="more"></a>
 
 <hr>
-<p>&emsp;&emsp;产生这个想法是在大一时期，当时在老师的倡导下在学校OJ刷题，经常刷到凌晨（虽然水平没提升的多少，但头顶确实越来越冷了），题目怼不出来就复制题号在网上搜，也由此见识了很多大佬的CSDN、博客园博客，惊叹于大佬的解题能力和刷题量，也包括很多大佬的学习笔记、随笔 blahblah，当时就想着什么时候咱也得整一个！</p>
-<p>&emsp;&emsp;然鹅只恨自己太懒，大一下学期题几乎不刷题了，很少再去搜题解（了解到学院不参加ACM，觉得刷题失去意义）。大二虽然学院突然开始参加比赛了，但糟糕的时间安排和被各种破事占用时间，刷题都没得刷，更别提写博客了，于是博客计划无限期搁置。。。</p>
-<p>&emsp;&emsp;2020的寒假意外得长，寒假前我还计划像以往假期一样每天早起去图书馆，然鹅疫情就这么来了，一切安排都被打乱。19年底我甚至计划20暑假去日本玩些日子，组了小伙伴也做了很多功课，但是照现在的情况来看，扶桑之旅多半是gg了。</p>
-<p>&emsp;&emsp;大概4月底会开学吧，说实话宅家虽然没劲儿学，但我是一点不希望开学，原因是多方面的，仁者见仁智者见智就不细写了。不过考研和就业的临近确实让我提了点劲儿，我又开始刷题了，尽管依然菜得抠脚，但终于算是能静下心学习。目前的目标就是PAT甲级吧，原本3月考，因为疫情被延到了6月底，算是多给我几个月时间蹦跶哈哈哈哈。同时还在准备托福和N2，然鹅到现在也没见报名消息，难过。</p>
-<p>&emsp;&emsp;为了整这个博客我牺牲了整整一个下午，从纠结Jekyll还是Hexo，到选主题拿不定主意，然后终于选定主题，字号配色又整不好了（整完提交上去排版崩了，又reset）。反正就是完美主义，一次次地推翻自己，不断的装了改、改了删、删了再装，没完没了，我还自己用Procreate手写了个Logo（丢人，估计过几天就得换），大概这也算是一种自虐？（笑）</p>
-<p>&emsp;&emsp;总而言之，希望自己能坚持下去，定期总结学习、总结生活（虽然语文丢人）。坚守自己21年暑假考日本的目标，趁着年轻再搏一搏，虽然软件行业好像不很重视学历，但考硕确实是实现名校情结的最后机会了！给我冲！頑張る</p>
+<h2 id="使用Coding托管Hexo"><a href="#使用Coding托管Hexo" class="headerlink" title="使用Coding托管Hexo"></a>使用Coding托管Hexo</h2><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>&emsp;&emsp;首先就是注册账号，创建仓库，流程与Github一样，项目模板选择代码托管项目。项目名称随你，其他的默认就好。Coding没要求必须公开源代码，README也可不添加。</p>
+<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-1.png" class></p>
+<h3 id="本地Hexo设置"><a href="#本地Hexo设置" class="headerlink" title="本地Hexo设置"></a>本地Hexo设置</h3><p>&emsp;&emsp;进入建好的仓库中，复制页面右边提供的仓库SSH地址。</p>
+<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-2.png" class></p>
+<p>&emsp;&emsp;将SSH粘贴至Hexo的_config.yml对应位置，换行加上就行，注意格式。没错，加上Gitee三托管也可以的，喜欢就只管加上。下次hexo d的时候就会一起发布。</p>
+<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-3.png" class></p>
+<h3 id="添加SSH公钥"><a href="#添加SSH公钥" class="headerlink" title="添加SSH公钥"></a>添加SSH公钥</h3><p>&emsp;&emsp;为了方便发布，把之前搞Github Page生成的SSH密钥添加到Coding，SSH密钥一般藏在下面这个位置。</p>
+<blockquote>
+<p>C:\Users\用户名.ssh\id_rsa.pub</p>
+</blockquote>
+<p>&emsp;&emsp;在Coding页面右上角的弹框里找到<strong>个人设置</strong>，然后添加<strong>SSH公钥</strong>，复制粘贴确认即可。之后使用hexo d发布时会需要确认，yes就好。</p>
+<h3 id="静态页面部署"><a href="#静态页面部署" class="headerlink" title="静态页面部署"></a>静态页面部署</h3><p>&emsp;&emsp;Hexo生成的静态网页被发布到Coding仓库后，进入项目页面，页面左下角找到项目设置 -&gt; 项目于成员 -&gt; 功能开关，然后打开<strong>持续集成</strong>和<strong>持续部署</strong>，之后才能部署静态页面。</p>
+<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-4.png" class></p>
+<p>&emsp;&emsp;开启上述两项功能后，回到项目主页，左边目录多了持续集成和持续部署两个选项，找到<strong>静态网站</strong>选项，立即部署即可。Coding会自动生成一个地址（我看网上别人的都是coding.me的域名，可能现在改了吗？还是我操作不对？无所谓啦），然后就发布成功啦!点开那个丑陋的网址看看吧！</p>
+<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-5.png" class></p>
+<h2 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h2><p>&emsp;&emsp;Coding Pages生成的域名实在是不能接受，赶紧买域名！</p>
+<h3 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h3><p>&emsp;&emsp;年幼无知的我没做足功课就把第一次献给了 <a href="sg.godaddy.com/zh">GoDaddy</a>，在这里建议萌新在购买域名前，一定要先在 <a href="www.domcomp.com">domcomp</a> 查询一下，这里可以查到你喜欢的域名的最便宜价格及提供该价格的注册商，也可以顺便选一下顶级域名。除了GoDaddy外，<a href="www.dynadot.com/zh/">dynadot</a> 也是支持支付宝的。</p>
+<p>&emsp;&emsp;由于我是之后才知道domcomp的，已经在GoDaddy，买过了。流程就是选域名，加购物车，然后顺便注册账号，按提示来就vans了。</p>
+<h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><p>&emsp;&emsp;购买成功后找到购买的域名，点击<strong>DNS管理</strong>，配置CNAME和A，CNAME值为Coding Pages的地址，A值为对应的IP，不知道IP的话在 <a href="ping.chinaz.com">站长工具</a> ping以下即可，一般会有四个新加坡腾讯云的IP，分别添加即可。如果想解析到Github Pages，同理，Github Pages也是四个IP，分别添加即可。</p>
+<p>&emsp;&emsp;Github Pages一般是下面这四个,Coding Pages的我不确定，具体以ping的结果为准。</p>
+<blockquote>
+<p>185.199.108.153<br>185.199.109.153<br>185.199.110.153<br>185.199.111.153</p>
+</blockquote>
+<p>&emsp;&emsp;配置完成后回到Coding，在静态网站中找到设置，在<strong>绑定新域名</strong>处添加域名，如果你没有配置DNS是会提示申请证书失败的。另外由于网站是由Coding或Github托管的，所以不需要备案，正确配置CNAME即可。待证书状态显示<strong>正常</strong>，域名就绑定成功了，用新域名访问博客吧！</p>
+<h3 id="CloudFlare域名解析"><a href="#CloudFlare域名解析" class="headerlink" title="CloudFlare域名解析"></a>CloudFlare域名解析</h3><p>&emsp;&emsp;上一步在GoDaddy的DNS配置可以直接省略，在CloudFlare进行，账号注册成功后，点击添加站点（会自动弹出），然后输入刚买的域名，之后CloudFlare会提供两个NS地址，要求在域名注册商那里修改NS地址。</p>
+<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-6.png" class></p>
+<p>&emsp;&emsp;回到GoDaddy，进入域名管理，修改域名服务器，吧CloudFlare提供的两个NS地址复制进去，然后确认，之后会显示：<strong>我们无法显示您的 DNS 信息，因为您的域名服务器不是由我们管理的。</strong> OK，GoDaddy可以关了。</p>
+<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-7.png" class></p>
+<p>&emsp;&emsp;返回CloudFlare后点击已修改（忘了具体名称了，看页面提示就行），然后会提示在排队。修改域名服务器后需要稍等一会CloudFlare才有反应。</p>
+<p>&emsp;&emsp;域名在CloudFlare这边添加成功后，点击域名进入域名管理界面，找到<strong>DNS</strong>，按照下面的格式配置。其中小云朵标志代表开启CDN加速，如果你网站的主要访客来自境外，那么建议开启，橙色代表开启。国内的话就关闭吧，速度比Github还慢。关掉后只使用域名解析。</p>
+<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-8.png" class></p>
+<p>&emsp;&emsp;刚绑定完的域名不出意外的话，访问博客时浏览器会提示不安全，CloudFlare可以轻松解决。域名管理页面找到<strong>SSL/TLS</strong>，确认SSL/TLS加密模式为<strong>完全</strong>，一般默认就是完全。</p>
+<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-9.png" class></p>
+<p>&emsp;&emsp;之后在<strong>边缘证书</strong>栏目找到<strong>始终使用HTTPS</strong>，确认该项为开启状态。之后就慢慢等吧，CloudFlare会在24小时内为域名发放证书。</p>
+<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-10.png" class></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;这一波折腾完，我的Github博客基本就是摆设了，CloudFlare好像不能国内外分流，无力实现境外访客解析到Github，境内访客解析到Coding，或者你知道怎么搞的话可以告诉我，不胜感激！</p>
+<p>&emsp;&emsp;我还尝试了Gitee Pages，速度还蛮快的，Ping一下全国都是深绿的，有条件的话用Gitee托管效果还是不错的。搭建流程跟Github Pages一样，项目名称使用用户名能开启 XXX.gitee.io的地址，否则地址末尾会包含项目名。但是Gitee很抠，升级pro版才能自定义域名和自动部署，普通版每次发布后要手动更新，pro每年99元。新用户有1个月的免费体验，我试了下，但是配置证书的时候出了问题，Gitee要求粘贴域名证书和密钥，因为我是在CloudFlare解析的，就没成功（可能是我太笨），如果你搞定了也一定要告诉我，再次感激！</p>
+<p>&emsp;&emsp;Coding Pages用的新加坡的腾讯云，速度比Gitee用的国内的阿里云肯定要慢的，但是比Github强多了，还行吧，ping一下看看我觉得还行吧，我还是挺容易满足的。</p>
+<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-11.png" class></p>
+<p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@thetalkinglens?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Louie Martinez"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewbox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"/></svg></span><span style="display:inline-block;padding:2px 3px">Louie Martinez</span></a></p>
 
         </div>
         
             <ul class="post-copyright">
-            <li><strong>本文标题：</strong><a href="http://lokka.me/blog/diary/200401-diary/">First diary, Hello world!</a></li>
+            <li><strong>本文标题：</strong><a href="http://lokka.me/blog/diary/200427-diary/">Coding托管Hexo及CloudFlare域名解析</a></li>
             <li><strong>本文作者：</strong><a href="http://lokka.me">Kain Zhang</a></li>
-            <li><strong>本文链接：</strong><a href="http://lokka.me/blog/diary/200401-diary/">http://lokka.me/blog/diary/200401-diary/</a></li>
-            <li><strong>发布时间：</strong>2020-04-01</li>
+            <li><strong>本文链接：</strong><a href="http://lokka.me/blog/diary/200427-diary/">http://lokka.me/blog/diary/200427-diary/</a></li>
+            <li><strong>发布时间：</strong>2020-04-27</li>
             <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
             </li>
             </ul>
@@ -245,13 +284,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/blog/problem/200408-n-queens/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">N皇后（N-Queens）</span>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/blog/designpattern/200425-factory-pattern/">
+                <span class="level-item">工厂模式（Factory Pattern）</span>
+                <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
-        
         
     </div>
 </div>
@@ -346,6 +385,59 @@
 </div>
     
         
+
+    <!-- <div class="card widget" id="toc"> -->
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    Catalogue
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#使用Coding托管Hexo">
+        <span class="has-mr-6">1</span>
+        <span>使用Coding托管Hexo</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#创建项目">
+        <span class="has-mr-6">1.1</span>
+        <span>创建项目</span>
+        </a></li><li>
+        <a class="is-flex" href="#本地Hexo设置">
+        <span class="has-mr-6">1.2</span>
+        <span>本地Hexo设置</span>
+        </a></li><li>
+        <a class="is-flex" href="#添加SSH公钥">
+        <span class="has-mr-6">1.3</span>
+        <span>添加SSH公钥</span>
+        </a></li><li>
+        <a class="is-flex" href="#静态页面部署">
+        <span class="has-mr-6">1.4</span>
+        <span>静态页面部署</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#自定义域名">
+        <span class="has-mr-6">2</span>
+        <span>自定义域名</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#购买域名">
+        <span class="has-mr-6">2.1</span>
+        <span>购买域名</span>
+        </a></li><li>
+        <a class="is-flex" href="#绑定域名">
+        <span class="has-mr-6">2.2</span>
+        <span>绑定域名</span>
+        </a></li><li>
+        <a class="is-flex" href="#CloudFlare域名解析">
+        <span class="has-mr-6">2.3</span>
+        <span>CloudFlare域名解析</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#总结">
+        <span class="has-mr-6">3</span>
+        <span>总结</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
     
     
         <div class="column-right-shadow is-hidden-widescreen ">
@@ -364,7 +456,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="First diary, Hello world!" height="28">
+                    <img src="/images/logo.svg" alt="Coding托管Hexo及CloudFlare域名解析" height="28">
                 
                 </a>
                 <p class="is-size-7">
