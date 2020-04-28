@@ -7,22 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Coding托管Hexo及CloudFlare域名解析 - KZ.LOKKA</title>
+<title>工厂模式（Factory Pattern） - KZ.LOKKA</title>
 
 
-    <meta name="description" content="&amp;emsp;&amp;emsp;心血来潮买了个域名，迫不及待地把它绑定到博客。为了提升加载速度分别尝试了Coding和Gitee托管以及CloudFlare的CDN加（减）速。最终决定使用Github和Coding的双托管，使用CloudFlare把域名解析到Coding。 &amp;emsp;&amp;emsp;这个.me的黑山国家域名我蛮喜欢的，虽然觉得.cc好像更可爱，但个人博客确实还是.me更适合。于是我的小博客">
+    <meta name="description" content="&amp;emsp;&amp;emsp;Java常用设计模式 —— 工厂模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Coding托管Hexo及CloudFlare域名解析">
-<meta property="og:url" content="http://lokka.me/blog/diary/200427-diary/index.html">
+<meta property="og:title" content="工厂模式（Factory Pattern）">
+<meta property="og:url" content="http://lokka.me/post/factory-pattern/index.html">
 <meta property="og:site_name" content="KZ.LOKKA">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;心血来潮买了个域名，迫不及待地把它绑定到博客。为了提升加载速度分别尝试了Coding和Gitee托管以及CloudFlare的CDN加（减）速。最终决定使用Github和Coding的双托管，使用CloudFlare把域名解析到Coding。 &amp;emsp;&amp;emsp;这个.me的黑山国家域名我蛮喜欢的，虽然觉得.cc好像更可爱，但个人博客确实还是.me更适合。于是我的小博客">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;Java常用设计模式 —— 工厂模式">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://lokka.me/blog/diary/200427-diary/louie-martinez-IocJwyqRv3M-unsplash.jpg">
-<meta property="article:published_time" content="2020-04-27T15:14:16.000Z">
-<meta property="article:modified_time" content="2020-04-27T17:34:24.838Z">
+<meta property="og:image" content="http://lokka.me/post/factory-pattern/tyler-nix-7ukf-r-Oh-k-unsplash.jpg">
+<meta property="article:published_time" content="2020-04-25T10:24:22.000Z">
+<meta property="article:modified_time" content="2020-04-28T03:01:40.124Z">
 <meta property="article:author" content="Kain Zhang">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://lokka.me/blog/diary/200427-diary/louie-martinez-IocJwyqRv3M-unsplash.jpg">
+<meta name="twitter:image" content="http://lokka.me/post/factory-pattern/tyler-nix-7ukf-r-Oh-k-unsplash.jpg">
 
 
 
@@ -81,7 +82,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Coding托管Hexo及CloudFlare域名解析" height="28">
+                <img src="/images/logo.svg" alt="工厂模式（Factory Pattern）" height="28">
             
             </a>
         </div>
@@ -128,7 +129,7 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="/blog/diary/200427-diary/louie-martinez-IocJwyqRv3M-unsplash.jpg" alt="Coding托管Hexo及CloudFlare域名解析">
+            <img class="thumbnail" src="/post/factory-pattern/tyler-nix-7ukf-r-Oh-k-unsplash.jpg" alt="工厂模式（Factory Pattern）">
         </span>
     </div>
     
@@ -136,19 +137,19 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-04-27T15:14:16.000Z">2020-04-27</time> -->
-                <time class="level-item has-text-grey" datetime="2020-04-27T15:14:16.000Z">
-                    <i class="far fa-calendar-alt">&nbsp;</i>2020-04-27
+                <!-- <time class="level-item has-text-grey" datetime="2020-04-25T10:24:22.000Z">2020-04-25</time> -->
+                <time class="level-item has-text-grey" datetime="2020-04-25T10:24:22.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-04-25
                 </time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-04-27T17:34:24.838Z">
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-04-28T03:01:40.124Z">
                     <i class="far fa-calendar-check">&nbsp;</i>2020-04-28
                 </time>
                 
                 
                 <div class="level-item">
                 <i class="far fa-folder has-text-grey">&nbsp;</i>
-                <a class="has-link-grey -link" href="/categories/Diary/">Diary</a>
+                <a class="has-link-grey -link" href="/categories/Note/">Note</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Note/Design-Pattern/">Design Pattern</a>
                 </div>
                 
                 
@@ -156,7 +157,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    13 minutes read (About 1994 words)
+                    2 minutes read (About 363 words)
                 </span>
                 
                 
@@ -165,68 +166,56 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Coding托管Hexo及CloudFlare域名解析
+                工厂模式（Factory Pattern）
             
         </h1>
         <div class="content">
-            <p>&emsp;&emsp;心血来潮买了个域名，迫不及待地把它绑定到博客。为了提升加载速度分别尝试了Coding和Gitee托管以及CloudFlare的CDN加（减）速。最终决定使用Github和Coding的双托管，使用CloudFlare把域名解析到Coding。</p>
-<p>&emsp;&emsp;这个.me的黑山国家域名我蛮喜欢的，虽然觉得.cc好像更可爱，但个人博客确实还是.me更适合。于是我的小博客迎来全新的域名，Github Page也沦为备胎，嘻嘻。</p>
+            <p>&emsp;&emsp;Java常用设计模式 —— 工厂模式</p>
 <a id="more"></a>
 
 <hr>
-<h2 id="使用Coding托管Hexo"><a href="#使用Coding托管Hexo" class="headerlink" title="使用Coding托管Hexo"></a>使用Coding托管Hexo</h2><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>&emsp;&emsp;首先就是注册账号，创建仓库，流程与Github一样，项目模板选择代码托管项目。项目名称随你，其他的默认就好。Coding没要求必须公开源代码，README也可不添加。</p>
-<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-1.png" class></p>
-<h3 id="本地Hexo设置"><a href="#本地Hexo设置" class="headerlink" title="本地Hexo设置"></a>本地Hexo设置</h3><p>&emsp;&emsp;进入建好的仓库中，复制页面右边提供的仓库SSH地址。</p>
-<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-2.png" class></p>
-<p>&emsp;&emsp;将SSH粘贴至Hexo的_config.yml对应位置，换行加上就行，注意格式。没错，加上Gitee三托管也可以的，喜欢就只管加上。下次hexo d的时候就会一起发布。</p>
-<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-3.png" class></p>
-<h3 id="添加SSH公钥"><a href="#添加SSH公钥" class="headerlink" title="添加SSH公钥"></a>添加SSH公钥</h3><p>&emsp;&emsp;为了方便发布，把之前搞Github Page生成的SSH密钥添加到Coding，SSH密钥一般藏在下面这个位置。</p>
-<blockquote>
-<p>C:\Users\用户名.ssh\id_rsa.pub</p>
-</blockquote>
-<p>&emsp;&emsp;在Coding页面右上角的弹框里找到<strong>个人设置</strong>，然后添加<strong>SSH公钥</strong>，复制粘贴确认即可。之后使用hexo d发布时会需要确认，yes就好。</p>
-<h3 id="静态页面部署"><a href="#静态页面部署" class="headerlink" title="静态页面部署"></a>静态页面部署</h3><p>&emsp;&emsp;Hexo生成的静态网页被发布到Coding仓库后，进入项目页面，页面左下角找到项目设置 -&gt; 项目于成员 -&gt; 功能开关，然后打开<strong>持续集成</strong>和<strong>持续部署</strong>，之后才能部署静态页面。</p>
-<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-4.png" class></p>
-<p>&emsp;&emsp;开启上述两项功能后，回到项目主页，左边目录多了持续集成和持续部署两个选项，找到<strong>静态网站</strong>选项，立即部署即可。Coding会自动生成一个地址（我看网上别人的都是coding.me的域名，可能现在改了吗？还是我操作不对？无所谓啦），然后就发布成功啦!点开那个丑陋的网址看看吧！</p>
-<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-5.png" class></p>
-<h2 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h2><p>&emsp;&emsp;Coding Pages生成的域名实在是不能接受，赶紧买域名！</p>
-<h3 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h3><p>&emsp;&emsp;年幼无知的我没做足功课就把第一次献给了 <a href="https://sg.godaddy.com/zh/">GoDaddy</a>，在这里建议萌新在购买域名前，一定要先在 <a href="https://www.domcomp.com/">domcomp</a> 查询一下，这里可以查到你喜欢的域名的最便宜价格及提供该价格的注册商，也可以顺便选一下顶级域名。除了GoDaddy外，<a href="https://www.dynadot.com/zh/">dynadot</a> 也是支持支付宝的。</p>
-<p>&emsp;&emsp;由于我是之后才知道domcomp的，已经在GoDaddy，买过了。流程就是选域名，加购物车，然后顺便注册账号，按提示来就vans了。</p>
-<h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><p>&emsp;&emsp;购买成功后找到购买的域名，点击<strong>DNS管理</strong>，配置CNAME和A，CNAME值为Coding Pages的地址，A值为对应的IP，不知道IP的话在 <a href="http://ping.chinaz.com/">站长工具</a> ping一下即可，会只能解析独立IP，Coding一般会有四个新加坡腾讯云的IP，分别添加即可。如果想解析到Github Pages，同理，Github Pages也是四个IP，分别添加即可。</p>
-<p>&emsp;&emsp;Github Pages一般是下面这四个,Coding Pages的我不确定，具体以ping的结果为准。</p>
-<blockquote>
-<p>185.199.108.153<br>185.199.109.153<br>185.199.110.153<br>185.199.111.153</p>
-</blockquote>
-<p>&emsp;&emsp;配置完成后回到Coding，在静态网站中找到设置，在<strong>绑定新域名</strong>处添加域名，如果你没有配置DNS是会提示申请证书失败的。另外由于网站是由Coding或Github托管的，所以不需要备案，正确配置CNAME即可。待证书状态显示<strong>正常</strong>，域名就绑定成功了，用新域名访问博客吧！</p>
-<h3 id="CloudFlare域名解析"><a href="#CloudFlare域名解析" class="headerlink" title="CloudFlare域名解析"></a>CloudFlare域名解析</h3><p>&emsp;&emsp;上一步在GoDaddy的DNS配置可以直接省略，在CloudFlare进行，账号注册成功后，点击添加站点（会自动弹出），然后输入刚买的域名，之后CloudFlare会提供两个NS地址，要求在域名注册商那里修改NS地址。</p>
-<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-6.png" class></p>
-<p>&emsp;&emsp;回到GoDaddy，进入域名管理，修改域名服务器，吧CloudFlare提供的两个NS地址复制进去，然后确认，之后会显示：<strong>我们无法显示您的 DNS 信息，因为您的域名服务器不是由我们管理的。</strong> OK，GoDaddy可以关了。</p>
-<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-7.png" class></p>
-<p>&emsp;&emsp;返回CloudFlare后点击已修改（忘了具体名称了，看页面提示就行），然后会提示在排队。修改域名服务器后需要稍等一会CloudFlare才有反应。</p>
-<p>&emsp;&emsp;域名在CloudFlare这边添加成功后，点击域名进入域名管理界面，找到<strong>DNS</strong>，按照下面的格式配置。其中小云朵标志代表开启CDN加速，如果你网站的主要访客来自境外，那么建议开启，橙色代表开启。国内的话就关闭吧，速度比Github还慢。关掉后只使用域名解析。</p>
-<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-8.png" class></p>
-<p>&emsp;&emsp;刚绑定完的域名不出意外的话，访问博客时浏览器会提示不安全，CloudFlare可以轻松解决。域名管理页面找到<strong>SSL/TLS</strong>，确认SSL/TLS加密模式为<strong>完全</strong>，一般默认就是完全。</p>
-<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-9.png" class></p>
-<p>&emsp;&emsp;之后在<strong>边缘证书</strong>栏目找到<strong>始终使用HTTPS</strong>，确认该项为开启状态。之后就慢慢等吧，CloudFlare会在24小时内为域名发放证书。</p>
-<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-10.png" class></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;这一波折腾完，我的Github博客基本就是摆设了，CloudFlare好像不能国内外分流，无力实现境外访客解析到Github，境内访客解析到Coding，或者你知道怎么搞的话可以告诉我，不胜感激！</p>
-<p>&emsp;&emsp;我还尝试了Gitee Pages，速度还蛮快的，Ping一下全国都是深绿的，有条件的话用Gitee托管效果还是不错的。搭建流程跟Github Pages一样，项目名称使用用户名能开启 XXX.gitee.io的地址，否则地址末尾会包含项目名。但是Gitee很抠，升级pro版才能自定义域名和自动部署，普通版每次发布后要手动更新，pro每年99元。新用户有1个月的免费体验，我试了下，但是配置证书的时候出了问题，Gitee要求粘贴域名证书和密钥，因为我是在CloudFlare解析的，就没成功（可能是我太笨），如果你搞定了也一定要告诉我，再次感激！</p>
-<p>&emsp;&emsp;Coding Pages用的新加坡的腾讯云，速度比Gitee用的国内的阿里云肯定要慢的，但是比Github强多了，还行吧，ping一下看看我觉得还行吧，我还是挺容易满足的。</p>
-<p>&emsp;&emsp;<img src="/blog/diary/200427-diary/200427-11.png" class></p>
-<p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@thetalkinglens?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Louie Martinez"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewbox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"/></svg></span><span style="display:inline-block;padding:2px 3px">Louie Martinez</span></a></p>
+<h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><p><strong>简单工厂模式组成：</strong></p>
+<ul>
+<li>工厂类：简单工厂模式的核心，负责创建所需的产品实例。</li>
+<li>抽象产品类：产品类的父类，定义产品类共有的属性和方法。</li>
+<li>产品类： 继承抽象产品类，即具体的产品。</li>
+</ul>
+<p>&emsp;&emsp;首先定义抽象咖啡类，规定所有咖啡共有的接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Coffee</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 制作咖啡</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">prepare</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(name + <span class="string">"制作完成！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打包咖啡</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(name + <span class="string">"打包完成!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;定义具体类型的咖啡。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Americano</span> <span class="keyword">extends</span> <span class="title">Coffee</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Americano</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">"美式"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Latte</span> <span class="keyword">extends</span> <span class="title">Coffee</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Latte</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">"拿铁"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mocha</span> <span class="keyword">extends</span> <span class="title">Coffee</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Mocha</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">"摩卡"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;创建咖啡工厂类，负责具体产品的实例化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CoffeeFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Coffee <span class="title">createCoffee</span><span class="params">(String coffeeType)</span> </span>&#123;</span><br><span class="line">        Coffee coffee = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (coffeeType.equals(<span class="string">"美式"</span>)) &#123;</span><br><span class="line">            coffee = <span class="keyword">new</span> Americano();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (coffeeType.equals(<span class="string">"拿铁"</span>)) &#123;</span><br><span class="line">            coffee = <span class="keyword">new</span> Latte();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (coffeeType.equals(<span class="string">"摩卡"</span>)) &#123;</span><br><span class="line">            coffee = <span class="keyword">new</span> Mocha();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> coffee;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;咖啡馆类调用咖啡工厂类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cafe</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">getCoffeeType</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            BufferedReader strin = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">            System.out.println(<span class="string">"请输入咖啡类别："</span>);</span><br><span class="line">            String str = strin.readLine();</span><br><span class="line">            <span class="keyword">return</span> str;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        CoffeeFactory cf = <span class="keyword">new</span> CoffeeFactory();</span><br><span class="line">        String coffeeType = getCoffeeType();</span><br><span class="line">        Coffee coffee = cf.createCoffee(coffeeType);</span><br><span class="line">        <span class="keyword">if</span> (coffee != <span class="keyword">null</span>) &#123;</span><br><span class="line">            coffee.prepare();</span><br><span class="line">            coffee.pack();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"请求失败！"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@jtylernix?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Tyler Nix"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewbox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"/></svg></span><span style="display:inline-block;padding:2px 3px">Tyler Nix</span></a></p>
 
         </div>
         
             <ul class="post-copyright">
-            <li><strong>本文标题：</strong><a href="http://lokka.me/blog/diary/200427-diary/">Coding托管Hexo及CloudFlare域名解析</a></li>
+            <li><strong>本文标题：</strong><a href="http://lokka.me/post/factory-pattern/">工厂模式（Factory Pattern）</a></li>
             <li><strong>本文作者：</strong><a href="http://lokka.me">Kain Zhang</a></li>
-            <li><strong>本文链接：</strong><a href="http://lokka.me/blog/diary/200427-diary/">http://lokka.me/blog/diary/200427-diary/</a></li>
-            <li><strong>发布时间：</strong>2020-04-27</li>
+            <li><strong>本文链接：</strong><a href="http://lokka.me/post/factory-pattern/">http://lokka.me/post/factory-pattern/</a></li>
+            <li><strong>发布时间：</strong>2020-04-25</li>
             <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
             </li>
             </ul>
             <br>
         
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
+                    <a class="has-link-grey -link" href="/tags/Java/" rel="tag">Java</a>
+                </div>
+            </div>
+        </div>
         
         
         
@@ -284,10 +273,17 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/post/diary-200427/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Github+Coding双托管Hexo和自定义域名</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/blog/designpattern/200425-factory-pattern/">
-                <span class="level-item">工厂模式（Factory Pattern）</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/post/n-queens/">
+                <span class="level-item">N皇后（N-Queens）</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -394,45 +390,9 @@
                     Catalogue
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#使用Coding托管Hexo">
+        <a class="is-flex" href="#简单工厂模式">
         <span class="has-mr-6">1</span>
-        <span>使用Coding托管Hexo</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#创建项目">
-        <span class="has-mr-6">1.1</span>
-        <span>创建项目</span>
-        </a></li><li>
-        <a class="is-flex" href="#本地Hexo设置">
-        <span class="has-mr-6">1.2</span>
-        <span>本地Hexo设置</span>
-        </a></li><li>
-        <a class="is-flex" href="#添加SSH公钥">
-        <span class="has-mr-6">1.3</span>
-        <span>添加SSH公钥</span>
-        </a></li><li>
-        <a class="is-flex" href="#静态页面部署">
-        <span class="has-mr-6">1.4</span>
-        <span>静态页面部署</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#自定义域名">
-        <span class="has-mr-6">2</span>
-        <span>自定义域名</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#购买域名">
-        <span class="has-mr-6">2.1</span>
-        <span>购买域名</span>
-        </a></li><li>
-        <a class="is-flex" href="#绑定域名">
-        <span class="has-mr-6">2.2</span>
-        <span>绑定域名</span>
-        </a></li><li>
-        <a class="is-flex" href="#CloudFlare域名解析">
-        <span class="has-mr-6">2.3</span>
-        <span>CloudFlare域名解析</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#总结">
-        <span class="has-mr-6">3</span>
-        <span>总结</span>
+        <span>简单工厂模式</span>
         </a></li></ul>
             </div>
         </div>
@@ -456,7 +416,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Coding托管Hexo及CloudFlare域名解析" height="28">
+                    <img src="/images/logo.svg" alt="工厂模式（Factory Pattern）" height="28">
                 
                 </a>
                 <p class="is-size-7">

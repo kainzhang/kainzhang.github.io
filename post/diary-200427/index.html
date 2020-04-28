@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>Github+Coding双托管Hexo和自定义域名 - KZ.LOKKA</title>
+
+
+    <meta name="description" content="&amp;emsp;&amp;emsp;心血来潮买了个域名，迫不及待把它绑定到博客。为了提升加载速度分别尝试了Coding和Gitee的托管以及CloudFlare的CDN加（减）速。最终决定使用Github和Coding的双托管，使用阿里云解析域名，国内走Coding，国外走Github。 &amp;emsp;&amp;emsp;这个.me的黑山国家域名我蛮喜欢的，虽然觉得.cc更可爱些，但个人博客果然还是.me比较合适（上面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github+Coding双托管Hexo和自定义域名">
+<meta property="og:url" content="http://lokka.me/post/diary-200427/index.html">
+<meta property="og:site_name" content="KZ.LOKKA">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;心血来潮买了个域名，迫不及待把它绑定到博客。为了提升加载速度分别尝试了Coding和Gitee的托管以及CloudFlare的CDN加（减）速。最终决定使用Github和Coding的双托管，使用阿里云解析域名，国内走Coding，国外走Github。 &amp;emsp;&amp;emsp;这个.me的黑山国家域名我蛮喜欢的，虽然觉得.cc更可爱些，但个人博客果然还是.me比较合适（上面">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://lokka.me/post/diary-200427/polina-rytova-1AUe0hwdC3o-unsplash.jpg">
+<meta property="article:published_time" content="2020-04-27T15:14:16.000Z">
+<meta property="article:modified_time" content="2020-04-28T15:02:54.717Z">
+<meta property="article:author" content="Kain Zhang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://lokka.me/post/diary-200427/polina-rytova-1AUe0hwdC3o-unsplash.jpg">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<!-- <body class="is-2-column"> -->
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="Github+Coding双托管Hexo和自定义域名" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/post/diary-200427/polina-rytova-1AUe0hwdC3o-unsplash.jpg" alt="Github+Coding双托管Hexo和自定义域名">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2020-04-27T15:14:16.000Z">2020-04-27</time> -->
+                <time class="level-item has-text-grey" datetime="2020-04-27T15:14:16.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-04-27
+                </time>
+                
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-04-28T15:02:54.717Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2020-04-28
+                </time>
+                
+                
+                <div class="level-item">
+                <i class="far fa-folder has-text-grey">&nbsp;</i>
+                <a class="has-link-grey -link" href="/categories/Diary/">Diary</a>
+                </div>
+                
+                
+                <i class="far fa-clock has-text-grey is-hidden-mobile">&nbsp;</i>
+                <span class="level-item has-text-grey is-hidden-mobile">
+                    
+                    
+                    16 minutes read (About 2457 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Github+Coding双托管Hexo和自定义域名
+            
+        </h1>
+        <div class="content">
+            <p>&emsp;&emsp;心血来潮买了个域名，迫不及待把它绑定到博客。为了提升加载速度分别尝试了Coding和Gitee的托管以及CloudFlare的CDN加（减）速。最终决定使用Github和Coding的双托管，使用阿里云解析域名，国内走Coding，国外走Github。</p>
+<p>&emsp;&emsp;这个.me的黑山国家域名我蛮喜欢的，虽然觉得.cc更可爱些，但个人博客果然还是.me比较合适（上面的thumbnail是黑山科托尔）。于是我的小博客迎来全新域名 <a href="https://lokka.me/">lokka.me</a> ，嘻嘻。</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="使用Coding托管Hexo"><a href="#使用Coding托管Hexo" class="headerlink" title="使用Coding托管Hexo"></a>使用Coding托管Hexo</h2><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>&emsp;&emsp;首先就是注册 <a href="https://coding.net/">Coding</a> 账号，创建仓库，操作流程和Github一样，项目模板选择代码托管项目。项目名称随你，项目封面随你，其他的默认就好。Coding没要求必须公开源代码，README也可不添加。</p>
+<p>&emsp;&emsp;<img src="/post/diary-200427/200427-1.png" class></p>
+<h3 id="本地Hexo设置"><a href="#本地Hexo设置" class="headerlink" title="本地Hexo设置"></a>本地Hexo设置</h3><p>&emsp;&emsp;进入建好的仓库页面，复制页面右边提供的仓库SSH地址。</p>
+<p>&emsp;&emsp;<img src="/post/diary-200427/200427-2.png" class></p>
+<p>&emsp;&emsp;将SSH粘贴至Hexo的_config.yml对应位置，换行加上就行，注意格式。没错，加上Gitee三托管也可以的，喜欢就只管加上。下次hexo d的时候就会一起发布。</p>
+<p>&emsp;&emsp;<img src="/post/diary-200427/200427-3.png" class></p>
+<h3 id="添加SSH公钥"><a href="#添加SSH公钥" class="headerlink" title="添加SSH公钥"></a>添加SSH公钥</h3><p>&emsp;&emsp;为了方便发布，把之前搞GithubPages生成的SSH密钥添加到Coding，SSH密钥一般藏在下面这个位置。</p>
+<blockquote>
+<p>C:\Users\用户名\.ssh\id_rsa.pub</p>
+</blockquote>
+<p>&emsp;&emsp;在Coding页面右上角的弹框里找到 <strong>个人设置</strong>，然后添加 <strong>SSH公钥</strong>，复制粘贴确认即可。之后使用hexo d发布时会需要确认，直接yes就好。</p>
+<h3 id="静态页面部署"><a href="#静态页面部署" class="headerlink" title="静态页面部署"></a>静态页面部署</h3><p>&emsp;&emsp;Hexo生成的静态网页成功发布到Coding仓库后进入项目页面，页面左下角找到项目设置 -&gt; 项目与成员 -&gt; 功能开关，然后打开 <strong>持续集成</strong> 和 <strong>持续部署</strong>（部署静态页面必须项）。</p>
+<p>&emsp;&emsp;<img src="/post/diary-200427/200427-4.png" class></p>
+<p>&emsp;&emsp;开启上述两项功能后，回到项目主页，左边目录多了持续集成和持续部署两个选项，找到 <strong>静态网站</strong>，点击立即部署即可。Coding会自动生成一个地址（我看网上别人的都是coding.me的域名，可能现在改版就没了），然后就发布成功啦!点开那个丑陋的地址看看吧！</p>
+<p>&emsp;&emsp;<img src="/post/diary-200427/200427-5.png" class></p>
+<hr>
+<h2 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h2><p>&emsp;&emsp;CodingPages生成的域名实在不能接受，赶紧买域名！</p>
+<h3 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h3><p>&emsp;&emsp;年幼无知的我没做足功课就把第一次献给了 <a href="https://sg.godaddy.com/zh/">GoDaddy</a>，在这里建议萌新在购买域名前，一定要先在 <a href="https://www.domcomp.com/">domcomp</a> 查询一下，这里可以查到你喜欢的域名的最便宜价格及提供该价格的注册商，也可以顺便选一下顶级域名。除了GoDaddy外，<a href="https://www.dynadot.com/zh/">dynadot</a> 也是支持支付宝的。</p>
+<p>&emsp;&emsp;由于我是之后才知道domcomp的，已经在GoDaddy买过了。购买流程就是选域名，加购物车，然后结账时候顺便注册账号，选择支付宝，掏出手机扫码付款，按提示来就vans了。GoDaddy的隐私保护是收费的，如果不购买的话，查询whois是可以看到你姓名、电话和邮箱的。不怕信息公开当然可以不买，但是有些注册商比如Porkbun、Dynadot、NameSilo、NameCheap等等通常都会免费赠送隐私保护。GoDaddy这里每年除了续费贵，隐私保护也是按年交的，当然不差钱就无所谓啦。</p>
+<h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><p>&emsp;&emsp;购买成功后找到购买的域名，点击 <strong>DNS管理</strong>，配置CNAME记录值为Coding Pages的地址，A记录值为Coding Pages对应的IP，不知道IP的话在 <a href="http://ping.chinaz.com/">站长工具</a> ping一下即可，会智能解析独立IP，Coding一般会有四个新加坡腾讯云的IP，分别添加进去。如果想解析到Github Pages，同理，Github Pages也是四个IP，分别添加即可。</p>
+<p>&emsp;&emsp;Github Pages一般是下面这四个,Coding Pages的我不确定，具体以ping的结果为准。</p>
+<blockquote>
+<p>185.199.108.153<br>185.199.109.153<br>185.199.110.153<br>185.199.111.153</p>
+</blockquote>
+<p>&emsp;&emsp;配置完成后回到Coding，在静态网站中找到设置，在 <strong>绑定新域名</strong> 处添加域名，如果你没有配置DNS是会提示申请证书失败的。另外由于网站是由Coding或Github托管的，所以不需要备案，正确配置CNAME即可。待证书状态显示 <strong>正常</strong> 就绑定成功了，用新域名访问博客吧！</p>
+<h3 id="CloudFlare域名解析"><a href="#CloudFlare域名解析" class="headerlink" title="CloudFlare域名解析"></a>CloudFlare域名解析</h3><p>&emsp;&emsp;上一步在GoDaddy的DNS配置可以直接省略，在CloudFlare进行，账号注册成功后，点击添加站点（会自动弹出），然后输入刚买的域名，之后CloudFlare会提供两个NS地址，要求在域名注册商那里修改NS地址。</p>
+<p>&emsp;&emsp;回到GoDaddy，进入域名管理，修改域名服务器，把CloudFlare提供的两个NS地址粘贴进去，然后确认，之后会显示：<em>我们无法显示您的DNS信息，因为您的域名服务器不是由我们管理的。</em> OK，没GoDaddy啥事儿了。</p>
+<p>&emsp;&emsp;<img src="/post/diary-200427/200427-7.png" class></p>
+<p>&emsp;&emsp;返回CloudFlare后点击已修改（忘了具体名称了，看页面提示就行），然后会提示在排队。修改DNS后需要等待一会CloudFlare才有反应。</p>
+<p>&emsp;&emsp;域名在CloudFlare这边添加成功后，点击域名进入域名管理界面，找到 <strong>DNS</strong>，按照下面的格式配置。其中小云朵标志代表开启CDN加速，如果你网站的主要访客来自境外，那么建议开启，橙色代表开启。国内的话就关闭吧，速度比Github还慢。所以这个CDN加速与国内无缘，关掉后只使用域名解析。（我郑州联通，ping Github的地址只有100ms出头的延迟，走CDN居然飙到将近300ms？？CloudFlare对国内真的不友好）</p>
+<p>&emsp;&emsp;<img src="/post/diary-200427/200427-8.png" class></p>
+<p>&emsp;&emsp;Coding和Github都有免费提供SSL/TLS证书的，直接在静态网站的设置页面开启 <strong>强制HTTPS</strong> 就好，Github在自定义域名后会自动申请证书。此外也可以找CloudFlare申请证书。域名管理页面找到 <strong>SSL/TLS</strong>，确认SSL/TLS加密模式为 <strong>完全</strong>，一般默认就是完全。</p>
+<p>&emsp;&emsp;<img src="/post/diary-200427/200427-9.png" class></p>
+<p>&emsp;&emsp;之后在 <strong>边缘证书</strong> 栏目找到 <strong>始终使用HTTPS</strong>，确认该项为开启状态。之后就慢慢等吧，CloudFlare会在24小时内为域名颁发证书。</p>
+<p>&emsp;&emsp;<img src="/post/diary-200427/200427-10.png" class></p>
+<h3 id="阿里云域名解析"><a href="#阿里云域名解析" class="headerlink" title="阿里云域名解析"></a>阿里云域名解析</h3><p>&emsp;&emsp;为了能实现国内走Coding，国外走Github，最终选择用阿里云的DNS做域名解析（腾讯云也差不多，都一样的东西）。流程跟CloudFlare一样，账号注册完成后，在主页找到控制台 -&gt; 域名 -&gt; 进入域名解析列表 -&gt; 添加域名，然后回到域名注册商，改成下面阿里云的两个DNS，稍等几分钟就OK了。</p>
+<blockquote>
+<p>ns1.alidns.com<br>ns2.alidns.com</p>
+</blockquote>
+<p>&emsp;&emsp;域名添加成功后，为Github和Coding的博客分别添加CNAME记录，默认解析到Coding，境外解析到Github，不需要添加A记录（好像CloudFlare也不用加？都是智能解析的）。</p>
+<p>&emsp;&emsp;<img src="/post/diary-200427/200427-11.png" class></p>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;这一波折腾完觉得自己知识面真的太窄，一开始想贪CloudFlare的免费CDN，就去用他的DNS解析，结果是反向加速，GithubPages被闲置，域名只解析到CodingPages。国内想用CDN的话需要备案，想到CloudFlare的CDN是反向加速，也没什么好抱怨了（主要还是懒得备案）。</p>
+<p>&emsp;&emsp;我还尝试了GiteePages，速度蛮快的，毕竟国内阿里云，Ping一下全国都是深绿的，有条件的用Gitee托管效果应该不错。搭建流程跟GithubPages一样，项目名称使用用户名能开启 XXX.gitee.io的地址，否则地址末尾会包含项目名。但是Gitee很抠，升级pro版才能自定义域名和自动部署，而且普通版每次发布后还要手动更新。pro每年99元，新用户有1个月的免费体验，我试了下，配置证书的时候出了问题，Gitee要求粘贴域名证书和密钥，没整成（可能是我太笨），如果你搞定了一定要告诉我，不胜感激！</p>
+<p>&emsp;&emsp;CodingPages用的新加坡的腾讯云，加载速度肯定比不了Gitee，但比直接GithubPages肯定强多了，ping一下我觉得延迟还行吧，郑州联通大概80+的延迟，具体分时段，加载速度还能接受。另外由于是双路解析，独立IP有8个。</p>
+<p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@polina_art?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Polina Rytova"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewbox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"/></svg></span><span style="display:inline-block;padding:2px 3px">Polina Rytova</span></a></p>
+
+        </div>
+        
+            <ul class="post-copyright">
+            <li><strong>本文标题：</strong><a href="http://lokka.me/post/diary-200427/">Github+Coding双托管Hexo和自定义域名</a></li>
+            <li><strong>本文作者：</strong><a href="http://lokka.me">Kain Zhang</a></li>
+            <li><strong>本文链接：</strong><a href="http://lokka.me/post/diary-200427/">http://lokka.me/post/diary-200427/</a></li>
+            <li><strong>发布时间：</strong>2020-04-27</li>
+            <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+            </li>
+            </ul>
+            <br>
+        
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="/images/wechat.jpg" alt="Wechat"></div>
+</a>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations" />
+    <input type="hidden" name="business" value="E5US23TM56DQN" />
+    <input type="hidden" name="currency_code" value="USD" />
+</form>
+
+                
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="/images/alipay.jpg" alt="Alipay"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/post/factory-pattern/">
+                <span class="level-item">工厂模式（Factory Pattern）</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="/images/hitomi.png" alt="Kain Zhang">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Kain Zhang
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        LIVE A LIFE YOU WILL REMEMBER
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>からっぽ島</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            4
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            4
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            5
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/kainzhang" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i>&nbsp;
+                Github
+            </a>
+        </div>
+        
+        
+        
+    </div>
+</div>
+    
+        
+
+    <!-- <div class="card widget" id="toc"> -->
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    Catalogue
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#使用Coding托管Hexo">
+        <span class="has-mr-6">1</span>
+        <span>使用Coding托管Hexo</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#创建项目">
+        <span class="has-mr-6">1.1</span>
+        <span>创建项目</span>
+        </a></li><li>
+        <a class="is-flex" href="#本地Hexo设置">
+        <span class="has-mr-6">1.2</span>
+        <span>本地Hexo设置</span>
+        </a></li><li>
+        <a class="is-flex" href="#添加SSH公钥">
+        <span class="has-mr-6">1.3</span>
+        <span>添加SSH公钥</span>
+        </a></li><li>
+        <a class="is-flex" href="#静态页面部署">
+        <span class="has-mr-6">1.4</span>
+        <span>静态页面部署</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#自定义域名">
+        <span class="has-mr-6">2</span>
+        <span>自定义域名</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#购买域名">
+        <span class="has-mr-6">2.1</span>
+        <span>购买域名</span>
+        </a></li><li>
+        <a class="is-flex" href="#绑定域名">
+        <span class="has-mr-6">2.2</span>
+        <span>绑定域名</span>
+        </a></li><li>
+        <a class="is-flex" href="#CloudFlare域名解析">
+        <span class="has-mr-6">2.3</span>
+        <span>CloudFlare域名解析</span>
+        </a></li><li>
+        <a class="is-flex" href="#阿里云域名解析">
+        <span class="has-mr-6">2.4</span>
+        <span>阿里云域名解析</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#总结">
+        <span class="has-mr-6">3</span>
+        <span>总结</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Github+Coding双托管Hexo和自定义域名" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Kain Zhang&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Noncommericial" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons-nc"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Share Alike" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://lokka.me',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":225,"height":350},"mobile":{"show":false,"scale":0.7},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
