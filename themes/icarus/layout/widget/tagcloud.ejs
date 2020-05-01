@@ -1,0 +1,23 @@
+<!-- <div class="card widget is-hidden-mobile">
+    <div class="card-content">
+        <h3 class="menu-label">
+            <%= __('widget.tag_cloud') %>
+        </h3>
+        <%- tagcloud() %>
+    </div>
+</div> -->
+
+<% if (site.tags.length) { %>
+    <div class="card widget  is-hidden-mobile">
+        <div class="card-content">
+            <h3 class="menu-label">
+                <%= __('widget.tag_cloud') %>
+            </h3>
+            <script type="text/javascript" charset="utf-8" src="<%- url_for('/js/tagcloud.js') %>"></script>
+            <script type="text/javascript" charset="utf-8" src="<%- url_for('/js/tagcanvas.js') %>"></script>
+            <canvas width="250" height="250" id="resCanvas" style="width:100%">
+                <%- tagcloud() %>
+            </canvas>
+        </div>
+    </div>
+<% } %>
