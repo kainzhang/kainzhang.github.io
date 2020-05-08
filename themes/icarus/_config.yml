@@ -136,7 +136,7 @@ widgets:
         # Author's current location to be shown in the profile widget
         location: からっぽ島
         # Path or URL to the avatar to be shown in the profile widget
-        avatar: https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/common/hitomi.png
+        avatar: https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/common/hitomi.png
         # Email address for the Gravatar to be shown in the profile widget
         gravatar: 
         # Whether to show avatar image rounded or square

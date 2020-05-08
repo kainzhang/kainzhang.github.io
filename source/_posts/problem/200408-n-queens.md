@@ -3,13 +3,11 @@ title: N皇后（N-Queens）
 urlname: n-queens
 date: 2020-04-08 00:17:25
 toc: true
-thumbnail: https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/08/chess-pieces-child.jpg
+thumbnail: https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/08/chess-pieces-child.jpg
 categories:
     - Note
     - Problem
 tags:
-    - LeetCode
-    - Lanqiao
     - BackTracking
     - DFS
 ---
@@ -29,7 +27,7 @@ tags:
 
 &emsp;&emsp;n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
 
-&emsp;&emsp;![](https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/08/8-queens.png)
+&emsp;&emsp;![](https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/08/8-queens.png)
 
 &emsp;&emsp;上图为 8 皇后问题的一种解法。
 
@@ -174,7 +172,7 @@ private:
 
 &emsp;&emsp;n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
 
-&emsp;&emsp;&emsp;&emsp;![](https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/08/8-queens.png)
+&emsp;&emsp;&emsp;&emsp;![](https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/08/8-queens.png)
 
 &emsp;&emsp;上图为 8 皇后问题的一种解法。
 

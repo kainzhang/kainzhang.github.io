@@ -3,7 +3,7 @@ title: 设计模式 - 工厂模式（Factory Pattern）
 urlname: factory-pattern
 date: 2020-04-25 18:24:22
 toc: true
-thumbnail: https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/25/tyler-nix-7ukf-r-Oh-k-unsplash.jpg
+thumbnail: https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/25/tyler-nix-7ukf-r-Oh-k-unsplash.jpg
 categories:
     - Note
     - Design Pattern
