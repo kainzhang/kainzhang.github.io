@@ -71,7 +71,7 @@ tags:
 
 &emsp;&emsp;放到本题来看，每个草药包括两个属性：采集时间和价值。首先将所有草药按单位时间的价值从高到低排序，计算T时间在可拆分情况下能得到的最优解。
 
-&emsp;&emsp;使用二叉树构造解空间树，每层结点代表正在放置第几个药草，由此根结点将扩展两个子节点，也就是放入1号草药和不放入一号草药，为两个结点分别计算上界，如果当前结点的时间超出给定时间T，则剪枝处理，否则放入优先队列。
+&emsp;&emsp;使用二叉树构造解空间树，每层结点代表正在放置第几个药草，由此根结点将扩展两个子节点，也就是放入1号草药和不放入1号草药，为两个结点分别计算上界，如果当前结点的时间超出给定时间T，则剪枝处理，否则放入优先队列。
 
 &emsp;&emsp;不断从优先队列中取出优先级最高（最优解最大）的结点，对其进行扩展，重复执行上述操作。如果该结点已扩展至叶结点（所在路径已遍历所有草药），则与当前已知最优解比较，取最大值。
 
@@ -156,11 +156,12 @@ int main() {
     cout << getAns() << endl;
 }
 ```
+
+![](https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/22/200522-1.png)
+
 ---
 <br>
 
 ## 扯淡
 
-&emsp;&emsp;没参考大佬的代码，纯按自己的理解写的，所以不清楚代码是否规范。交上去顺利AC了，数据量较大的两个测试用例用了15ms，效率比想象要高，其实还是DP效果好。算法思想是跟着这个油管的印度大叔学的。
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/yV1d-b_NeK8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+&emsp;&emsp;没参考大佬的代码，纯按自己的理解写的，所以不清楚代码是否规范。交上去顺利AC了，数据量较大的两个测试用例用了15ms，效率比想象要高，其实还是DP效果好。算法思想是跟着油管的印度大叔Abdul Bari学的。[0/1 Knapsack using Branch and Bound](https://youtu.be/yV1d-b_NeK8 "0/1 Knapsack using Branch and Bound")
