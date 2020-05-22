@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 4.2.0" />
+<meta name="generator" content="Hexo 4.2.1" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
@@ -13,20 +13,18 @@
     <meta name="description" content="LeetCode 51 N-Queens LeetCode 52 N-Queens II Lanqiao BASIC-27 2N-Queens Lanqiao ADV-203 8-Queens">
 <meta property="og:type" content="article">
 <meta property="og:title" content="N皇后（N-Queens）">
-<meta property="og:url" content="https://lokka.me/post/n-queens/index.html">
+<meta property="og:url" content="https://lokka.me/2020/04/08/n-queens/index.html">
 <meta property="og:site_name" content="LOKKA&#39;s Blog">
 <meta property="og:description" content="LeetCode 51 N-Queens LeetCode 52 N-Queens II Lanqiao BASIC-27 2N-Queens Lanqiao ADV-203 8-Queens">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/08/chess-pieces-child.jpg">
-<meta property="article:published_time" content="2020-04-07T16:17:25.000Z">
-<meta property="article:modified_time" content="2020-05-01T06:43:32.754Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/08/chess-pieces-child.jpg">
+<meta property="article:published_time" content="2020-04-08T00:17:25.000Z">
+<meta property="article:modified_time" content="2020-05-22T15:16:15.579Z">
 <meta property="article:author" content="Kain Zhang">
-<meta property="article:tag" content="LeetCode">
-<meta property="article:tag" content="Lanqiao">
 <meta property="article:tag" content="BackTracking">
 <meta property="article:tag" content="DFS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/08/chess-pieces-child.jpg">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/08/chess-pieces-child.jpg">
 
 
 
@@ -133,7 +131,7 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/08/chess-pieces-child.jpg" alt="N皇后（N-Queens）">
+            <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/08/chess-pieces-child.jpg" alt="N皇后（N-Queens）">
         </span>
     </div>
     
@@ -141,13 +139,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-04-07T16:17:25.000Z">2020-04-08</time> -->
-                <time class="level-item has-text-grey" datetime="2020-04-07T16:17:25.000Z">
+                <!-- <time class="level-item has-text-grey" datetime="2020-04-08T00:17:25.000Z">2020-04-08</time> -->
+                <time class="level-item has-text-grey" datetime="2020-04-08T00:17:25.000Z">
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-04-08
                 </time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-05-01T06:43:32.754Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-05-01
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-05-22T15:16:15.579Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2020-05-22
                 </time>
                 
                 
@@ -184,7 +182,7 @@
 
 <hr>
 <h2 id="N-Queens"><a href="#N-Queens" class="headerlink" title="N-Queens"></a>N-Queens</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>&emsp;&emsp;n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/08/8-queens.png" alt=""></p>
+<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/08/8-queens.png" alt=""></p>
 <p>&emsp;&emsp;上图为 8 皇后问题的一种解法。</p>
 <p>&emsp;&emsp;给定一个整数 n，返回所有不同的 n 皇后问题的解决方案。</p>
 <p>&emsp;&emsp;每一种解法包含一个明确的 n 皇后问题的棋子放置方案，该方案中 ‘Q’ 和 ‘.’ 分别代表了皇后和空位。</p>
@@ -203,7 +201,7 @@
 <p>&emsp;</p>
 <hr>
 <h2 id="N-Queen-II"><a href="#N-Queen-II" class="headerlink" title="N-Queen II"></a>N-Queen II</h2><h3 id="Description-1"><a href="#Description-1" class="headerlink" title="Description"></a>Description</h3><p>&emsp;&emsp;n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。</p>
-<p>&emsp;&emsp;&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/08/8-queens.png" alt=""></p>
+<p>&emsp;&emsp;&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/08/8-queens.png" alt=""></p>
 <p>&emsp;&emsp;上图为 8 皇后问题的一种解法。</p>
 <p>&emsp;&emsp;给定一个整数 n，返回 n 皇后不同的解决方案的数量。</p>
 <p>&emsp;&emsp;<strong>原题：</strong><a href="https://leetcode-cn.com/problems/n-queens-ii" title="N-Queens">LeetCode 52 N-Queens II</a></p>
@@ -251,9 +249,9 @@
         </div>
         
             <ul class="post-copyright">
-            <li><strong>本文标题：</strong><a href="https://lokka.me/post/n-queens/">N皇后（N-Queens）</a></li>
+            <li><strong>本文标题：</strong><a href="https://lokka.me/2020/04/08/n-queens/">N皇后（N-Queens）</a></li>
             <li><strong>本文作者：</strong><a href="https://lokka.me">Kain Zhang</a></li>
-            <li><strong>本文链接：</strong><a href="https://lokka.me/post/n-queens/">https://lokka.me/post/n-queens/</a></li>
+            <li><strong>本文链接：</strong><a href="https://lokka.me/2020/04/08/n-queens/">https://lokka.me/2020/04/08/n-queens/</a></li>
             <li><strong>发布时间：</strong>2020-04-08</li>
             <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
             </li>
@@ -266,7 +264,7 @@
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
                     <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
-                    <a class="has-link-grey -link" href="/tags/BackTracking/" rel="tag">BackTracking</a>,&nbsp;<a class="has-link-grey -link" href="/tags/DFS/" rel="tag">DFS</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Lanqiao/" rel="tag">Lanqiao</a>,&nbsp;<a class="has-link-grey -link" href="/tags/LeetCode/" rel="tag">LeetCode</a>
+                    <a class="has-link-grey -link" href="/tags/BackTracking/" rel="tag">BackTracking</a>,&nbsp;<a class="has-link-grey -link" href="/tags/DFS/" rel="tag">DFS</a>
                 </div>
             </div>
         </div>
@@ -328,15 +326,15 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/post/factory-pattern/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/25/factory-pattern/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">工厂模式（Factory Pattern）</span>
+                <span class="level-item">设计模式 - 工厂模式（Factory Pattern）</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/post/diary-200401/">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/01/hello-world/">
                 <span class="level-item">First diary, Hello world!</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
@@ -362,7 +360,7 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="is-rounded" src="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/common/hitomi.png" alt="Kain Zhang">
+                        <img class="is-rounded" src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/common/hitomi.png" alt="Kain Zhang">
                     </figure>
                     
                     <p class="is-size-4 is-block">
@@ -391,7 +389,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            5
+                            7
                         </p>
                     </a>
                 </div>

@@ -3,27 +3,28 @@
 <head>
     <meta charset="utf-8" />
 
-<meta name="generator" content="Hexo 4.2.0" />
+<meta name="generator" content="Hexo 4.2.1" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Github+Coding双托管Hexo及自定义域名 - LOKKA&#39;s Blog</title>
+<title>使用Travis CI部署Hexo博客 - LOKKA&#39;s Blog</title>
 
 
-    <meta name="description" content="&amp;emsp;&amp;emsp;为了改善加载速度分别尝试了Coding和Gitee的托管以及CloudFlare的CDN加（减）速。无奈都不太乐观，倒是把博客同时托管在Coding，多了个备胎这样子。国内的CDN都要求必须备案，不想备案就只能走境外CDN或者只使用DNS解析。 &amp;emsp;&amp;emsp;心血来潮买了个域名，迫不及待把它绑定到博客。这个.me的黑山国家域名我还蛮喜欢，虽然觉得.cc更可爱些，但">
+    <meta name="description" content="&amp;emsp;&amp;emsp;使用Travis CI部署Hexo博客是Hexo官方文档推荐的部署方法，但是博客源文件会被公开。起初就是因为这一点没有使用Travis CI部署，但是刚成功部署完Hexo发了第一篇博文后我就在想，博客源文件都在本地，如果我换电脑了或者源文件不在身边或者电脑坏了怎么办？岂不是很麻烦？我这么怕麻烦个人… &amp;emsp;&amp;emsp;当时就搜了这个问题，果然大佬们早就提供了解决方案。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Github+Coding双托管Hexo及自定义域名">
-<meta property="og:url" content="https://lokka.me/post/blog-200427/index.html">
+<meta property="og:title" content="使用Travis CI部署Hexo博客">
+<meta property="og:url" content="https://lokka.me/2020/05/02/travis-ci-deploy-hexo/index.html">
 <meta property="og:site_name" content="LOKKA&#39;s Blog">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;为了改善加载速度分别尝试了Coding和Gitee的托管以及CloudFlare的CDN加（减）速。无奈都不太乐观，倒是把博客同时托管在Coding，多了个备胎这样子。国内的CDN都要求必须备案，不想备案就只能走境外CDN或者只使用DNS解析。 &amp;emsp;&amp;emsp;心血来潮买了个域名，迫不及待把它绑定到博客。这个.me的黑山国家域名我还蛮喜欢，虽然觉得.cc更可爱些，但">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;使用Travis CI部署Hexo博客是Hexo官方文档推荐的部署方法，但是博客源文件会被公开。起初就是因为这一点没有使用Travis CI部署，但是刚成功部署完Hexo发了第一篇博文后我就在想，博客源文件都在本地，如果我换电脑了或者源文件不在身边或者电脑坏了怎么办？岂不是很麻烦？我这么怕麻烦个人… &amp;emsp;&amp;emsp;当时就搜了这个问题，果然大佬们早就提供了解决方案。">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/27/polina-rytova-1AUe0hwdC3o-unsplash.jpg">
-<meta property="article:published_time" content="2020-04-27T15:14:16.000Z">
-<meta property="article:modified_time" content="2020-05-01T07:34:12.691Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/02/michael-liao-GQe23-3-Lf8-unsplash.jpg">
+<meta property="article:published_time" content="2020-05-02T12:31:50.000Z">
+<meta property="article:modified_time" content="2020-05-22T15:16:15.575Z">
 <meta property="article:author" content="Kain Zhang">
+<meta property="article:tag" content="Travis CI">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/27/polina-rytova-1AUe0hwdC3o-unsplash.jpg">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/02/michael-liao-GQe23-3-Lf8-unsplash.jpg">
 
 
 
@@ -83,7 +84,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Github+Coding双托管Hexo及自定义域名" height="28">
+                <img src="/images/logo.svg" alt="使用Travis CI部署Hexo博客" height="28">
             
             </a>
         </div>
@@ -130,7 +131,7 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/27/polina-rytova-1AUe0hwdC3o-unsplash.jpg" alt="Github+Coding双托管Hexo及自定义域名">
+            <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/02/michael-liao-GQe23-3-Lf8-unsplash.jpg" alt="使用Travis CI部署Hexo博客">
         </span>
     </div>
     
@@ -138,13 +139,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-04-27T15:14:16.000Z">2020-04-27</time> -->
-                <time class="level-item has-text-grey" datetime="2020-04-27T15:14:16.000Z">
-                    <i class="far fa-calendar-alt">&nbsp;</i>2020-04-27
+                <!-- <time class="level-item has-text-grey" datetime="2020-05-02T12:31:50.000Z">2020-05-02</time> -->
+                <time class="level-item has-text-grey" datetime="2020-05-02T12:31:50.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-05-02
                 </time>
                 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-05-01T07:34:12.691Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-05-01
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-05-22T15:16:15.575Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2020-05-22
                 </time>
                 
                 
@@ -158,7 +159,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    17 minutes read (About 2488 words)
+                    8 minutes read (About 1270 words)
                 </span>
                 
                 
@@ -167,65 +168,46 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Github+Coding双托管Hexo及自定义域名
+                使用Travis CI部署Hexo博客
             
         </h1>
         <div class="content">
-            <p>&emsp;&emsp;为了改善加载速度分别尝试了Coding和Gitee的托管以及CloudFlare的CDN加（减）速。无奈都不太乐观，倒是把博客同时托管在Coding，多了个备胎这样子。国内的CDN都要求必须备案，不想备案就只能走境外CDN或者只使用DNS解析。</p>
-<p>&emsp;&emsp;心血来潮买了个域名，迫不及待把它绑定到博客。这个.me的黑山国家域名我还蛮喜欢，虽然觉得.cc更可爱些，但个人博客果然是.me比较合适（上面thumbnail是黑山的科托尔）。于是博客迎来全新域名 <a href="https://lokka.me/">lokka.me</a>。</p>
+            <p>&emsp;&emsp;使用Travis CI部署Hexo博客是Hexo官方文档推荐的部署方法，但是博客源文件会被公开。起初就是因为这一点没有使用Travis CI部署，但是刚成功部署完Hexo发了第一篇博文后我就在想，博客源文件都在本地，如果我换电脑了或者源文件不在身边或者电脑坏了怎么办？岂不是很麻烦？我这么怕麻烦个人…</p>
+<p>&emsp;&emsp;当时就搜了这个问题，果然大佬们早就提供了解决方案。一般都是把源文件也放在github，或者推送到分支。我想既然都放到分支上了，不如直接按官方推荐的，用Travis CI部署，这样甚至可以随时随地修改博文，即便本地没有环境，也可以把md交到仓库即时发布。</p>
 <a id="more"></a>
 
 <hr>
-<h2 id="使用Coding托管Hexo"><a href="#使用Coding托管Hexo" class="headerlink" title="使用Coding托管Hexo"></a>使用Coding托管Hexo</h2><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>&emsp;&emsp;首先就是注册 <a href="https://coding.net/">Coding</a> 账号，创建仓库，操作流程和Github一样，项目模板选择代码托管项目。项目名称随你，项目封面随你，其他的默认就好。Coding没要求必须公开源代码，README也可不添加。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/27/200427-1.png" alt=""></p>
-<h3 id="本地Hexo设置"><a href="#本地Hexo设置" class="headerlink" title="本地Hexo设置"></a>本地Hexo设置</h3><p>&emsp;&emsp;进入建好的仓库页面，复制页面右边提供的仓库SSH地址。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/27/200427-2.png" alt=""></p>
-<p>&emsp;&emsp;将SSH粘贴至Hexo的_config.yml对应位置，换行加上就行，注意格式。没错，加上Gitee三托管也可以的，喜欢就只管加上。下次hexo d的时候就会一起发布。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/27/200427-3.png" alt=""></p>
-<h3 id="添加SSH公钥"><a href="#添加SSH公钥" class="headerlink" title="添加SSH公钥"></a>添加SSH公钥</h3><p>&emsp;&emsp;为了方便发布，把之前搞GithubPages生成的SSH密钥添加到Coding，SSH密钥一般藏在下面这个位置。</p>
-<blockquote>
-<p>C:\Users\用户名\.ssh\id_rsa.pub</p>
-</blockquote>
-<p>&emsp;&emsp;在Coding页面右上角的弹框里找到 <strong>个人设置</strong>，然后添加 <strong>SSH公钥</strong>，复制粘贴确认即可。之后使用hexo d发布时会需要确认，直接回复yes。</p>
-<h3 id="静态页面部署"><a href="#静态页面部署" class="headerlink" title="静态页面部署"></a>静态页面部署</h3><p>&emsp;&emsp;Hexo生成的静态网页成功发布到Coding仓库后进入项目页面，页面左下角找到项目设置 -&gt; 项目与成员 -&gt; 功能开关，然后打开 <strong>持续集成</strong> 和 <strong>持续部署</strong>（部署静态页面必须项）。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/27/200427-4.png" alt=""></p>
-<p>&emsp;&emsp;开启上述两项功能后，回到项目主页，左边目录多了持续集成和持续部署两个选项，找到 <strong>静态网站</strong>，点击立即部署即可。Coding会自动生成一个地址（我看网上别人的都是coding.me的域名，可能现在改版就没了），然后就发布成功啦!点开那个丑陋的地址看看吧！</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/27/200427-5.png" alt=""></p>
+<h2 id="关于Travis-CI"><a href="#关于Travis-CI" class="headerlink" title="关于Travis CI"></a>关于Travis CI</h2><p>&emsp;&emsp;Travis CI提供持续集成服务，目前仅支持Github项目。它提供环境帮用户构建、测试、部署项目，在你提交代码后，它会clone你的项目，配置环境并安装依赖，然后返回运行结果。具体内容请查阅 <a href="https://docs.travis-ci.com/">官方文档</a>。</p>
+<p>&emsp;&emsp;放到Github Pages部署的Hexo来说，就是当你的Hexo项目有改变时，它会帮你生成静态文件，并部署到你指定的项目分支。</p>
 <hr>
-<h2 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h2><p>&emsp;&emsp;CodingPages生成的域名实在不能接受，赶！紧！买！域！名！</p>
-<h3 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h3><p>&emsp;&emsp;年幼无知的我没做足功课就把第一次献给了 <a href="https://sg.godaddy.com/zh/">GoDaddy</a>，在这里建议萌新在购买域名前，一定要先在 <a href="https://www.domcomp.com/">domcomp</a> 查询一下，这里可以查到你喜欢的域名的最便宜价格及提供该价格的注册商，也可以顺便选一下顶级域名。除了GoDaddy外，部分注册商如 <a href="https://www.dynadot.com/zh/">dynadot</a> 也是支持支付宝的。</p>
-<p>&emsp;&emsp;由于我是之后才知道domcomp的，已经在GoDaddy买过了。购买流程就是选域名，加购物车，然后结账时候顺便注册账号，选择支付宝，掏出手机扫码付款，按提示来就vans了。GoDaddy的隐私保护是收费的，如果不购买的话，查询whois是可以看到你姓名、电话和邮箱的。不怕信息公开当然可以不买，但是有些注册商比如Porkbun、Dynadot、NameSilo、NameCheap等等一般会免费赠送隐私保护。GoDaddy这里每年除了续费贵，隐私保护也是按年交的，当然不差钱就无所谓啦。</p>
-<h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><p>&emsp;&emsp;购买成功后找到购买的域名，点击 <strong>DNS管理</strong>，配置CNAME记录值为CodingPages的地址,CNAME名称填 @ 就好。如果想解析到GithubPages，同理。</p>
-<p>&emsp;&emsp;配置完成后回到Coding，在静态网站中找到设置，在 <strong>绑定新域名</strong> 处添加域名，如果你没有配置DNS是会提示申请证书失败的。另外由于网站是由Coding或Github托管的，所以不需要备案，正确配置CNAME即可。待证书状态显示 <strong>正常</strong> 就绑定成功了，用新域名访问博客吧！</p>
-<h3 id="CloudFlare域名解析"><a href="#CloudFlare域名解析" class="headerlink" title="CloudFlare域名解析"></a>CloudFlare域名解析</h3><p>&emsp;&emsp;上一步GoDaddy的DNS我们可以不用，可直接省略。使用CloudFlare解析域名，顺便蹭一蹭免费CDN。账号注册成功后，点击添加站点（会自动弹出），然后输入要使用的域名，之后CloudFlare会提供两个NS地址，要求在域名注册商那里修改NS地址。</p>
-<p>&emsp;&emsp;回到GoDaddy，进入域名管理，修改域名服务器，把CloudFlare提供的两个NS地址粘贴进去，然后确认，之后会显示：<em>我们无法显示您的DNS信息，因为您的域名服务器不是由我们管理的。</em> OK，没GoDaddy啥事儿了。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/27/200427-7.png" alt=""></p>
-<p>&emsp;&emsp;返回CloudFlare后点击检查名称服务器（忘了具体名称了，看页面提示就行），然后会提示在排队等待检查。修改DNS后需要等一会CloudFlare才有反应。</p>
-<p>&emsp;&emsp;域名在CloudFlare这边添加成功后，点击域名进入域名管理界面，找到 <strong>DNS</strong> 配置CNAME。其中小云朵标志代表开启CDN加速，如果你网站的主要访客来自境外，那么建议开启，橙色代表开启。国内的话就关闭吧，速度比Github还慢。所以这个CDN加速与国内无缘，关掉后只使用域名解析。（我郑州联通，ping GithubPages的地址只有100ms出头的延迟，走CDN居然飙到将近300ms？？CloudFlare对国内真的不友好）</p>
-<p>&emsp;&emsp;Coding和Github都有免费提供SSL证书的，自定义域名后直接在设置页面开启 <strong>强制HTTPS</strong> 就好，Github在自定义域名后会自动申请证书。此外也可以找CloudFlare申请证书。域名管理页面找到 <strong>SSL/TLS</strong>，确认SSL/TLS加密模式为完全，一般默认就是。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/27/200427-9.png" alt=""></p>
-<p>&emsp;&emsp;之后在 <strong>边缘证书</strong> 栏目找到 <strong>始终使用HTTPS</strong>，确认该项为开启状态。之后就慢慢等吧，CloudFlare会在24小时内为域名颁发证书。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/27/200427-10.png" alt=""></p>
-<h3 id="阿里云域名解析"><a href="#阿里云域名解析" class="headerlink" title="阿里云域名解析"></a>阿里云域名解析</h3><p>&emsp;&emsp;为了实现国内走Coding，国外走Github，可以选择用阿里云的DNS解析（腾讯云也差不多，都一样的东西）。流程跟CloudFlare一样，账号注册完成后，在主页找到控制台 -&gt; 域名 -&gt; 进入域名解析列表 -&gt; 添加域名，然后回到域名注册商，改成下面阿里云的两个DNS，稍等几分钟就OK了。</p>
-<blockquote>
-<p>ns1.alidns.com<br>ns2.alidns.com</p>
-</blockquote>
-<p>&emsp;&emsp;域名添加成功后，为Github和Coding的博客分别添加CNAME记录，默认解析到Coding，境外解析到Github。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/20/04/27/200427-11.png" alt=""></p>
+<h2 id="部署Hexo"><a href="#部署Hexo" class="headerlink" title="部署Hexo"></a>部署Hexo</h2><p>&emsp;&emsp;<a href="https://hexo.io/zh-cn/docs/github-pages">Hexo官方文档</a> 提供了详细的步骤，我就记录一些遇到的坑吧。</p>
+<h3 id="分支问题"><a href="#分支问题" class="headerlink" title="分支问题"></a>分支问题</h3><p>&emsp;&emsp;按照Hexo官方文档的步骤，Hexo项目被推送到项目Master分支，然后由Travis CI将静态文件发布至gh-pages分支，在Github Pages设定中选择gh-pages分支进行部署。我记得不久前Github Pages还是可以自行选择分支的，但现在仅支持部署Master分支了，如图。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/02/200502-0.png" alt=""></p>
+<p>&emsp;&emsp;也就是说Master分支要放静态文件，另开一个分支放源文件。第一次部署Hexo的朋友需要注意这个问题，对于已经把静态文件推送到Master分支的朋友来说，没有任何影响，源文件直接推送新的分支就vans了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"init blog"</span></span><br><span class="line">git remote add origin https://github.com/&lt;用户名&gt;/&lt;用户名&gt;.github.io.git</span><br><span class="line">git push origin master:hexo</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;注意配置.travis.yml，这里把源文件推送到hexo分支。</p>
+<figure class="highlight yml"><figcaption><span>.travis.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sudo:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">node_js</span></span><br><span class="line"><span class="attr">node_js:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="number">10</span></span><br><span class="line"><span class="attr">cache:</span> <span class="string">npm</span></span><br><span class="line"><span class="attr">branches:</span></span><br><span class="line">  <span class="attr">only:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">hexo</span> <span class="comment"># 对Hexo分支进行构建</span></span><br><span class="line"><span class="attr">script:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo</span> <span class="string">generate</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">provider:</span> <span class="string">pages</span></span><br><span class="line">  <span class="attr">skip-cleanup:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">github-token:</span> <span class="string">$GH_TOKEN</span></span><br><span class="line">  <span class="attr">target-branch:</span> <span class="string">master</span> <span class="comment"># 设置部署的目标分支</span></span><br><span class="line">  <span class="attr">keep-history:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">on:</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">hexo</span></span><br><span class="line">  <span class="attr">local-dir:</span> <span class="string">public</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="仓库冲突问题"><a href="#仓库冲突问题" class="headerlink" title="仓库冲突问题"></a>仓库冲突问题</h3><p>&emsp;&emsp;按照官方文档操作完毕，.travis.yml也配置完成，使用脚本一套操作把文件推送到Github，默默等待Travis CI部署我的博客。刷新浏览器检验是否成功，居然白板？？赶紧查Travis CI的记录，提示no layout，仓库内的主题文件没有被推送导致静态文件压根没生成！</p>
+<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/02/200502-1.png" alt=""></p>
+<p>&emsp;&emsp;拐回来看被我无视的bash记录，项目内居然有关联别的仓库？是clone icarus主题时带来的。根据提示输入 git rm –cached themes/icarus 是不行的，icarus目录内存在.git 目录需要删除。</p>
+<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/02/200502-2.png" alt=""></p>
+<p>&emsp;&emsp;进入icarus目录直接删除文件夹。问题解决。</p>
+<h3 id="gitignore问题"><a href="#gitignore问题" class="headerlink" title="gitignore问题"></a>gitignore问题</h3><p>&emsp;&emsp;解决仓库冲突问题后，我又推送了，这回推送过程没问题，Travis CI构建静态文件倒是出了问题。刷新浏览器依然时白板，Travsi CI记录是这样的。</p>
+<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/02/200502-3.png" alt=""></p>
+<p>&emsp;&emsp;icarus主题目录里缺了配置文件_config.yml,当icarus发现目录内没有配置文件时会自动创一个，这锅必须是.gitignore的，点开文件发现里面赫然记录着_config.yml,赶紧删掉！</p>
 <hr>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;这一波折腾完觉得自己知识面真的太窄，一开始想贪CloudFlare的免费CDN，就去用他的DNS解析，结果是反向加速，GithubPages被闲置，域名只解析到CodingPages。用国内的CDN是需要备案的，想到CloudFlare的CDN是反向加速，也没什么好抱怨了（主要还是懒得备案）。</p>
-<p>&emsp;&emsp;我还尝试了GiteePages，速度蛮快的，毕竟国内阿里云，Ping一下全国都深绿的，有条件的用Gitee托管效果应该不错。搭建流程跟GithubPages一样，项目名称使用用户名能开启 XXX.gitee.io的地址，否则地址末尾会包含项目名。但是Gitee很抠，升级pro版才能自定义域名和自动部署，而且普通版每次发布后还要手动更新。Pro版每年99元，新用户有1个月的免费体验，我试了下，配置证书的时候出了问题，Gitee要求粘贴域名证书和密钥，没整成（可能是我太笨），如果你搞定了一定要告诉我，不胜感激！</p>
-<p>&emsp;&emsp;CodingPages用的新加坡的腾讯云，延迟和加载速度肯定比不了Gitee，但比直接GithubPages肯定强多了，ping一下我觉得延迟还行吧，郑州联通大概80+的延迟，具体分时段，加载速度还算能接受。具体如何选择还是看个人吧。</p>
-<p>&emsp;&emsp;<strong>PS：每次Hexo发布会自动覆盖CNAME文件，如果是直接在Github仓库加的CNAME文件，每次发布后自定义域名会失效，解决办法是把CNAME文件放入Hexo的source文件夹。</strong></p>
-<p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@polina_art?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Polina Rytova"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Polina Rytova</span></a></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;Travis CI能够提供环境，帮助构建、测试及部署Hexo项目，使用Travis CI部署博客满足了随时随地修改内容的强迫症需求，解决了出差、旅游时不方便水博文的问题，也解决了随着博客内容不断增多造成的生成及推送静态文件时的等待问题（虽然并不多）。优雅地推送源文件就vans了，或者在仓库添加/修改md文件。暂时还没有尝试在其他主机配置Hexo本地文件。以上。</p>
+<p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@mjliao?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Michael Liao"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Michael Liao</span></a></p>
 
         </div>
         
             <ul class="post-copyright">
-            <li><strong>本文标题：</strong><a href="https://lokka.me/post/blog-200427/">Github+Coding双托管Hexo及自定义域名</a></li>
+            <li><strong>本文标题：</strong><a href="https://lokka.me/2020/05/02/travis-ci-deploy-hexo/">使用Travis CI部署Hexo博客</a></li>
             <li><strong>本文作者：</strong><a href="https://lokka.me">Kain Zhang</a></li>
-            <li><strong>本文链接：</strong><a href="https://lokka.me/post/blog-200427/">https://lokka.me/post/blog-200427/</a></li>
-            <li><strong>发布时间：</strong>2020-04-27</li>
+            <li><strong>本文链接：</strong><a href="https://lokka.me/2020/05/02/travis-ci-deploy-hexo/">https://lokka.me/2020/05/02/travis-ci-deploy-hexo/</a></li>
+            <li><strong>发布时间：</strong>2020-05-02</li>
             <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
             </li>
             </ul>
@@ -237,7 +219,7 @@
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
                     <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
-                    <a class="has-link-grey -link" href="/tags/Hexo/" rel="tag">Hexo</a>
+                    <a class="has-link-grey -link" href="/tags/Hexo/" rel="tag">Hexo</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Travis-CI/" rel="tag">Travis CI</a>
                 </div>
             </div>
         </div>
@@ -299,16 +281,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/post/blog-200501/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/05/22/01-knapsack-using-branch-n-bound/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Github+PicGo+jsDelivr搭建博客图床</span>
+                <span class="level-item">使用分支限界法解决01背包问题</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/post/factory-pattern/">
-                <span class="level-item">工厂模式（Factory Pattern）</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/05/01/image-hosting/">
+                <span class="level-item">Github+PicGo+jsDelivr搭建博客图床</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -333,7 +315,7 @@
                 <div>
                     
                     <figure class="image is-128x128 has-mb-6">
-                        <img class="is-rounded" src="https://cdn.jsdelivr.net/gh/kainzhang/lokka-img/blog/common/hitomi.png" alt="Kain Zhang">
+                        <img class="is-rounded" src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/common/hitomi.png" alt="Kain Zhang">
                     </figure>
                     
                     <p class="is-size-4 is-block">
@@ -362,7 +344,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            5
+                            7
                         </p>
                     </a>
                 </div>
@@ -440,45 +422,25 @@
                     Catalogue
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#使用Coding托管Hexo">
+        <a class="is-flex" href="#关于Travis-CI">
         <span class="has-mr-6">1</span>
-        <span>使用Coding托管Hexo</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#创建项目">
-        <span class="has-mr-6">1.1</span>
-        <span>创建项目</span>
+        <span>关于Travis CI</span>
         </a></li><li>
-        <a class="is-flex" href="#本地Hexo设置">
-        <span class="has-mr-6">1.2</span>
-        <span>本地Hexo设置</span>
-        </a></li><li>
-        <a class="is-flex" href="#添加SSH公钥">
-        <span class="has-mr-6">1.3</span>
-        <span>添加SSH公钥</span>
-        </a></li><li>
-        <a class="is-flex" href="#静态页面部署">
-        <span class="has-mr-6">1.4</span>
-        <span>静态页面部署</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#自定义域名">
+        <a class="is-flex" href="#部署Hexo">
         <span class="has-mr-6">2</span>
-        <span>自定义域名</span>
+        <span>部署Hexo</span>
         </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#购买域名">
+        <a class="is-flex" href="#分支问题">
         <span class="has-mr-6">2.1</span>
-        <span>购买域名</span>
+        <span>分支问题</span>
         </a></li><li>
-        <a class="is-flex" href="#绑定域名">
+        <a class="is-flex" href="#仓库冲突问题">
         <span class="has-mr-6">2.2</span>
-        <span>绑定域名</span>
+        <span>仓库冲突问题</span>
         </a></li><li>
-        <a class="is-flex" href="#CloudFlare域名解析">
+        <a class="is-flex" href="#gitignore问题">
         <span class="has-mr-6">2.3</span>
-        <span>CloudFlare域名解析</span>
-        </a></li><li>
-        <a class="is-flex" href="#阿里云域名解析">
-        <span class="has-mr-6">2.4</span>
-        <span>阿里云域名解析</span>
+        <span>gitignore问题</span>
         </a></li></ul></li><li>
         <a class="is-flex" href="#总结">
         <span class="has-mr-6">3</span>
@@ -506,7 +468,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Github+Coding双托管Hexo及自定义域名" height="28">
+                    <img src="/images/logo.svg" alt="使用Travis CI部署Hexo博客" height="28">
                 
                 </a>
                 <p class="is-size-7">
