@@ -1,5 +1,5 @@
 ---
-title: 使用分支限界法解决01背包问题
+title: 使用分支限界法解决0/1背包问题
 urlname: 01-knapsack-using-branch-n-bound
 date: 2020-05-22 12:52:54
 toc: true
@@ -49,9 +49,9 @@ tags:
 
 ### 数据规模和约定
 
-对于30%的数据，M <= 10；
+&emsp;&emsp;对于30%的数据，M <= 10；
 
-对于全部的数据，M <= 100。
+&emsp;&emsp;对于全部的数据，M <= 100。
 
 ---
 
@@ -65,17 +65,15 @@ tags:
 &emsp;&emsp;在分支限界法中，每一个活结点只有一次机会成为扩展结点。活结点一旦成为扩展结点，就一次性产生其所有儿子结点。在这些儿子结点中，导致不可行解或导致非最优解的儿子结点被舍弃，其余儿子结点被加入活结点表中。
 &emsp;&emsp;此后，从活结点表中取下一结点成为当前扩展结点，并重复上述结点扩展过程。这个过程一直持续到找到所需的解或活结点表为空时为止。
 
-&emsp;&emsp;对于01背包问题来说，就是每访问一个结点，生成两个儿子结点，一个是放入物品，一个是舍弃物品。在生成结点的同时判断该结点是否为可行解，并同时计算该结点能够得到的最优解，即上界。对于不可行解直接剪枝（超重），可行结点使用优先队列存储。不断扩展队列优先级最高的结点，也就是上界最大的结点，当优先队列中优先级最高的结点最优解小于已获得的最优解时，循环结束，当前得到的最优解即为所求最优解。
+&emsp;&emsp;对于01背包问题来说，就是每访问一个结点，生成两个儿子结点，一个是放入物品，一个是舍弃物品。在生成结点的同时判断该结点是否为可行解，并同时计算该结点能够得到的最大效益。对于不可行解直接剪枝（超重），可行结点使用优先队列存储。不断扩展队列优先级最高的结点，也就是最大效益最大的结点，当优先队列中优先级最高的结点最大效益不大于已知的解时，循环结束，当前得到的最优解即为所求最优解。
 
 ### 具体思路
 
-&emsp;&emsp;放到本题来看，每个草药包括两个属性：采集时间和价值。首先将所有草药按单位时间的价值从高到低排序，计算T时间在可拆分情况下能得到的最优解。
+&emsp;&emsp;放到本题来看，每个草药包括两个属性：采集时间和价值。首先将所有草药按单位时间的价值从高到低排序，计算T时间在可拆分情况下能得到的最大效益。使用二叉树构造解空间树，每层结点代表正在放置第几个草药，由此，根结点将扩展两个子节点，也就是放入1号草药和不放入1号草药，为两个结点分别计算最大效益，如果当前结点的时间超出给定时间T，则剪枝处理，否则放入优先队列。
 
-&emsp;&emsp;使用二叉树构造解空间树，每层结点代表正在放置第几个药草，由此根结点将扩展两个子节点，也就是放入1号草药和不放入1号草药，为两个结点分别计算上界，如果当前结点的时间超出给定时间T，则剪枝处理，否则放入优先队列。
+&emsp;&emsp;设定优先队列为大顶堆的数据结构，不断从优先队列中取出优先级最高（最大效益最大）的结点，对其进行扩展，重复执行上述操作。如果该结点已扩展至叶结点（所在路径已遍历所有草药），则与当前已知最优值比较，取最大值。当队列中优先级最高的结点的最大效益不大于当前已知最优值时，循环结束。计算过程和解空间树如下图。
 
-&emsp;&emsp;不断从优先队列中取出优先级最高（最优解最大）的结点，对其进行扩展，重复执行上述操作。如果该结点已扩展至叶结点（所在路径已遍历所有草药），则与当前已知最优解比较，取最大值。
-
-&emsp;&emsp;设定优先队列为大顶堆的数据结构，当队列中优先级最高的结点的最优解小于等于当前已知最优解时，循环结束。
+![](https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/22/200522-2.jpg)
 
 ---
 <br>
@@ -95,7 +93,7 @@ struct Herb {
 
 struct Node {
     int nxt, sumT, sumP;    // 下一药草的序号 当前总时间 当前总价值
-    double maxP;    // 该结点的上界
+    double maxP;    // 该结点的最大效益
     bool operator < (const Node &x) const {
         return maxP < x.maxP;
     }
@@ -105,39 +103,39 @@ int T, M;
 vector<Herb> hrbs;
 priority_queue<Node> que;
 
-double getBound(int i, int sumT, int sumP) {
+double bound(int i, int sumT, int sumP) {
     double res = sumP;
     int leftT = T - sumT;   // 剩余时间
-    while (i < M && hrbs[i].tim <= leftT) {
+    while (i < M && hrbs[i].tim <= leftT) { // 在时间允许的条件下不断放入
         leftT -= hrbs[i].tim;
         sumP += hrbs[i].val;
         i++;
     }
-    if (i < M) {
+    if (i < M) {    // 拆分放入，获得最大效益
         res = sumP + leftT * (hrbs[i].val * 1.0 / hrbs[i].tim);
     }
     return res;
 }
 
-int getAns() {
+int solve() {
     int ans = 0;
-    Node r = {0, 0, 0, getBound(0, 0, 0)};
+    Node r = {0, 0, 0, bound(0, 0, 0)};
     que.push(r);    // 放入根结点
-    while (que.top().maxP > ans) {
+    while (que.top().maxP > ans) {  // 堆顶结点的最大效益大于已知
         Node n = que.top();
         que.pop();
         if (n.nxt == M) {
-            ans = max(ans, n.sumP); // 获取实际最优值
+            ans = max(ans, n.sumP); // 获取实际解
         } else {
-            Node n2 = n;
-            if (n.sumT + hrbs[n.nxt].tim <= T) {    // 超时则剪掉
-                n.maxP = getBound(n.nxt, n.sumT, n.sumP);   // 放
+            Node n2 = n;    // 复制一个
+            if (n.sumT + hrbs[n.nxt].tim <= T) {    // 超时剪掉
+                n.maxP = bound(n.nxt, n.sumT, n.sumP);   // 放入当前草药
                 n.sumT += hrbs[n.nxt].tim;  // 当前时间
                 n.sumP += hrbs[n.nxt].val;  // 当前价值
                 n.nxt++;
                 que.push(n);
             }
-            n2.maxP = getBound(n2.nxt + 1, n2.sumT, n2.sumP);   // 不放
+            n2.maxP = bound(n2.nxt + 1, n2.sumT, n2.sumP);   // 不放
             n2.nxt++;
             que.push(n2);
         }
@@ -152,8 +150,8 @@ int main() {
         scanf("%d %d", &h.tim, &h.val);
         hrbs.push_back(h);
     }
-    sort(hrbs.begin(), hrbs.end(), greater<Herb>());
-    cout << getAns() << endl;
+    sort(hrbs.begin(), hrbs.end(), greater<Herb>());    // 按单位时间价值排序
+    cout << solve() << endl;
 }
 ```
 
@@ -164,4 +162,4 @@ int main() {
 
 ## 扯淡
 
-&emsp;&emsp;没参考大佬的代码，纯按自己的理解写的，所以不清楚代码是否规范。交上去顺利AC了，数据量较大的两个测试用例用了15ms，效率比想象要高，其实还是DP效果好。算法思想是跟着油管的印度大叔Abdul Bari学的。[0/1 Knapsack using Branch and Bound](https://youtu.be/yV1d-b_NeK8 "0/1 Knapsack using Branch and Bound")
+&emsp;&emsp;没参考大佬的代码，纯按自己的理解写的，所以不清楚代码是否规范。交上去顺利AC了，数据量较大的两个测试用例用了15ms。代码量有点大，如果不用内置的优先队列，恐怕还要多几十行。不过效率比想象要高，其实还是DP效果好。算法思想是跟着油管的印度大叔 Abdul Bari 学的。视频地址：[0/1 Knapsack using Branch and Bound](https://youtu.be/yV1d-b_NeK8 "0/1 Knapsack using Branch and Bound")
