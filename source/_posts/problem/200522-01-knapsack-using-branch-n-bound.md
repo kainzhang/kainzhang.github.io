@@ -65,13 +65,17 @@ tags:
 &emsp;&emsp;在分支限界法中，每一个活结点只有一次机会成为扩展结点。活结点一旦成为扩展结点，就一次性产生其所有儿子结点。在这些儿子结点中，导致不可行解或导致非最优解的儿子结点被舍弃，其余儿子结点被加入活结点表中。
 &emsp;&emsp;此后，从活结点表中取下一结点成为当前扩展结点，并重复上述结点扩展过程。这个过程一直持续到找到所需的解或活结点表为空时为止。
 
-&emsp;&emsp;对于01背包问题来说，就是每访问一个结点，生成两个儿子结点，一个是放入物品，一个是舍弃物品。在生成结点的同时判断该结点是否为可行解，并同时计算该结点下的上界。对于不可行解直接剪枝（超重），可行结点使用优先队列存储。不断扩展队列优先级最高的结点，也就是上界最大的结点，当优先队列中优先级最高的结点上界不大于已知的解时，循环结束，当前得到的最优解即为所求最优解。
+&emsp;&emsp;对于01背包问题来说，就是每访问一个结点，生成两个儿子结点，一个是放入物品，一个是舍弃物品。在生成结点的同时判断该结点是否为可行解，并同时计算该结点下的上界。对于不可行解直接剪枝，可行结点使用优先队列存储。不断扩展队列优先级最高的结点，也就是上界最大的结点，当优先队列中优先级最高的结点上界不大于已知的值时，循环结束，当前得到的最优值即为所求最优值。
 
 ### 具体思路
 
-&emsp;&emsp;放到本题来看，每个草药包括两个属性：采集时间和价值。首先将所有草药按单位时间的价值从高到低排序，计算T时间在可拆分情况下能得到的上界。使用二叉树构造解空间树，每层结点代表正在放置第几个草药，由此，根结点将扩展两个子节点，也就是放入1号草药和不放入1号草药，为两个结点分别计算上界，如果当前结点的时间超出给定时间T，则剪枝处理，否则放入优先队列。
+&emsp;&emsp;放到本题来看，每个草药包括两个属性：采集时间和价值。首先将所有草药按单位时间的价值从高到低排序，使用二叉树构造解空间树，每层结点代表正在放置第几个草药。由此，每个结点将能够扩展两个子节点，即放入N号草药和不放入N号草药。分别为每个扩展的结点计算上界，即计算规定时间内可拆分条件下的最大价值。如果当前结点的时间超出给定总时间T或者上界小于当前已知最优值，则剪枝处理，其余放入优先队列。
 
-&emsp;&emsp;设定优先队列为大顶堆的数据结构，不断从优先队列中取出优先级最高（上界最大的优先）的结点，对其进行扩展，重复执行上述操作。如果该结点已扩展至叶结点（所在路径已遍历所有草药），则与当前已知最优值比较，取最大值。当队列中优先级最高的结点的上界不大于当前已知最优值时，循环结束。计算过程和解空间树如下图。
+&emsp;&emsp;设定优先队列为大顶堆的数据结构，不断从优先队列中取出优先级最高（上界大于已知最优值）的结点，对其扩展。如果该结点已扩展至叶结点（所在路径已遍历所有草药），则与当前已知最优值比较，取最大值。当队列中所有结点的上界均不大于当前已知最优值时，循环结束。计算过程和解空间树如下图。
+
+{% raw %}<article class="message is-info"><div class="message-body">{% endraw %}
+<span class="icon"><i class="fas fa-lightbulb mr-2"></i></span>&nbsp;&nbsp;剪枝策略：采摘当前草药导致超时，或当前结点上界小于已知最优值时剪枝。
+{% raw %}</div></article>{% endraw %}
 
 ![](https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/22/200522-2.jpg)
 
@@ -92,10 +96,10 @@ struct Herb {
 };
 
 struct Node {
-    int nxt, sumT, sumP;    // 下一药草的序号 当前总时间 当前总价值
-    double maxP;    // 该结点的上界
+    int nxt, sumT, sumV;    // 下一药草的序号 当前总时间 当前总价值
+    double maxV;    // 该结点的上界
     bool operator < (const Node &x) const {
-        return maxP < x.maxP;
+        return maxV < x.maxV;   // 优先队列内按上界从高到低排序
     }
 };
 
@@ -103,50 +107,54 @@ int T, M;
 vector<Herb> hrbs;
 priority_queue<Node> que;
 
-double bound(int i, int sumT, int sumP) {
-    double res = sumP;
+double bound(int i, int sumT, int sumV) {
+    double res = sumV;
     int leftT = T - sumT;   // 剩余时间
     while (i < M && hrbs[i].tim <= leftT) { // 在时间允许的条件下不断放入
         leftT -= hrbs[i].tim;
-        sumP += hrbs[i].val;
+        sumV += hrbs[i].val;
         i++;
     }
     if (i < M) {
-        res = sumP + leftT * (hrbs[i].val * 1.0 / hrbs[i].tim);
+        res = sumV + leftT * (hrbs[i].val * 1.0 / hrbs[i].tim);
     }
     return res;
 }
 
 int solve() {
-    int ans = 0;
+    int res = 0;
     Node r = {0, 0, 0, bound(0, 0, 0)};
     que.push(r);    // 放入根结点
-    while (que.top().maxP > ans) {  // 堆顶结点的上界大于已知
+    while (que.top().maxV > res) {  // 堆顶结点的上界大于已知最优值
         Node n = que.top();
         que.pop();
         if (n.nxt == M) {
-            ans = max(ans, n.sumP); // 获取实际解
+            res = max(res, n.sumV); // 获取实际最优值
         } else {
             Node n2 = n;    // 复制一个
             if (n.sumT + hrbs[n.nxt].tim <= T) {    // 超时剪掉
-                n.maxP = bound(n.nxt, n.sumT, n.sumP);   // 放入当前草药
-                n.sumT += hrbs[n.nxt].tim;  // 当前时间
-                n.sumP += hrbs[n.nxt].val;  // 当前价值
-                n.nxt++;
-                que.push(n);
+                n.maxV = bound(n.nxt, n.sumT, n.sumV);   // 放入当前草药时的上界
+                if (n.maxV > res) {
+                    n.sumT += hrbs[n.nxt].tim;  // 修改当前时间
+                    n.sumV += hrbs[n.nxt].val;  // 修改当前价值
+                    n.nxt++;
+                    que.push(n);
+                }
             }
-            n2.maxP = bound(n2.nxt + 1, n2.sumT, n2.sumP);   // 不放
-            n2.nxt++;
-            que.push(n2);
+            n2.maxV = bound(n2.nxt + 1, n2.sumT, n2.sumV);   // 不放当前草药时的上界
+            if (n.maxV > res) { // 上界小于当前已知最优值则剪枝
+                n2.nxt++;
+                que.push(n2);
+            }
         }
     }
-    return ans;
+    return res;
 }
 
 int main() {
     scanf("%d %d", &T, &M);
+    Herb h;
     for (int i = 0; i < M; i++) {
-        Herb h;
         scanf("%d %d", &h.tim, &h.val);
         hrbs.push_back(h);
     }
@@ -155,11 +163,11 @@ int main() {
 }
 ```
 
-![](https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/22/200522-1.png)
+![](https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/22/200522-2.png)
 
 ---
 <br>
 
 ## 扯淡
 
-&emsp;&emsp;没参考大佬的代码，纯按自己的理解写的，所以不清楚代码是否规范。交上去顺利AC了，数据量较大的两个测试用例用了15ms。代码量有点大，如果不用内置的优先队列，恐怕还要多几十行。不过效率比想象要高，其实还是DP效果好。算法思想是跟着油管的印度大叔 Abdul Bari 学的。视频地址：[0/1 Knapsack using Branch and Bound](https://youtu.be/yV1d-b_NeK8 "0/1 Knapsack using Branch and Bound")
+&emsp;&emsp;纯按自己的理解写的，所以不清楚代码是否规范。交上去顺利AC了，起初数据量较大的两个测试用例用了15ms，后来稍微优化下全部0ms通过了。代码量有点大，不过效率比想象要高，其实还是DP效果好。算法思想是跟着油管的印度大叔 Abdul Bari 学的。视频地址：[0/1 Knapsack using Branch and Bound](https://youtu.be/yV1d-b_NeK8 "0/1 Knapsack using Branch and Bound")
