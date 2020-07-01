@@ -16,14 +16,15 @@ tags:
 + LeetCode 52 N-Queens II
 + Lanqiao BASIC-27 2N-Queens
 + Lanqiao ADV-203 8-Queens
++ PAT-A 1128 N-Queens Puzzle
 
 <!--more-->
 
----
+<br>
 
 ## N-Queens
 
-### Description
+**Description**
 
 &emsp;&emsp;n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
 
@@ -37,7 +38,7 @@ tags:
 
 &emsp;&emsp;**原题：**[LeetCode 51 N-Queens](https://leetcode-cn.com/problems/n-queens "N-Queens")
 
-### Sample
+**Sample**
 
 ```
 输入: 4
@@ -57,17 +58,17 @@ tags:
 解释: 4 皇后问题存在两个不同的解法。
 ```
 
-### Thought
+**Thought**
 
 &emsp;&emsp;题目要求将n个皇后放置在n * n大小的棋盘上，皇后之间不能打架，也就是每行、每列、每条对角线上不能同时有两位皇后。
 
 &emsp;&emsp;思路就是深搜回溯，从第1行开始每次逐列放置皇后，每次放置时对已经放置完成的行进行判断，能放则放，不能放则弃。也就是检查当前位置皇后的上、左上、右上方是否存在皇后。完成n个皇后放置任务后将当前棋盘添加至结果集。
 
-### Code
+**Code**
 
 &emsp;&emsp;觉得这题难度其实不大，就是个人在效率上有点难受（再见残酷的世界！），第1版写完交上去虽然一次AC了，但时间和空间居然都被95%的人碾压？？？（拐回来看代码发现参数全是形参，改了引用参数后时间击败60%空间击败100%）然后参考老哥们的题解改了改，还凑合吧，粘两个版本留念。
 
-#### Version 1
+**Ver.1**
 
 &emsp;&emsp;直接把整个棋盘开出来了，然后逐行放置皇后。检查已放置的行就开了3个for循环，分别对正上、左上、右上的格子进行遍历判断。
 
@@ -115,7 +116,7 @@ private:
 };
 ```
 
-#### Version 2
+**Ver.2**
 
 &emsp;&emsp;棋盘是按行开辟的，凑够一整盘后带走放入结果集（空间上没有影响，就是单纯尝试下。。。）
 
@@ -162,13 +163,11 @@ private:
     vector<string> tmp;
 };
 ```
-&emsp;
-
----
+<br>
 
 ## N-Queen II
 
-### Description
+**Description**
 
 &emsp;&emsp;n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
 
@@ -180,7 +179,7 @@ private:
 
 &emsp;&emsp;**原题：**[LeetCode 52 N-Queens II](https://leetcode-cn.com/problems/n-queens-ii "N-Queens")
 
-### Sample
+**Sample**
 
 ```
 输入: 4
@@ -201,11 +200,11 @@ private:
 ]
 ```
 
-### Thought
+**Thought**
 
 &emsp;&emsp;怎么说呢，我严重怀疑LeetCode的临时工把题号标错了，这个虽然是II，但明显是原版的简化。看见题就没多想，直接复制粘贴上一题代码，删掉所有棋盘数据，只保留存放每行皇后位置的数组，跑都没跑就提交了（也就这时候敢浪）。在题解区看到用位运算好像效率蛮高的，改（有）天（缘）再看吧。
 
-### Code
+**Code**
 
 ``` cpp
 class Solution {
@@ -240,12 +239,11 @@ public:
     }
 };
 ```
-&emsp;
+<br>
 
----
 ## 2N-Queens
 
-### Description
+**Description**
 
 &emsp;&emsp;给定一个n*n的棋盘，棋盘中有一些位置不能放皇后。现在要向棋盘中放入n个黑皇后和n个白皇后，使任意的两个黑皇后都不在同一行、同一列或同一条对角线上，任意的两个白皇后都不在同一行、同一列或同一条对角线上。问总共有多少种放法？n小于等于8。
 
@@ -259,7 +257,7 @@ public:
 
 &emsp;&emsp;输出一个整数，表示总共有多少种放法。
 
-### Sample
+**Sample**
 ```
 输入:   // Sample 1
 4
@@ -282,10 +280,11 @@ public:
 0
 ```
 
-### Thought
+**Thought**
+
 &emsp;&emsp;和N皇后的思路一样，区别是放置两种颜色的皇后，也就是黑白皇后各来一次深搜。根据题意，棋盘上1代表可以放置，0代表不可放置。用2表示白皇后，用3表示黑皇后。放置白皇后时遇到0跳过，放置黑皇后时遇到0和2跳过，两种颜色全部放完时（q == 4)结束并计数。
 
-### Code
+**Code**
 ``` cpp
 #include <iostream>
 using namespace std;
@@ -330,14 +329,12 @@ int main() {
     cout << res << endl;
 }
 ```
-&emsp;
-
----
+<br>
 
 
 ## 8-Queens
 
-### Description
+**Description**
 
 &emsp;&emsp;规则同8皇后问题，但是棋盘上每格都有一个数字，要求八皇后所在格子数字之和最大。
 
@@ -349,7 +346,7 @@ int main() {
 
 &emsp;&emsp;所能得到的最大数字和
 
-### Sample
+**Sample**
 ```
 输入:
 1 2 3 4 5 6 7 8
@@ -367,10 +364,11 @@ int main() {
 数据规模和约定: 棋盘上的数字范围 0~99
 ```
 
-### Thought
+**Thought**
+
 &emsp;&emsp;依然是深搜回溯，各个位置的数字已经给了，并且题目说明了数字范围为0~99，所以我们将访问的数字累加，并将值改为-1表示已经访问过，确保不被重复访问。每次满足终止条件时，比较当前放置方法的数字之和，取最大值即可。
 
-### Code
+**Code**
 ``` cpp
 #include <iostream>
 using namespace std;
@@ -411,9 +409,82 @@ int main() {
     cout << res << endl;
 }
 ```
-&emsp;
+<br>
 
----
+## N Queens Puzzle
+
+**Description**
+
+The "eight queens puzzle" is the problem of placing eight chess queens on an 8 × 8 chessboard so that no two queens threaten each other. Thus, a solution requires that no two queens share the same row, column, or diagonal. The eight queens puzzle is an example of the more general N queens problem of placing N non-attacking queens on an N×N chessboard. (From Wikipedia - "Eight queens puzzle".)
+
+Here you are NOT asked to solve the puzzles. Instead, you are supposed to judge whether or not a given configuration of the chessboard is a solution. To simplify the representation of a chessboard, let us assume that no two queens will be placed in the same column. Then a configuration can be represented by a simple integer sequence (Q​1, Q2, ⋯, Q​N), where Qi is the row number of the queen in the i-th column. For example, Figure 1 can be represented by (4, 6, 8, 2, 7, 1, 3, 5) and it is indeed a solution to the 8 queens puzzle; while Figure 2 can be represented by (4, 6, 7, 2, 8, 1, 9, 5, 3) and is NOT a 9 queens' solution.
+
+|Figure 1  |Figure 2  |
+|:----:|:----:|
+|![](https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/08/7d0443cf-5c19-4494-98a6-0f0f54894eaa.jpg)|![](https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/08/d187e37a-4eb8-4215-8e2c-040a73c5c8d8.jpg)|
+
+**Input Specification**
+
+Each input file contains several test cases. The first line gives an integer K (1<K≤200). Then K lines follow, each gives a configuration in the format "N Q1 Q2 ... QN", where 4≤N≤1000 and it is guaranteed that 1≤Qi≤N for all i=1,⋯,N. The numbers are separated by spaces.
+
+**Output Specification**
+
+For each configuration, if it is a solution to the N queens problem, print YES in a line; or NO if not.
+
+**Sample Input**
+```
+4
+8 4 6 8 2 7 1 3 5
+9 4 6 7 2 8 1 9 5 3
+6 1 5 2 6 4 3
+5 1 3 5 2 4
+```
+**Sample Output**
+```
+YES
+NO
+NO
+YES
+```
+
+**原题：**[PAT-A N Queens Puzzle](https://pintia.cn/problem-sets/994805342720868352/problems/994805348915855360 "PAT-A N Queens Puzzle")
+
+**Thought**
+
+直接暴力就Vans了，为了方便思考将棋盘顺时针反转90度。输入的过程理解成逐行放置皇后的过程。以Figure 1为例，输入皇后位置分别为第1行第4列，第2行第6列... 每输入一个数字（每放置一个皇后）就遍历之前的所有行，检查是否有同列或者同对角线的。
+
+**Code**
+
+``` cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int K;
+    cin >> K;
+    while(K--) {
+        int N, t, flag = 1;
+        cin >> N;
+        vector<int> vec;
+        for (int i = 0; i < N; i++) {
+            cin >> t;
+            vec.push_back(t);
+            int l = t - 1, r = t + 1;
+            for (int j = i - 1; j >= 0 && flag; j--) {
+                if (vec[j] == t || vec[j] == l || vec[j] == r) {
+                    flag = 0;
+                }
+                l--, r++;
+            }
+        }
+        cout << (flag ? "YES" : "NO") << endl;
+    }
+}
+```
+
+<br>
 
 ## Summary
 

@@ -53,8 +53,6 @@ tags:
 
 &emsp;&emsp;对于全部的数据，M <= 100。
 
----
-
 <br>
 
 ## 解题思想
@@ -79,7 +77,6 @@ tags:
 
 ![](https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/22/200522-2.jpg)
 
----
 <br>
 
 ## AC代码
@@ -165,7 +162,6 @@ int main() {
 
 ![](https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/22/200522-2.png)
 
----
 <br>
 
 ## 扯淡

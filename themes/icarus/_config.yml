@@ -182,13 +182,12 @@ widgets:
         position: left
     -
         # Widget name
-        type: links
-        # Where should the widget be placed, left or right
-        position: left
-        # Links to be shown in the links widget
-        links:
-            Cheng Pei's Blog: 'https://the-next.github.io/'
-    -
+    #     type: links
+    #     # Where should the widget be placed, left or right
+    #     position: left
+    #     # Links to be shown in the links widget
+    #     links:
+    # -
         # Widget name
         type: recent_posts
         # Where should the widget be placed, left or right
@@ -246,5 +245,5 @@ providers:
     # Name or URL of the webfont CDN provider
     fontcdn: google
     # Name or URL of the webfont Icon CDN provider
-    iconcdn: fontawesome
+    iconcdn: bootcdn
 
