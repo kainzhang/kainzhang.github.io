@@ -245,5 +245,5 @@ providers:
     # Name or URL of the webfont CDN provider
     fontcdn: google
     # Name or URL of the webfont Icon CDN provider
-    iconcdn: bootcdn
+    iconcdn: bootcdn_fontawesome
 

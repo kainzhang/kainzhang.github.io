@@ -18,7 +18,7 @@ const font_providers = {
 
 const icon_providers = {
     fontawesome: 'https://use.fontawesome.com/releases/v5.4.1/css/all.css',
-    bootcdn: 'https://cdn.bootcdn.net/ajax/libs/font-awesome/5.4.1/css/all.css'
+    bootcdn_fontawesome: 'https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.css'
 };
 
 module.exports = function (hexo) {
