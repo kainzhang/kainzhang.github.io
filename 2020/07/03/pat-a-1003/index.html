@@ -7,21 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>PAT-A 1148 Werewolf - Simple Version (20) - LOKKA&#39;s Blog</title>
+<title>PAT-A 1003 Emergency (30) - LOKKA&#39;s Blog</title>
 
 
-    <meta name="description" content="&amp;nbsp;&amp;nbsp;狼人杀简单版，暴力枚举   Werewolf（狼人杀） is a game in which the players are partitioned into two parties: the werewolves and the human beings. Suppose that in a game,  player #1 said: “Player #2 is a">
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;图的Dijkstra算法，在算法基础上增加最大点权和以及最短路径条数的记录。   As an emergency rescue team leader of a city, you are given a special map of your country. The map shows several scattered cities connected by som">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT-A 1148 Werewolf - Simple Version (20)">
-<meta property="og:url" content="https://lokka.me/2020/07/02/pat-a-1148/index.html">
+<meta property="og:title" content="PAT-A 1003 Emergency (30)">
+<meta property="og:url" content="https://lokka.me/2020/07/03/pat-a-1003/index.html">
 <meta property="og:site_name" content="LOKKA&#39;s Blog">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;狼人杀简单版，暴力枚举   Werewolf（狼人杀） is a game in which the players are partitioned into two parties: the werewolves and the human beings. Suppose that in a game,  player #1 said: “Player #2 is a">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;图的Dijkstra算法，在算法基础上增加最大点权和以及最短路径条数的记录。   As an emergency rescue team leader of a city, you are given a special map of your country. The map shows several scattered cities connected by som">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lokka.me/images/og_image.png">
-<meta property="article:published_time" content="2020-07-02T11:06:42.000Z">
+<meta property="article:published_time" content="2020-07-03T12:19:41.000Z">
 <meta property="article:modified_time" content="2020-07-03T04:48:44.775Z">
 <meta property="article:author" content="Kain Zhang">
 <meta property="article:tag" content="PAT">
+<meta property="article:tag" content="Dijkstra">
+<meta property="article:tag" content="Graph">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://lokka.me/images/og_image.png">
 
@@ -83,7 +85,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="PAT-A 1148 Werewolf - Simple Version (20)" height="28">
+                <img src="/images/logo.svg" alt="PAT-A 1003 Emergency (30)" height="28">
             
             </a>
         </div>
@@ -132,15 +134,11 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-07-02T11:06:42.000Z">2020-07-02</time> -->
-                <time class="level-item has-text-grey" datetime="2020-07-02T11:06:42.000Z">
-                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-02
+                <!-- <time class="level-item has-text-grey" datetime="2020-07-03T12:19:41.000Z">2020-07-03</time> -->
+                <time class="level-item has-text-grey" datetime="2020-07-03T12:19:41.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-03
                 </time>
-                <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-03T04:48:44.775Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-03
-                </time>
-                 -->
+                <!--  -->
                 
                 <div class="level-item">
                 <i class="far fa-folder has-text-grey">&nbsp;</i>
@@ -152,7 +150,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    4 minutes read (About 531 words)
+                    6 minutes read (About 967 words)
                 </span>
                 
                 
@@ -161,66 +159,38 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                PAT-A 1148 Werewolf - Simple Version (20)
+                PAT-A 1003 Emergency (30)
             
         </h1>
         <div class="content">
-            <article class="message is-success"><div class="message-body">
-<p><span class="icon"><i class="fa fa-puzzle-piece mr-2"></i></span>&nbsp;&nbsp;狼人杀简单版，暴力枚举</p>
+            <article class="message is-warning"><div class="message-body">
+<p><span class="icon"><i class="fa fa-exclamation-triangle mr-2"></i></span>&nbsp;&nbsp;图的Dijkstra算法，在算法基础上增加最大点权和以及最短路径条数的记录。</p>
 </div></article>
 
-<p>Werewolf（狼人杀） is a game in which the players are partitioned into two parties: the werewolves and the human beings. Suppose that in a game,</p>
-<ul>
-<li>player #1 said: “Player #2 is a werewolf.”;</li>
-<li>player #2 said: “Player #3 is a human.”;</li>
-<li>player #3 said: “Player #4 is a werewolf.”;</li>
-<li>player #4 said: “Player #5 is a human.”; and</li>
-<li>player #5 said: “Player #4 is a human.”.</li>
-</ul>
-<p>Given that there were 2 werewolves among them, at least one but not all the werewolves were lying, and there were exactly 2 liars. Can you point out the werewolves?</p>
-<p>Now you are asked to solve a harder version of this problem: given that there were N players, with 2 werewolves among them, at least one but not all the werewolves were lying, and there were exactly 2 liars. You are supposed to point out the werewolves.</p>
+<p>As an emergency rescue team leader of a city, you are given a special map of your country. The map shows several scattered cities connected by some roads. Amount of rescue teams in each city and the length of each road between any pair of cities are marked on the map. When there is an emergency call to you from some other city, your job is to lead your men to the place as quickly as possible, and at the mean time, call up as many hands on the way as possible.</p>
 <a id="more"></a>
 
-<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each case, the first line gives a positive integer N (5 ≤ N ≤ 100). Then N lines follow and the i-th line gives the statement of the i-th player (1 ≤ i ≤ N), which is represented by the index of the player with a positive sign for a human and a negative sign for a werewolf.</p>
-<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>If a solution exists, print in a line in ascending order the indices of the two werewolves. The numbers must be separated by exactly one space with no extra spaces at the beginning or the end of the line. If there are more than one solution, you must output the smallest solution sequence – that is, for two sequences A=a[1],…,a[M] and B=b[1],…,b[M], if there exists 0 ≤ k &lt; M such that a[i] = b[i] (i ≤ k) and a[k+1]&lt;b[k+1], then A is said to be smaller than B. In case there is no solution, simply print  <code>No Solution</code>.</p>
-<h2 id="Sample-1"><a href="#Sample-1" class="headerlink" title="Sample 1"></a>Sample 1</h2><p><strong>Input</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">-2</span><br><span class="line">+3</span><br><span class="line">-4</span><br><span class="line">+5</span><br><span class="line">+4</span><br></pre></td></tr></table></figure>
+<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each test case, the first line contains 4 positive integers: N (≤ 500) - the number of cities (and the cities are numbered from 0 to N − 1), M - the number of roads, C1 and C2 - the cities that you are currently in and that you must save, respectively. The next line contains N integers, where the i-th integer is the number of rescue teams in the i-th city. Then M lines follow, each describes a road with three integers c​1, c2 and L, which are the pair of cities connected by a road and the length of that road, respectively. It is guaranteed that there exists at least one path from C​1 to C2.</p>
+<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each test case, print in one line two numbers: the number of different shortest paths between C1 and C2, and the maximum amount of rescue teams you can possibly gather. All the numbers in a line must be separated by exactly one space, and there is no extra space allowed at the end of a line.</p>
+<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><p><strong>Input</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">5 6 0 2</span><br><span class="line">1 2 1 5 3</span><br><span class="line">0 1 1</span><br><span class="line">0 2 2</span><br><span class="line">0 3 1</span><br><span class="line">1 2 1</span><br><span class="line">2 4 1</span><br><span class="line">3 4 1</span><br></pre></td></tr></table></figure>
 
 <p><strong>Output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 4</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 4</span><br></pre></td></tr></table></figure>
 
-<h2 id="Sample-2"><a href="#Sample-2" class="headerlink" title="Sample 2"></a>Sample 2</h2><p><strong>Input</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">+6</span><br><span class="line">+3</span><br><span class="line">+1</span><br><span class="line">-5</span><br><span class="line">-2</span><br><span class="line">+4</span><br></pre></td></tr></table></figure>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;单源最短路径问题，用 Dijkstra 算法。根据题意，每个城市的救援队数量为点权，城市之间的距离为边权。由于题目要求输出结果为最短路径数和最大点权和，添加 num 数组记录起点至各顶点的最短路径数，添加 w 数组记录起点至个顶点的最大点权和，在计算 d 的同时更新上述两个数组，详情见代码注释。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mxN = <span class="number">505</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// N:顶点数, M:边数, C1:起点, C2:终点</span></span><br><span class="line"><span class="keyword">int</span> N, M, C1, C2;</span><br><span class="line"><span class="comment">// G:邻接矩阵, d:起点至各点的最短距离, weight:点权, w:最大点权和, num:最短路径条数</span></span><br><span class="line"><span class="keyword">int</span> G[mxN][mxN], d[mxN], weight[mxN], w[mxN], num[mxN];</span><br><span class="line"><span class="keyword">bool</span> vis[mxN] = &#123;<span class="literal">false</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">(<span class="keyword">int</span> s)</span> </span>&#123; <span class="comment">// s 为起点</span></span><br><span class="line"></span><br><span class="line">    fill(d, d + N, INT_MAX);  <span class="comment">// 初始化 d 数组</span></span><br><span class="line">    d[s] = <span class="number">0</span>;  <span class="comment">// 起点到自身距离为 0</span></span><br><span class="line">    w[s] = weight[s];  <span class="comment">// 起点最大点权</span></span><br><span class="line">    num[s] = <span class="number">1</span>;  <span class="comment">// 起点至起点路径数为 1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> u = <span class="number">-1</span>, MIN = INT_MAX;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 遍历 N 个点, 寻找最小 d[]和对应顶点</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!vis[j] &amp;&amp; d[j] &lt; MIN) &#123;</span><br><span class="line">                MIN = d[j];</span><br><span class="line">                u = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (u == <span class="number">-1</span>) <span class="keyword">return</span>;  <span class="comment">// 未找到通路，剩下的顶点与起点不通</span></span><br><span class="line">        vis[u] = <span class="literal">true</span>;  <span class="comment">// 标记 u 已访问</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">0</span>; v &lt; N; v++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 如果 v 未访问, 且 u - v 连通</span></span><br><span class="line">            <span class="keyword">if</span> (!vis[v] &amp;&amp; G[u][v] != INT_MAX) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 如果以 u 为中介点至 v 的距离小于已知 d[v]</span></span><br><span class="line">                <span class="keyword">if</span> (d[u] + G[u][v] &lt; d[v]) &#123;</span><br><span class="line">                    d[v] = d[u] + G[u][v];  <span class="comment">// 更新 d[v]</span></span><br><span class="line">                    w[v] = w[u] + weight[v];  <span class="comment">// 更新点权和</span></span><br><span class="line">                    num[v] = num[u];  <span class="comment">// 更新路径数</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (d[u] + G[u][v] == d[v]) &#123;  <span class="comment">// 路径长度相同</span></span><br><span class="line">                    w[v] = max(w[v], w[u] + weight[v]);  <span class="comment">// 比较获取最大点权</span></span><br><span class="line">                    num[v] += num[u];  <span class="comment">// 路径数累加</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N &gt;&gt; M &gt;&gt; C1 &gt;&gt; C2;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读入点权, 即每个城市的救援队数量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; weight[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化图 G, 边权为无穷大</span></span><br><span class="line">    fill(G[<span class="number">0</span>], G[<span class="number">0</span>] + mxN * mxN, INT_MAX);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读入边权, 即每两个城市的距离, 无向图双向赋值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; M; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> u, v, l;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v &gt;&gt; l;</span><br><span class="line">        G[u][v] = G[v][u] = l;</span><br><span class="line">    &#125;</span><br><span class="line">    dijkstra(C1);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; num[C2] &lt;&lt; <span class="string">" "</span> &lt;&lt; w[C2] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>Output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 5</span><br></pre></td></tr></table></figure>
-
-<h2 id="Sample-3"><a href="#Sample-3" class="headerlink" title="Sample 3"></a>Sample 3</h2><p><strong>Input</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">-2</span><br><span class="line">-3</span><br><span class="line">-4</span><br><span class="line">-5</span><br><span class="line">-1</span><br></pre></td></tr></table></figure>
-
-<p><strong>Output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No Solution</span><br></pre></td></tr></table></figure>
-
-<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>题目划重点：</p>
-<ul>
-<li>N个玩家中有2个狼人</li>
-<li>至少1个狼人说谎</li>
-<li>不是所有狼人都说谎</li>
-<li>有2个玩家说谎</li>
-</ul>
-<p>&emsp;&emsp;也就是说，说谎的两个玩家中1个狼人1个人类。题目要求输出2个狼人的序号，因此枚举所有可能的2个狼人的组合，检查该组合下的说谎玩家数及身份，如果恰为2个玩家说谎且1个狼人1个人类，即为所求解。</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> N;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">vec</span><span class="params">(N + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; vec[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 枚举所有可能的狼人组合</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt;= N; j++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// sign记录身份，liar保存说谎者</span></span><br><span class="line">            vector&lt;int&gt; sign(N + 1, 1), liar;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 假设 i, j为狼人</span></span><br><span class="line">            sign[i] = sign[j] = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 自己说的与事实不符，记为说谎者</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= N; k++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (sign[<span class="built_in">abs</span>(vec[k])] * vec[k] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                    liar.push_back(k);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 说谎者数量为 2，且 1 狼人 1 人类，则 i, j为狼人成立</span></span><br><span class="line">            <span class="keyword">if</span> (liar.size() == <span class="number">2</span> &amp;&amp; sign[liar[<span class="number">0</span>]] * sign[liar[<span class="number">1</span>]] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">" "</span> &lt;&lt; j &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"No Solution"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;没有读清题就开始写了，半路才发现说谎的玩家中1个狼人1个人类。想着能不能用什么巧妙的方法得出结果，无奈太笨。网上搜了搜大佬的解法才知道直接暴力枚举就vans了。</p>
+<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;Dijkstra 基本快忘了，思想是明白的，但写出来有点费劲。之前用到的时候也是直接比着模板写的，但为了准备 PAT 考试，就硬学呗。代码参考了胡凡的《算法笔记》，书上正好有这道题的讲解，很是详细。</p>
 
         </div>
         
             <article class="message is-info"><div class="message-body">
                 <ul>
-                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/07/02/pat-a-1148/">PAT-A 1148 Werewolf - Simple Version (20)</a></li>
+                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/07/03/pat-a-1003/">PAT-A 1003 Emergency (30)</a></li>
                     <li><strong>本文作者：</strong><a href="https://lokka.me">Kain Zhang</a></li>
-                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/07/02/pat-a-1148/">https://lokka.me/2020/07/02/pat-a-1148/</a></li>
-                    <li><strong>发布时间：</strong>2020-07-02</li>
+                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/07/03/pat-a-1003/">https://lokka.me/2020/07/03/pat-a-1003/</a></li>
+                    <li><strong>发布时间：</strong>2020-07-03</li>
                     <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
                     </li>
                 </ul>
@@ -233,7 +203,7 @@
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
                     <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
-                    <a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
+                    <a class="has-link-grey -link" href="/tags/Dijkstra/" rel="tag">Dijkstra</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Graph/" rel="tag">Graph</a>,&nbsp;<a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
                 </div>
             </div>
         </div>
@@ -294,17 +264,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/07/03/pat-a-1003/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">PAT-A 1003 Emergency (30)</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/05/26/pat-a-1081/">
-                <span class="level-item">PAT-A 1081 Rational Sum (20)</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/02/pat-a-1148/">
+                <span class="level-item">PAT-A 1148 Werewolf - Simple Version (20)</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -444,28 +407,20 @@
         <span class="has-mr-6">2</span>
         <span>Output Specification</span>
         </a></li><li>
-        <a class="is-flex" href="#Sample-1">
+        <a class="is-flex" href="#Sample">
         <span class="has-mr-6">3</span>
-        <span>Sample 1</span>
-        </a></li><li>
-        <a class="is-flex" href="#Sample-2">
-        <span class="has-mr-6">4</span>
-        <span>Sample 2</span>
-        </a></li><li>
-        <a class="is-flex" href="#Sample-3">
-        <span class="has-mr-6">5</span>
-        <span>Sample 3</span>
+        <span>Sample</span>
         </a></li><li>
         <a class="is-flex" href="#Analysis">
-        <span class="has-mr-6">6</span>
+        <span class="has-mr-6">4</span>
         <span>Analysis</span>
         </a></li><li>
         <a class="is-flex" href="#Code">
-        <span class="has-mr-6">7</span>
+        <span class="has-mr-6">5</span>
         <span>Code</span>
         </a></li><li>
         <a class="is-flex" href="#Tsukkomi">
-        <span class="has-mr-6">8</span>
+        <span class="has-mr-6">6</span>
         <span>Tsukkomi</span>
         </a></li></ul>
             </div>
@@ -490,7 +445,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="PAT-A 1148 Werewolf - Simple Version (20)" height="28">
+                    <img src="/images/logo.svg" alt="PAT-A 1003 Emergency (30)" height="28">
                 
                 </a>
                 <p class="is-size-7">
