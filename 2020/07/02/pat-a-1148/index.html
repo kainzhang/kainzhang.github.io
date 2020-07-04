@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lokka.me/images/og_image.png">
 <meta property="article:published_time" content="2020-07-02T11:06:42.000Z">
-<meta property="article:modified_time" content="2020-07-03T04:48:44.775Z">
+<meta property="article:modified_time" content="2020-07-04T09:42:03.589Z">
 <meta property="article:author" content="Kain Zhang">
 <meta property="article:tag" content="PAT">
 <meta name="twitter:card" content="summary">
@@ -137,8 +137,8 @@
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-07-02
                 </time>
                 <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-03T04:48:44.775Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-03
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-04T09:42:03.589Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-04
                 </time>
                  -->
                 
@@ -152,7 +152,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    4 minutes read (About 531 words)
+                    4 minutes read (About 549 words)
                 </span>
                 
                 
@@ -181,6 +181,7 @@
 <p>Now you are asked to solve a harder version of this problem: given that there were N players, with 2 werewolves among them, at least one but not all the werewolves were lying, and there were exactly 2 liars. You are supposed to point out the werewolves.</p>
 <a id="more"></a>
 
+<p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/1038429808099098624" title="PAT-A 1148 Werewolf - Simple Version">PAT-A 1148 Werewolf - Simple Version</a></p>
 <h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each case, the first line gives a positive integer N (5 ≤ N ≤ 100). Then N lines follow and the i-th line gives the statement of the i-th player (1 ≤ i ≤ N), which is represented by the index of the player with a positive sign for a human and a negative sign for a werewolf.</p>
 <h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>If a solution exists, print in a line in ascending order the indices of the two werewolves. The numbers must be separated by exactly one space with no extra spaces at the beginning or the end of the line. If there are more than one solution, you must output the smallest solution sequence – that is, for two sequences A=a[1],…,a[M] and B=b[1],…,b[M], if there exists 0 ≤ k &lt; M such that a[i] = b[i] (i ≤ k) and a[k+1]&lt;b[k+1], then A is said to be smaller than B. In case there is no solution, simply print  <code>No Solution</code>.</p>
 <h2 id="Sample-1"><a href="#Sample-1" class="headerlink" title="Sample 1"></a>Sample 1</h2><p><strong>Input</strong></p>
@@ -203,15 +204,15 @@
 
 <h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>题目划重点：</p>
 <ul>
-<li>N个玩家中有2个狼人</li>
-<li>至少1个狼人说谎</li>
+<li>N 个玩家中有 2 个狼人</li>
+<li>至少 1 个狼人说谎</li>
 <li>不是所有狼人都说谎</li>
-<li>有2个玩家说谎</li>
+<li>有 2 个玩家说谎</li>
 </ul>
-<p>&emsp;&emsp;也就是说，说谎的两个玩家中1个狼人1个人类。题目要求输出2个狼人的序号，因此枚举所有可能的2个狼人的组合，检查该组合下的说谎玩家数及身份，如果恰为2个玩家说谎且1个狼人1个人类，即为所求解。</p>
+<p>&emsp;&emsp;也就是说，说谎的 2 个玩家中 1 个狼人 1 个人类。题目要求输出 2 个狼人的序号，因此枚举所有可能的 2 个狼人的组合，检查该组合下的说谎玩家数及身份，如果恰为 2 个玩家说谎且 1 个狼人 1 个人类，即为所求解。</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> N;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">vec</span><span class="params">(N + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; vec[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 枚举所有可能的狼人组合</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt;= N; j++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// sign记录身份，liar保存说谎者</span></span><br><span class="line">            vector&lt;int&gt; sign(N + 1, 1), liar;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 假设 i, j为狼人</span></span><br><span class="line">            sign[i] = sign[j] = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 自己说的与事实不符，记为说谎者</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= N; k++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (sign[<span class="built_in">abs</span>(vec[k])] * vec[k] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                    liar.push_back(k);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 说谎者数量为 2，且 1 狼人 1 人类，则 i, j为狼人成立</span></span><br><span class="line">            <span class="keyword">if</span> (liar.size() == <span class="number">2</span> &amp;&amp; sign[liar[<span class="number">0</span>]] * sign[liar[<span class="number">1</span>]] &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="built_in">cout</span> &lt;&lt; i &lt;&lt; <span class="string">" "</span> &lt;&lt; j &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"No Solution"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;没有读清题就开始写了，半路才发现说谎的玩家中1个狼人1个人类。想着能不能用什么巧妙的方法得出结果，无奈太笨。网上搜了搜大佬的解法才知道直接暴力枚举就vans了。</p>
+<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;没有读清题就开始写了，半路才发现说谎的玩家中1个狼人1个人类。想着能不能用什么巧妙的方法得出结果，无奈太笨。网上搜了搜大佬的解法才知道直接暴力枚举就 vans 了。</p>
 
         </div>
         
@@ -297,7 +298,7 @@
         <div class="level-start">
             <a class="level level-item has-link-grey  article-nav-prev" href="/2020/07/03/pat-a-1003/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">PAT-A 1003 Emergency (30)</span>
+                <span class="level-item">PAT-A 1003 Emergency (25)</span>
             </a>
         </div>
         
@@ -358,7 +359,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            10
+                            11
                         </p>
                     </a>
                 </div>
