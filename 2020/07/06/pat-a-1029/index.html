@@ -7,23 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>PAT-A 1003 Emergency (25) - LOKKA&#39;s Blog</title>
+<title>PAT-A 1029 Median (25) - LOKKA&#39;s Blog</title>
 
 
-    <meta name="description" content="&amp;nbsp;&amp;nbsp;图的 Dijkstra 算法，在算法基础上增加最大点权和以及最短路径条数的记录。   As an emergency rescue team leader of a city, you are given a special map of your country. The map shows several scattered cities connected by s">
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;看似简单，实际被测试点卡哭了。使用 Two Pointers 思想。   Given an increasing sequence S of N integers, the median is the number at the middle position. For example, the median of S1 &#x3D; { 11, 12, 13, 14 } is 1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT-A 1003 Emergency (25)">
-<meta property="og:url" content="https://lokka.me/2020/07/03/pat-a-1003/index.html">
+<meta property="og:title" content="PAT-A 1029 Median (25)">
+<meta property="og:url" content="https://lokka.me/2020/07/06/pat-a-1029/index.html">
 <meta property="og:site_name" content="LOKKA&#39;s Blog">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;图的 Dijkstra 算法，在算法基础上增加最大点权和以及最短路径条数的记录。   As an emergency rescue team leader of a city, you are given a special map of your country. The map shows several scattered cities connected by s">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;看似简单，实际被测试点卡哭了。使用 Two Pointers 思想。   Given an increasing sequence S of N integers, the median is the number at the middle position. For example, the median of S1 &#x3D; { 11, 12, 13, 14 } is 1">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lokka.me/images/og_image.png">
-<meta property="article:published_time" content="2020-07-03T12:19:41.000Z">
+<meta property="article:published_time" content="2020-07-06T01:23:43.000Z">
 <meta property="article:modified_time" content="2020-07-05T18:07:26.437Z">
 <meta property="article:author" content="Kain Zhang">
 <meta property="article:tag" content="PAT">
-<meta property="article:tag" content="Dijkstra">
-<meta property="article:tag" content="Graph">
+<meta property="article:tag" content="Two Pointers">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://lokka.me/images/og_image.png">
 
@@ -85,7 +84,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="PAT-A 1003 Emergency (25)" height="28">
+                <img src="/images/logo.svg" alt="PAT-A 1029 Median (25)" height="28">
             
             </a>
         </div>
@@ -134,15 +133,11 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-07-03T12:19:41.000Z">2020-07-03</time> -->
-                <time class="level-item has-text-grey" datetime="2020-07-03T12:19:41.000Z">
-                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-03
+                <!-- <time class="level-item has-text-grey" datetime="2020-07-06T01:23:43.000Z">2020-07-06</time> -->
+                <time class="level-item has-text-grey" datetime="2020-07-06T01:23:43.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-06
                 </time>
-                <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-05T18:07:26.437Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-05
-                </time>
-                 -->
+                <!--  -->
                 
                 <div class="level-item">
                 <i class="far fa-folder has-text-grey">&nbsp;</i>
@@ -154,7 +149,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    7 minutes read (About 982 words)
+                    5 minutes read (About 822 words)
                 </span>
                 
                 
@@ -163,39 +158,47 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                PAT-A 1003 Emergency (25)
+                PAT-A 1029 Median (25)
             
         </h1>
         <div class="content">
-            <article class="message is-warning"><div class="message-body">
-<p><span class="icon"><i class="fa fa-exclamation-triangle mr-2"></i></span>&nbsp;&nbsp;图的 Dijkstra 算法，在算法基础上增加最大点权和以及最短路径条数的记录。</p>
+            <article class="message is-danger"><div class="message-body">
+<p><span class="icon"><i class="fa fa-bomb mr-2"></i></span>&nbsp;&nbsp;看似简单，实际被测试点卡哭了。使用 Two Pointers 思想。</p>
 </div></article>
 
-<p>As an emergency rescue team leader of a city, you are given a special map of your country. The map shows several scattered cities connected by some roads. Amount of rescue teams in each city and the length of each road between any pair of cities are marked on the map. When there is an emergency call to you from some other city, your job is to lead your men to the place as quickly as possible, and at the mean time, call up as many hands on the way as possible.</p>
+<p>Given an increasing sequence S of N integers, the median is the number at the middle position. For example, the median of S1 = { 11, 12, 13, 14 } is 12, and the median of S2 = { 9, 10, 15, 16, 17 } is 15. The median of two sequences is defined to be the median of the nondecreasing sequence which contains all the elements of both sequences. For example, the median of S1 and S2 is 13.</p>
+<p>Given two increasing sequences of integers, you are asked to find their median.</p>
 <a id="more"></a>
 
-<p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805523835109376" title="PAT-A 1003 Emergency">PAT-A 1003 Emergency</a></p>
-<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each test case, the first line contains 4 positive integers: N (≤ 500) - the number of cities (and the cities are numbered from 0 to N − 1), M - the number of roads, C1 and C2 - the cities that you are currently in and that you must save, respectively. The next line contains N integers, where the i-th integer is the number of rescue teams in the i-th city. Then M lines follow, each describes a road with three integers c​1, c2 and L, which are the pair of cities connected by a road and the length of that road, respectively. It is guaranteed that there exists at least one path from C​1 to C2.</p>
-<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each test case, print in one line two numbers: the number of different shortest paths between C1 and C2, and the maximum amount of rescue teams you can possibly gather. All the numbers in a line must be separated by exactly one space, and there is no extra space allowed at the end of a line.</p>
+<p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805466364755968" title="PAT-A 1029 Median">PAT-A 1029 Median</a></p>
+<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. Each case occupies 2 lines, each gives the information of a sequence. For each sequence, the first positive integer N (≤ 2 × 10^5) is the size of that sequence. Then N integers follow, separated by a space. It is guaranteed that all the integers are in the range of <strong>long int</strong>.</p>
+<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each test case you should output the median of the two given sequences in a line.</p>
 <h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><p><strong>Input</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">5 6 0 2</span><br><span class="line">1 2 1 5 3</span><br><span class="line">0 1 1</span><br><span class="line">0 2 2</span><br><span class="line">0 3 1</span><br><span class="line">1 2 1</span><br><span class="line">2 4 1</span><br><span class="line">3 4 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4 11 12 13 14</span><br><span class="line">5 9 10 15 16 17</span><br></pre></td></tr></table></figure>
 
 <p><strong>Output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 4</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">13</span><br></pre></td></tr></table></figure>
 
-<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;单源最短路径问题，用 Dijkstra 算法。根据题意，每个城市的救援队数量为点权，城市之间的距离为边权。由于题目要求输出结果为最短路径数和最大点权和，添加 num 数组记录起点至各顶点的最短路径数，添加 w 数组记录起点至各个顶点的最大点权和，在计算 d 的同时更新上述两个数组，详情见代码注释。</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mxN = <span class="number">505</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// N:顶点数, M:边数, C1:起点, C2:终点</span></span><br><span class="line"><span class="keyword">int</span> N, M, C1, C2;</span><br><span class="line"><span class="comment">// G:邻接矩阵, d:起点至各点的最短距离, weight:点权, w:最大点权和, num:最短路径条数</span></span><br><span class="line"><span class="keyword">int</span> G[mxN][mxN], d[mxN], weight[mxN], w[mxN], num[mxN];</span><br><span class="line"><span class="keyword">bool</span> vis[mxN] = &#123;<span class="literal">false</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">(<span class="keyword">int</span> s)</span> </span>&#123; <span class="comment">// s 为起点</span></span><br><span class="line"></span><br><span class="line">    fill(d, d + N, INT_MAX);  <span class="comment">// 初始化 d 数组</span></span><br><span class="line">    d[s] = <span class="number">0</span>;  <span class="comment">// 起点到自身距离为 0</span></span><br><span class="line">    w[s] = weight[s];  <span class="comment">// 起点最大点权</span></span><br><span class="line">    num[s] = <span class="number">1</span>;  <span class="comment">// 起点至起点路径数为 1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> u = <span class="number">-1</span>, MIN = INT_MAX;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 遍历 N 个点, 寻找最小 d[]和对应顶点</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!vis[j] &amp;&amp; d[j] &lt; MIN) &#123;</span><br><span class="line">                MIN = d[j];</span><br><span class="line">                u = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (u == <span class="number">-1</span>) <span class="keyword">return</span>;  <span class="comment">// 未找到通路，剩下的顶点与起点不通</span></span><br><span class="line">        vis[u] = <span class="literal">true</span>;  <span class="comment">// 标记 u 已访问</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">0</span>; v &lt; N; v++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 如果 v 未访问, 且 u - v 连通</span></span><br><span class="line">            <span class="keyword">if</span> (!vis[v] &amp;&amp; G[u][v] != INT_MAX) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 如果以 u 为中介点至 v 的距离小于已知 d[v]</span></span><br><span class="line">                <span class="keyword">if</span> (d[u] + G[u][v] &lt; d[v]) &#123;</span><br><span class="line">                    d[v] = d[u] + G[u][v];  <span class="comment">// 更新 d[v]</span></span><br><span class="line">                    w[v] = w[u] + weight[v];  <span class="comment">// 更新点权和</span></span><br><span class="line">                    num[v] = num[u];  <span class="comment">// 更新路径数</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (d[u] + G[u][v] == d[v]) &#123;  <span class="comment">// 路径长度相同</span></span><br><span class="line">                    w[v] = max(w[v], w[u] + weight[v]);  <span class="comment">// 比较获取最大点权</span></span><br><span class="line">                    num[v] += num[u];  <span class="comment">// 路径数累加</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N &gt;&gt; M &gt;&gt; C1 &gt;&gt; C2;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读入点权, 即每个城市的救援队数量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; weight[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化图 G, 边权为无穷大</span></span><br><span class="line">    fill(G[<span class="number">0</span>], G[<span class="number">0</span>] + mxN * mxN, INT_MAX);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读入边权, 即每两个城市的距离, 无向图双向赋值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; M; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> u, v, l;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v &gt;&gt; l;</span><br><span class="line">        G[u][v] = G[v][u] = l;</span><br><span class="line">    &#125;</span><br><span class="line">    dijkstra(C1);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; num[C2] &lt;&lt; <span class="string">" "</span> &lt;&lt; w[C2] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;这题乍一看以为是水题（其实就是水题），看数蛮大的就想着用哈希表统计数字出现次数，然后从小到大累加数字出现次数直至到达中位数。写完交上去的瞬间以为过了，眼睛扫到最下面发现最后一个测试点运行超时…</p>
+<p>&emsp;&emsp;网上搜一圈题解看到很多写法，但无非都是 Two Pointers 的思想。和归并排序差不多，两个指针 i 和 j 分别指向两个序列 A1 和 A2 的头部，不断选择最小的元素以生成第三个序列 A3 也就是合并后的序列。为了节约空间和时间，只读入 A1，A2边读入边移动指针，找到中位数即可结束读入。根据题目我们不需要真的生成第三个序列，只找到中位数即可，也就是排除 (N1 + N2 - 1) / 2 个数，然后从两个指针指向的数中选择最小的。</p>
+<p>&emsp;&emsp;合并的序列 A3 中，可能出现 A1 所有数在中位数左边，或者 A2 所有数在中位数左边。因此在 A1 和 A2 的末尾添加无穷大，以结束该序列的搜索，具体见代码。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><p>&emsp;&emsp;最开始的错误解法，哈希表统计数字。满心欢喜提交上去，结果有一个测试点显示超时，我枯了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mp;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</span><br><span class="line">       <span class="keyword">int</span> N, num;</span><br><span class="line">       <span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">       mid += N;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; j++) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; num;</span><br><span class="line">            mp[num]++;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    mid = <span class="built_in">ceil</span>(mid / <span class="number">2.0</span>);</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> it = mp.begin(); it != mp.end(); it++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (cnt + it-&gt;second &lt; mid) &#123;</span><br><span class="line">            cnt += it-&gt;second;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; it-&gt;first &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;Dijkstra 基本快忘了，思想是明白的，但写出来有点费劲。之前用到的时候也是直接比着模板写的，但为了准备 PAT 考试，就硬学呗。代码参考了胡凡的《算法笔记》，书上正好有这道题的讲解，很是详细。</p>
+<p>&emsp;&emsp;下面是 AC 代码。嫖了大佬思路，用 Two Pointers 思想的解法。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> N1, N2;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N1;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">A1</span><span class="params">(N1 + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N1; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; A1[i];</span><br><span class="line">    &#125;</span><br><span class="line">    A1[N1] = INT_MAX;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N2;</span><br><span class="line">    <span class="keyword">int</span> mid = (N1 + N2 - <span class="number">1</span>) / <span class="number">2</span>, A2, i = <span class="number">0</span>, j = <span class="number">0</span>, cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; A2;</span><br><span class="line">    <span class="keyword">while</span> (cnt++ &lt; mid) &#123;</span><br><span class="line">        <span class="keyword">if</span> (A1[i] &lt; A2) &#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (++j &lt; N2)&#123;</span><br><span class="line">                <span class="built_in">cin</span> &gt;&gt; A2;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                A2 = INT_MAX;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; (A1[i] &lt; A2 ? A1[i] : A2) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;想着好不容易逮到一道水题正好让我爽一下，唰唰唰写完交上去结果被测试点卡得怀疑人生。如果考试时候出了这么道题，那我可能要打出 GG 了。</p>
 
         </div>
         
             <article class="message is-info"><div class="message-body">
                 <ul>
-                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/07/03/pat-a-1003/">PAT-A 1003 Emergency (25)</a></li>
+                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/07/06/pat-a-1029/">PAT-A 1029 Median (25)</a></li>
                     <li><strong>本文作者：</strong><a href="https://lokka.me">Kain Zhang</a></li>
-                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/07/03/pat-a-1003/">https://lokka.me/2020/07/03/pat-a-1003/</a></li>
-                    <li><strong>发布时间：</strong>2020-07-03</li>
+                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/07/06/pat-a-1029/">https://lokka.me/2020/07/06/pat-a-1029/</a></li>
+                    <li><strong>发布时间：</strong>2020-07-06</li>
                     <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
                     </li>
                 </ul>
@@ -208,7 +211,7 @@
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
                     <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
-                    <a class="has-link-grey -link" href="/tags/Dijkstra/" rel="tag">Dijkstra</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Graph/" rel="tag">Graph</a>,&nbsp;<a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
+                    <a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Two-Pointers/" rel="tag">Two Pointers</a>
                 </div>
             </div>
         </div>
@@ -269,17 +272,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/07/04/pat-a-1010/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">PAT-A 1010 Radix (25)</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/02/pat-a-1148/">
-                <span class="level-item">PAT-A 1148 Werewolf - Simple Version (20)</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/05/pat-a-1021/">
+                <span class="level-item">PAT-A 1021 Deepest Root (25)</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -457,7 +453,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="PAT-A 1003 Emergency (25)" height="28">
+                    <img src="/images/logo.svg" alt="PAT-A 1029 Median (25)" height="28">
                 
                 </a>
                 <p class="is-size-7">
