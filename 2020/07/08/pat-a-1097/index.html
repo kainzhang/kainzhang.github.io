@@ -7,21 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>PAT-A 1081 Rational Sum (20) - LOKKA&#39;s Blog</title>
+<title>PAT-A 1097 Deduplication on a Linked List (25) - LOKKA&#39;s Blog</title>
 
 
-    <meta name="description" content="&amp;nbsp;&amp;nbsp;记录一次被水题的测试点教做人的经历，果然还是差得远。   Given N rational numbers in the form numerator&#x2F;denominator, you are supposed to calculate their sum.">
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;简单链表操作。出现段错误。   Given a singly linked list L with integer keys, you are supposed to remove the nodes with duplicated absolute values of the keys. That is, for each value K, only the first">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT-A 1081 Rational Sum (20)">
-<meta property="og:url" content="https://lokka.me/2020/05/26/pat-a-1081/index.html">
+<meta property="og:title" content="PAT-A 1097 Deduplication on a Linked List (25)">
+<meta property="og:url" content="https://lokka.me/2020/07/08/pat-a-1097/index.html">
 <meta property="og:site_name" content="LOKKA&#39;s Blog">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;记录一次被水题的测试点教做人的经历，果然还是差得远。   Given N rational numbers in the form numerator&#x2F;denominator, you are supposed to calculate their sum.">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;简单链表操作。出现段错误。   Given a singly linked list L with integer keys, you are supposed to remove the nodes with duplicated absolute values of the keys. That is, for each value K, only the first">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lokka.me/images/og_image.png">
-<meta property="article:published_time" content="2020-05-26T01:29:14.000Z">
+<meta property="article:published_time" content="2020-07-08T23:34:31.000Z">
 <meta property="article:modified_time" content="2020-07-08T15:52:00.228Z">
 <meta property="article:author" content="Kain Zhang">
 <meta property="article:tag" content="PAT">
+<meta property="article:tag" content="Linked List">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://lokka.me/images/og_image.png">
 
@@ -83,7 +84,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="PAT-A 1081 Rational Sum (20)" height="28">
+                <img src="/images/logo.svg" alt="PAT-A 1097 Deduplication on a Linked List (25)" height="28">
             
             </a>
         </div>
@@ -132,15 +133,11 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-05-26T01:29:14.000Z">2020-05-26</time> -->
-                <time class="level-item has-text-grey" datetime="2020-05-26T01:29:14.000Z">
-                    <i class="far fa-calendar-alt">&nbsp;</i>2020-05-26
+                <!-- <time class="level-item has-text-grey" datetime="2020-07-08T23:34:31.000Z">2020-07-08</time> -->
+                <time class="level-item has-text-grey" datetime="2020-07-08T23:34:31.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-08
                 </time>
-                <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-08T15:52:00.228Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-08
-                </time>
-                 -->
+                <!--  -->
                 
                 <div class="level-item">
                 <i class="far fa-folder has-text-grey">&nbsp;</i>
@@ -152,7 +149,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    5 minutes read (About 717 words)
+                    4 minutes read (About 597 words)
                 </span>
                 
                 
@@ -161,63 +158,45 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                PAT-A 1081 Rational Sum (20)
+                PAT-A 1097 Deduplication on a Linked List (25)
             
         </h1>
         <div class="content">
-            <article class="message is-info"><div class="message-body">
-<p><span class="icon"><i class="fa fa-paper-plane mr-2"></i></span>&nbsp;&nbsp;记录一次被水题的测试点教做人的经历，果然还是差得远。</p>
+            <article class="message is-success"><div class="message-body">
+<p><span class="icon"><i class="fa fa-check mr-2"></i></span>&nbsp;&nbsp;简单链表操作。出现段错误。</p>
 </div></article>
 
-<p>Given N rational numbers in the form <code>numerator/denominator</code>, you are supposed to calculate their sum.</p>
+<p>Given a singly linked list L with integer keys, you are supposed to remove the nodes with duplicated absolute values of the keys. That is, for each value K, only the first node of which the value or absolute value of its key equals K will be kept. At the mean time, all the removed nodes must be kept in a separate list. For example, given L being 21 → -15 → -15 → -7 → 15, you must output 21 → -15 → -7, and the removed list -15 → 15.</p>
 <a id="more"></a>
 
-<p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805386161274880" title="PAT-A 1081 Rational Sum">PAT-A 1081 Rational Sum</a></p>
-<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. Each case starts with a positive integer N (≤100), followed in the next line N rational numbers a1/b1 a2/b2 … where all the numerators and denominators are in the range of long int. If there is a negative number, then the sign must appear in front of the numerator.</p>
-<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each test case, output the sum in the simplest form <code>integer numerator/denominator</code> where <code>integer</code> is the integer part of the sum, <code>numerator</code> &lt; <code>denominator</code>, and the numerator and the denominator have no common factor. You must output only the fractional part if the integer part is 0.</p>
-<h2 id="Sample-1"><a href="#Sample-1" class="headerlink" title="Sample 1"></a>Sample 1</h2><p><strong>Input</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">2&#x2F;5 4&#x2F;15 1&#x2F;30 -2&#x2F;60 8&#x2F;3</span><br></pre></td></tr></table></figure>
+<p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805369774129152" title="PAT-A 1097 Deduplication on a Linked List">PAT-A 1097 Deduplication on a Linked List</a></p>
+<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each case, the first line contains the address of the first node, and a positive N (≤ 10^5) which is the total number of nodes. The address of a node is a 5-digit nonnegative integer, and NULL is represented by −1.</p>
+<p>Then N lines follow, each describes a node in the format:</p>
+<blockquote>
+<p>Address <strong>Key</strong> <strong>Next</strong></p>
+</blockquote>
+<p>where <code>Address</code> is the position of the node, <code>Key</code> is an integer of which absolute value is no more than 10^4, and <code>Next</code> is the position of the next node.</p>
+<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each case, output the resulting linked list first, then the removed list. Each node occupies a line, and is printed in the same format as in the input.</p>
+<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><p><strong>Input</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">00100 5</span><br><span class="line">99999 -7 87654</span><br><span class="line">23854 -15 00000</span><br><span class="line">87654 15 -1</span><br><span class="line">00000 -15 99999</span><br><span class="line">00100 21 23854</span><br></pre></td></tr></table></figure>
 
 <p><strong>Output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 1&#x2F;3</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">00100 21 23854</span><br><span class="line">23854 -15 99999</span><br><span class="line">99999 -7 -1</span><br><span class="line">00000 -15 87654</span><br><span class="line">87654 15 -1</span><br></pre></td></tr></table></figure>
 
-<h2 id="Sample-2"><a href="#Sample-2" class="headerlink" title="Sample 2"></a>Sample 2</h2><p><strong>Input</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">4&#x2F;3 2&#x2F;3</span><br></pre></td></tr></table></figure>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;题目大意：给一个链表，删除链表中绝对值相同的元素，并将删除的元素按照删除顺序组成新的链表。输出处理过的原链表和生成的删除链表。</p>
+<p>&emsp;&emsp;简单的链表操作，注意输出为 5 位数字，左侧不足 5 位需要补零，另外要判断 -1 的输出。测试点中存在删除链表为空的数据，因此访问和输出删除链表时需要判断，否则会出现段错误。具体见代码</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> key, nxt;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, Node&gt; mp;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; vis;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_ll</span><span class="params">(<span class="keyword">int</span> head)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (head != <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%05d %d "</span>, head, mp[head].key);</span><br><span class="line">        <span class="keyword">if</span> (mp[head].nxt == <span class="number">-1</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%05d\n"</span>,  mp[head].nxt);</span><br><span class="line">        &#125;</span><br><span class="line">        head = mp[head].nxt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> head, N;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; head &gt;&gt; N;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        Node nd;</span><br><span class="line">        <span class="keyword">int</span> addr;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; addr &gt;&gt; nd.key &gt;&gt; nd.nxt;</span><br><span class="line">        mp[addr] = nd;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> res = head, rem_head = <span class="number">-1</span>;</span><br><span class="line">    Node *res_pre = &amp;mp[head], *rem_pre = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span> (res != <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> tmp = mp[res].nxt;</span><br><span class="line">        <span class="keyword">if</span> (vis[<span class="built_in">abs</span>(mp[res].key)]) &#123;</span><br><span class="line">            <span class="keyword">if</span> (rem_head == <span class="number">-1</span>) &#123;</span><br><span class="line">                rem_head = res;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                rem_pre-&gt;nxt = res;</span><br><span class="line">            &#125;</span><br><span class="line">            rem_pre = &amp;mp[res];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            vis[<span class="built_in">abs</span>(mp[res].key)]++;</span><br><span class="line">            res_pre-&gt;nxt = res;</span><br><span class="line">            res_pre = &amp;mp[res];</span><br><span class="line">        &#125;</span><br><span class="line">        res = tmp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 处理链表末尾</span></span><br><span class="line">    res_pre-&gt;nxt = <span class="number">-1</span>;</span><br><span class="line">    <span class="comment">// 如果删除表为空则不访问, 否则出现段错误</span></span><br><span class="line">    <span class="keyword">if</span> (rem_pre != <span class="literal">NULL</span>) rem_pre-&gt;nxt = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">    print_ll(head);</span><br><span class="line">    print_ll(rem_head);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>Output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
-
-<h2 id="Sample-3"><a href="#Sample-3" class="headerlink" title="Sample 3"></a>Sample 3</h2><p><strong>Input</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1&#x2F;3 -1&#x2F;6 1&#x2F;8</span><br></pre></td></tr></table></figure>
-
-<p><strong>Output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7&#x2F;24</span><br></pre></td></tr></table></figure>
-
-<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;简单的分数加法运算，需要对分数进行化简，即计算最大公约数。测试点只有5个，虽然没有涉及分母为0的情况，但对输出格式抠得还是很死的。输出格式有以下几种。</p>
-<ul>
-<li>整数部分为0，分子部分不为0，输出分数</li>
-<li>整数部分不为0，分子部分为0，输出整数</li>
-<li>整数部分不为0，分子部分不为0，输出整数 + 分数</li>
-<li>整数部分和分子部分均为0，输出一个0</li>
-</ul>
-<article class="message is-danger"><div class="message-body">
-<p><span class="icon"><i class="fa fa-star mr-2"></i></span>&nbsp;&nbsp;两个分数相加时会出现溢出，long long不够用，需要先化简。</p>
-</div></article>
-
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b == <span class="number">0</span> ? a : gcd(b, a % b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> N, num, numS = <span class="number">0</span>, den, denS = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;N);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d/%d"</span>, &amp;num, &amp;den);</span><br><span class="line">        numS = numS * den + denS * num;</span><br><span class="line">        denS = denS * den;</span><br><span class="line">        <span class="keyword">int</span> t = gcd(<span class="built_in">abs</span>(numS), <span class="built_in">abs</span>(denS));</span><br><span class="line">        numS /= t;</span><br><span class="line">        denS /= t;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> itg = numS / denS;   <span class="comment">// 获得整数部分</span></span><br><span class="line">    numS %= denS;</span><br><span class="line">    <span class="keyword">if</span> (itg != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>, itg);    <span class="comment">// 输出非 0 整数部分</span></span><br><span class="line">        <span class="keyword">if</span> (numS == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;    <span class="comment">// 分子为 0, 结束</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (numS == <span class="number">0</span>) &#123;    <span class="comment">// 整数, 分子均为 0</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"0"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;    <span class="comment">// 分子不为零</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d/%d"</span>, numS, denS);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;一开始写的时候没有划清4种输出格式，代码写得很乱，拆东墙补西墙，就完全自己挖坑往里跳。后来受不了了直接重写了输出部分，重新理一遍写出来交上去，始终就有一个测试点过不了。</p>
-<p>&emsp;&emsp;起初我的循环部分是下面这么写的，一直有一个测试点通过不能，核对了半天输出格式，编了各种测试用例都没问题，每次交上去就是有一个不过。网上搜别人的核对后确认输出都是正确的，然后才想到是不是溢出了。给第一个输入的分数添加了化简操作，就过了……</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ll num, numS, den, denS;</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d %lld/%lld"</span>, &amp;N, &amp;numS, &amp;denS);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++) &#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld/%lld"</span>, &amp;num, &amp;den);</span><br><span class="line">    numS = numS * den + denS * num;</span><br><span class="line">    denS *= den;</span><br><span class="line">    t = gcd(<span class="built_in">abs</span>(numS), <span class="built_in">abs</span>(denS));</span><br><span class="line">    numS /= t;</span><br><span class="line">    denS /= t;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;没什么好吐槽的，早睡护肝儿。</p>
 
         </div>
         
             <article class="message is-info"><div class="message-body">
                 <ul>
-                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/05/26/pat-a-1081/">PAT-A 1081 Rational Sum (20)</a></li>
+                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/07/08/pat-a-1097/">PAT-A 1097 Deduplication on a Linked List (25)</a></li>
                     <li><strong>本文作者：</strong><a href="https://lokka.me">Kain Zhang</a></li>
-                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/05/26/pat-a-1081/">https://lokka.me/2020/05/26/pat-a-1081/</a></li>
-                    <li><strong>发布时间：</strong>2020-05-26</li>
+                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/07/08/pat-a-1097/">https://lokka.me/2020/07/08/pat-a-1097/</a></li>
+                    <li><strong>发布时间：</strong>2020-07-08</li>
                     <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
                     </li>
                 </ul>
@@ -230,7 +209,7 @@
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
                     <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
-                    <a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
+                    <a class="has-link-grey -link" href="/tags/Linked-List/" rel="tag">Linked List</a>,&nbsp;<a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
                 </div>
             </div>
         </div>
@@ -291,17 +270,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/07/02/pat-a-1148/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">PAT-A 1148 Werewolf - Simple Version (20)</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/05/22/01-knapsack-using-branch-n-bound/">
-                <span class="level-item">使用分支限界法解决0/1背包问题</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/07/pat-a-1056/">
+                <span class="level-item">PAT-A 1056 Mice and Rice (25)</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -441,28 +413,20 @@
         <span class="has-mr-6">2</span>
         <span>Output Specification</span>
         </a></li><li>
-        <a class="is-flex" href="#Sample-1">
+        <a class="is-flex" href="#Sample">
         <span class="has-mr-6">3</span>
-        <span>Sample 1</span>
-        </a></li><li>
-        <a class="is-flex" href="#Sample-2">
-        <span class="has-mr-6">4</span>
-        <span>Sample 2</span>
-        </a></li><li>
-        <a class="is-flex" href="#Sample-3">
-        <span class="has-mr-6">5</span>
-        <span>Sample 3</span>
+        <span>Sample</span>
         </a></li><li>
         <a class="is-flex" href="#Analysis">
-        <span class="has-mr-6">6</span>
+        <span class="has-mr-6">4</span>
         <span>Analysis</span>
         </a></li><li>
         <a class="is-flex" href="#Code">
-        <span class="has-mr-6">7</span>
+        <span class="has-mr-6">5</span>
         <span>Code</span>
         </a></li><li>
         <a class="is-flex" href="#Tsukkomi">
-        <span class="has-mr-6">8</span>
+        <span class="has-mr-6">6</span>
         <span>Tsukkomi</span>
         </a></li></ul>
             </div>
@@ -487,7 +451,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="PAT-A 1081 Rational Sum (20)" height="28">
+                    <img src="/images/logo.svg" alt="PAT-A 1097 Deduplication on a Linked List (25)" height="28">
                 
                 </a>
                 <p class="is-size-7">
