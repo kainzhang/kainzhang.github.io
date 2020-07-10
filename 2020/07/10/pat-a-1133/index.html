@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.1" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>PAT-A 1133 Splitting A Linked List (25) - LOKKA&#39;s Blog</title>
+
+
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;又是链表，又是段错误。   Given a singly linked list, you are supposed to rearrange its elements so that all the negative values appear before all of the non-negatives, and all the values in [0, K] a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT-A 1133 Splitting A Linked List (25)">
+<meta property="og:url" content="https://lokka.me/2020/07/10/pat-a-1133/index.html">
+<meta property="og:site_name" content="LOKKA&#39;s Blog">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;又是链表，又是段错误。   Given a singly linked list, you are supposed to rearrange its elements so that all the negative values appear before all of the non-negatives, and all the values in [0, K] a">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lokka.me/images/og_image.png">
+<meta property="article:published_time" content="2020-07-10T21:39:35.000Z">
+<meta property="article:modified_time" content="2020-07-10T14:09:52.655Z">
+<meta property="article:author" content="Kain Zhang">
+<meta property="article:tag" content="PAT">
+<meta property="article:tag" content="Linked List">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lokka.me/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<!-- <body class="is-2-column"> -->
+
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="PAT-A 1133 Splitting A Linked List (25)" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2020-07-10T21:39:35.000Z">2020-07-10</time> -->
+                <time class="level-item has-text-grey" datetime="2020-07-10T21:39:35.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-10
+                </time>
+                <!--  -->
+                
+                <div class="level-item">
+                <i class="far fa-folder has-text-grey">&nbsp;</i>
+                <a class="has-link-grey -link" href="/categories/Note/">Note</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Note/Problem/">Problem</a>
+                </div>
+                
+                
+                <i class="far fa-clock has-text-grey is-hidden-mobile">&nbsp;</i>
+                <span class="level-item has-text-grey is-hidden-mobile">
+                    
+                    
+                    6 minutes read (About 967 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                PAT-A 1133 Splitting A Linked List (25)
+            
+        </h1>
+        <div class="content">
+            <article class="message is-warning"><div class="message-body">
+<p><span class="icon"><i class="fa fa-exclamation-triangle mr-2"></i></span>&nbsp;&nbsp;又是链表，又是段错误。</p>
+</div></article>
+
+<p>Given a singly linked list, you are supposed to rearrange its elements so that all the negative values appear before all of the non-negatives, and all the values in [0, K] appear before all those greater than K. The order of the elements inside each class must not be changed. For example, given the list being 18 → 7 → -4 → 0 → 5 → -6 → 10 → 11 → -2 and K being 10, you must output -4 → -6 → -2 → 7 → 0 → 5 → 10 → 18 → 11.</p>
+<a id="more"></a>
+
+<p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805346776760320" title="PAT-A 1133 Splitting A Linked List">PAT-A 1133 Splitting A Linked List</a></p>
+<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each case, the first line contains the address of the first node, a positive N (≤ 10^5) which is the total number of nodes, and a positive K (≤ 10^​3). The address of a node is a 5-digit nonnegative integer, and NULL is represented by −1.</p>
+<p>Then N lines follow, each describes a node in the format:</p>
+<blockquote>
+<p>Address Data Next</p>
+</blockquote>
+<p>where <code>Address</code> is the position of the node, <code>Data</code> is an integer in [−10^5, 10^5], and <code>Next</code> is the position of the next node. It is guaranteed that the list is not empty.</p>
+<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each case, output in order (from beginning to the end of the list) the resulting linked list. Each node occupies a line, and is printed in the same format as in the input.</p>
+<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><p><strong>Input</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">00100 9 10</span><br><span class="line">23333 10 27777</span><br><span class="line">00000 0 99999</span><br><span class="line">00100 18 12309</span><br><span class="line">68237 -6 23333</span><br><span class="line">33218 -4 00000</span><br><span class="line">48652 -2 -1</span><br><span class="line">99999 5 68237</span><br><span class="line">27777 11 48652</span><br><span class="line">12309 7 33218</span><br></pre></td></tr></table></figure>
+
+<p><strong>Output</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">33218 -4 68237</span><br><span class="line">68237 -6 48652</span><br><span class="line">48652 -2 12309</span><br><span class="line">12309 7 00000</span><br><span class="line">00000 0 99999</span><br><span class="line">99999 5 23333</span><br><span class="line">23333 10 00100</span><br><span class="line">00100 18 27777</span><br><span class="line">27777 11 -1</span><br></pre></td></tr></table></figure>
+
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;题目大意：给一个链表，和一个正整数 K，要求链表中值为负数的元素在最左边，小于 K 的元素在 K 左边，大于 K 的元素在 K 右边。输出修改后的链表内容。</p>
+<p>&emsp;&emsp;遍历链表，将小于 0 的元素、大于等于 0 且小于等于 K 的元素、大于 K 的元素分别保存于 3 个不同的数组中，使用 push_back() 确保顺序。不需要修改结点的 Next 属性，在输出 Next 时直接输出数组中下一结点的地址。</p>
+<article class="message is-danger"><div class="message-body">
+<p><span class="icon"><i class="fa fa-star mr-2"></i></span>&nbsp;&nbsp;数字 K 不一定存在于链表中；根据思路划分的三个数组均可能为空，注意数组越界。</p>
+</div></article>
+
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><p>&emsp;&emsp;下面是第一回过的代码，比较莽，输出占了大部分。分了三个数组，整了一堆判断，起初在这段代码上被数组越界玩死了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> addr, data, nxt;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, Node&gt; mp;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> hd, N, K;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; hd &gt;&gt; N &gt;&gt; K;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        Node tmp;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; tmp.addr &gt;&gt; tmp.data &gt;&gt; tmp.nxt;</span><br><span class="line">        mp[tmp.addr] = tmp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;Node&gt; neg, kl, kr;</span><br><span class="line">    <span class="keyword">while</span> (hd != <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (mp[hd].data &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            neg.push_back(mp[hd]);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mp[hd].data &lt;= K) &#123;</span><br><span class="line">            kl.push_back(mp[hd]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            kr.push_back(mp[hd]);</span><br><span class="line">        &#125;</span><br><span class="line">        hd = mp[hd].nxt;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> len = neg.size();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%05d %d "</span>, neg[i].addr, neg[i].data);</span><br><span class="line">        <span class="keyword">if</span> (i == len - <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!kl.empty()) &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%05d\n"</span>, kl[<span class="number">0</span>].addr);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!kr.empty())&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%05d\n"</span>, kr[<span class="number">0</span>].addr);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%05d\n"</span>, neg[i + <span class="number">1</span>].addr);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    len = kl.size();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%05d %d "</span>, kl[i].addr, kl[i].data);</span><br><span class="line">        <span class="keyword">if</span> (i == len - <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!kr.empty()) &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%05d\n"</span>, kr[<span class="number">0</span>].addr);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%05d\n"</span>, kl[i + <span class="number">1</span>].addr);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    len = kr.size();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%05d %d "</span>, kr[i].addr, kr[i].data);</span><br><span class="line">        <span class="keyword">if</span> (i == len - <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%05d\n"</span>, kr[i + <span class="number">1</span>].addr);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>&emsp;&emsp;下面是简化后的代码，可读性较强。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> addr, data, nxt;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, Node&gt; mp;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> hd, N, K;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; hd &gt;&gt; N &gt;&gt; K;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        Node tmp;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; tmp.addr &gt;&gt; tmp.data &gt;&gt; tmp.nxt;</span><br><span class="line">        mp[tmp.addr] = tmp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;Node&gt; v[<span class="number">3</span>];</span><br><span class="line">    <span class="keyword">while</span> (hd != <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (mp[hd].data &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            v[<span class="number">0</span>].push_back(mp[hd]);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (mp[hd].data &lt;= K) &#123;</span><br><span class="line">            v[<span class="number">1</span>].push_back(mp[hd]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            v[<span class="number">2</span>].push_back(mp[hd]);</span><br><span class="line">        &#125;</span><br><span class="line">        hd = mp[hd].nxt;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> len = v[i].size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!flag++) &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%05d %d "</span>, v[i][j].addr, v[i][j].data);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%05d\n%05d %d "</span>, v[i][j].addr, v[i][j].addr, v[i][j].data);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"-1\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;开始没仔细读题，以为 K 是链表中的元素，于是在第一遍的代码中默认第二个数组一定不为空了。交上去发现有两个测试点提示段错误，还有点怀疑人生。代码也写得太乱了，其实难度不大，但浪费了不少时间。</p>
+
+        </div>
+        
+            <article class="message is-info"><div class="message-body">
+                <ul>
+                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/07/10/pat-a-1133/">PAT-A 1133 Splitting A Linked List (25)</a></li>
+                    <li><strong>本文作者：</strong><a href="https://lokka.me">Kain Zhang</a></li>
+                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/07/10/pat-a-1133/">https://lokka.me/2020/07/10/pat-a-1133/</a></li>
+                    <li><strong>发布时间：</strong>2020-07-10</li>
+                    <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+                    </li>
+                </ul>
+            </div></article>
+            <br>
+        
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
+                    <a class="has-link-grey -link" href="/tags/Linked-List/" rel="tag">Linked List</a>,&nbsp;<a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations" />
+    <input type="hidden" name="business" value="E5US23TM56DQN" />
+    <input type="hidden" name="currency_code" value="USD" />
+</form>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="/images/wechat.jpg" alt="Wechat"></div>
+</a>
+
+                
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="/images/alipay.jpg" alt="Alipay"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/09/pat-a-1127/">
+                <span class="level-item">PAT-A 1127 ZigZagging on a Tree (30)</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/common/hitomi.png" alt="Kain Zhang">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Kain Zhang
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        LIVE A LIFE YOU WILL REMEMBER
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>からっぽ島</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            17
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            6
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            14
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/kainzhang" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i>&nbsp;
+                Github
+            </a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Steam" href="http://steamcommunity.com/id/kainzhang">
+                
+                <i class="fab fa-steam"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://facebook.com/kz.lokka">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Twitter" href="https://twitter.com/kz_lokka">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+
+    <!-- <div class="card widget" id="toc"> -->
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    Catalogue
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#Input-Specification">
+        <span class="has-mr-6">1</span>
+        <span>Input Specification</span>
+        </a></li><li>
+        <a class="is-flex" href="#Output-Specification">
+        <span class="has-mr-6">2</span>
+        <span>Output Specification</span>
+        </a></li><li>
+        <a class="is-flex" href="#Sample">
+        <span class="has-mr-6">3</span>
+        <span>Sample</span>
+        </a></li><li>
+        <a class="is-flex" href="#Analysis">
+        <span class="has-mr-6">4</span>
+        <span>Analysis</span>
+        </a></li><li>
+        <a class="is-flex" href="#Code">
+        <span class="has-mr-6">5</span>
+        <span>Code</span>
+        </a></li><li>
+        <a class="is-flex" href="#Tsukkomi">
+        <span class="has-mr-6">6</span>
+        <span>Tsukkomi</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="PAT-A 1133 Splitting A Linked List (25)" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Kain Zhang&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Noncommericial" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons-nc"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Share Alike" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://lokka.me',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":225,"height":350},"mobile":{"show":false,"scale":0.7},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
