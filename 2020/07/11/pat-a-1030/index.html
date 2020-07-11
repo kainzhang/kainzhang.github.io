@@ -7,24 +7,25 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>使用Travis CI部署Hexo博客 - LOKKA&#39;s Blog</title>
+<title>PAT-A 1030 Travel Plan (30) - LOKKA&#39;s Blog</title>
 
 
-    <meta name="description" content="&amp;emsp;&amp;emsp;使用Travis CI部署Hexo博客是Hexo官方文档推荐的部署方法，但是博客源文件会被公开。起初就是因为这一点没有使用Travis CI部署，但是刚成功部署完Hexo发了第一篇博文后我就在想，博客源文件都在本地，如果我换电脑了或者源文件不在身边或者电脑坏了怎么办？岂不是很麻烦？我这么怕麻烦个人… &amp;emsp;&amp;emsp;当时就搜了这个问题，果然大佬们早就提供了解决方案。">
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;使用 Dijkstra 算法解决最短路径问题；使用 DFS 逆推整条路线。   A traveler’s map gives the distances between cities along the highways, together with the cost of each highway. Now you are supposed to write a pro">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用Travis CI部署Hexo博客">
-<meta property="og:url" content="https://lokka.me/2020/05/02/travis-ci-deploy-hexo/index.html">
+<meta property="og:title" content="PAT-A 1030 Travel Plan (30)">
+<meta property="og:url" content="https://lokka.me/2020/07/11/pat-a-1030/index.html">
 <meta property="og:site_name" content="LOKKA&#39;s Blog">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;使用Travis CI部署Hexo博客是Hexo官方文档推荐的部署方法，但是博客源文件会被公开。起初就是因为这一点没有使用Travis CI部署，但是刚成功部署完Hexo发了第一篇博文后我就在想，博客源文件都在本地，如果我换电脑了或者源文件不在身边或者电脑坏了怎么办？岂不是很麻烦？我这么怕麻烦个人… &amp;emsp;&amp;emsp;当时就搜了这个问题，果然大佬们早就提供了解决方案。">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;使用 Dijkstra 算法解决最短路径问题；使用 DFS 逆推整条路线。   A traveler’s map gives the distances between cities along the highways, together with the cost of each highway. Now you are supposed to write a pro">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/02/michael-liao-GQe23-3-Lf8-unsplash.jpg">
-<meta property="article:published_time" content="2020-05-02T12:31:50.000Z">
+<meta property="og:image" content="https://lokka.me/images/og_image.png">
+<meta property="article:published_time" content="2020-07-11T22:56:09.000Z">
 <meta property="article:modified_time" content="2020-07-11T15:24:30.307Z">
 <meta property="article:author" content="Kain Zhang">
-<meta property="article:tag" content="Travis CI">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="PAT">
+<meta property="article:tag" content="Dijkstra">
+<meta property="article:tag" content="Graph">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/02/michael-liao-GQe23-3-Lf8-unsplash.jpg">
+<meta name="twitter:image" content="https://lokka.me/images/og_image.png">
 
 
 
@@ -84,7 +85,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="使用Travis CI部署Hexo博客" height="28">
+                <img src="/images/logo.svg" alt="PAT-A 1030 Travel Plan (30)" height="28">
             
             </a>
         </div>
@@ -129,29 +130,19 @@
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
     
-    <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/02/michael-liao-GQe23-3-Lf8-unsplash.jpg" alt="使用Travis CI部署Hexo博客">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-05-02T12:31:50.000Z">2020-05-02</time> -->
-                <time class="level-item has-text-grey" datetime="2020-05-02T12:31:50.000Z">
-                    <i class="far fa-calendar-alt">&nbsp;</i>2020-05-02
+                <!-- <time class="level-item has-text-grey" datetime="2020-07-11T22:56:09.000Z">2020-07-11</time> -->
+                <time class="level-item has-text-grey" datetime="2020-07-11T22:56:09.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-11
                 </time>
-                <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-11T15:24:30.307Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-11
-                </time>
-                 -->
+                <!--  -->
                 
                 <div class="level-item">
                 <i class="far fa-folder has-text-grey">&nbsp;</i>
-                <a class="has-link-grey -link" href="/categories/Tech/">Tech</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Tech/Blog/">Blog</a>
+                <a class="has-link-grey -link" href="/categories/Note/">Note</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Note/Problem/">Problem</a>
                 </div>
                 
                 
@@ -159,7 +150,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    8 minutes read (About 1270 words)
+                    4 minutes read (About 627 words)
                 </span>
                 
                 
@@ -168,47 +159,43 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                使用Travis CI部署Hexo博客
+                PAT-A 1030 Travel Plan (30)
             
         </h1>
         <div class="content">
-            <p>&emsp;&emsp;使用Travis CI部署Hexo博客是Hexo官方文档推荐的部署方法，但是博客源文件会被公开。起初就是因为这一点没有使用Travis CI部署，但是刚成功部署完Hexo发了第一篇博文后我就在想，博客源文件都在本地，如果我换电脑了或者源文件不在身边或者电脑坏了怎么办？岂不是很麻烦？我这么怕麻烦个人…</p>
-<p>&emsp;&emsp;当时就搜了这个问题，果然大佬们早就提供了解决方案。一般都是把源文件也放在github，或者推送到分支。我想既然都放到分支上了，不如直接按官方推荐的，用Travis CI部署，这样甚至可以随时随地修改博文，即便本地没有环境，也可以把md交到仓库即时发布。</p>
+            <article class="message is-warning"><div class="message-body">
+<p><span class="icon"><i class="fa fa-exclamation-triangle mr-2"></i></span>&nbsp;&nbsp;使用 Dijkstra 算法解决最短路径问题；使用 DFS 逆推整条路线。</p>
+</div></article>
+
+<p>A traveler’s map gives the distances between cities along the highways, together with the cost of each highway. Now you are supposed to write a program to help a traveler to decide the shortest path between his/her starting city and the destination. If such a shortest path is not unique, you are supposed to output the one with the minimum cost, which is guaranteed to be unique.</p>
 <a id="more"></a>
 
-<hr>
-<h2 id="关于Travis-CI"><a href="#关于Travis-CI" class="headerlink" title="关于Travis CI"></a>关于Travis CI</h2><p>&emsp;&emsp;Travis CI提供持续集成服务，目前仅支持Github项目。它提供环境帮用户构建、测试、部署项目，在你提交代码后，它会clone你的项目，配置环境并安装依赖，然后返回运行结果。具体内容请查阅 <a href="https://docs.travis-ci.com/">官方文档</a>。</p>
-<p>&emsp;&emsp;放到Github Pages部署的Hexo来说，就是当你的Hexo项目有改变时，它会帮你生成静态文件，并部署到你指定的项目分支。</p>
-<hr>
-<h2 id="部署Hexo"><a href="#部署Hexo" class="headerlink" title="部署Hexo"></a>部署Hexo</h2><p>&emsp;&emsp;<a href="https://hexo.io/zh-cn/docs/github-pages">Hexo官方文档</a> 提供了详细的步骤，我就记录一些遇到的坑吧。</p>
-<h3 id="分支问题"><a href="#分支问题" class="headerlink" title="分支问题"></a>分支问题</h3><p>&emsp;&emsp;按照Hexo官方文档的步骤，Hexo项目被推送到项目Master分支，然后由Travis CI将静态文件发布至gh-pages分支，在Github Pages设定中选择gh-pages分支进行部署。我记得不久前Github Pages还是可以自行选择分支的，但现在仅支持部署Master分支了，如图。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/02/200502-0.png" alt=""></p>
-<p>&emsp;&emsp;也就是说Master分支要放静态文件，另开一个分支放源文件。第一次部署Hexo的朋友需要注意这个问题，对于已经把静态文件推送到Master分支的朋友来说，没有任何影响，源文件直接推送新的分支就vans了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"init blog"</span></span><br><span class="line">git remote add origin https://github.com/&lt;用户名&gt;/&lt;用户名&gt;.github.io.git</span><br><span class="line">git push origin master:hexo</span><br></pre></td></tr></table></figure>
+<p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805464397627392" title="PAT-A 1030 Travel Plan">PAT-A 1030 Travel Plan</a></p>
+<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. Each case starts with a line containing 4 positive integers N, M, S, and D, where N (≤ 500) is the number of cities (and hence the cities are numbered from 0 to N − 1); M is the number of highways; S and D are the starting and the destination cities, respectively. Then M lines follow, each provides the information of a highway, in the format:</p>
+<blockquote>
+<p>City1 City2 Distance Cost</p>
+</blockquote>
+<p>where the numbers are all integers no more than 500, and are separated by a space.</p>
+<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each test case, print in one line the cities along the shortest path from the starting point to the destination, followed by the total distance and the total cost of the path. The numbers must be separated by a space and there must be no extra space at the end of output.</p>
+<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><p><strong>Input</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">4 5 0 3</span><br><span class="line">0 1 1 20</span><br><span class="line">1 3 2 30</span><br><span class="line">0 3 4 10</span><br><span class="line">0 2 2 20</span><br><span class="line">2 3 1 20</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;注意配置.travis.yml，这里把源文件推送到hexo分支。</p>
-<figure class="highlight yml"><figcaption><span>.travis.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sudo:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">node_js</span></span><br><span class="line"><span class="attr">node_js:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="number">10</span></span><br><span class="line"><span class="attr">cache:</span> <span class="string">npm</span></span><br><span class="line"><span class="attr">branches:</span></span><br><span class="line">  <span class="attr">only:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">hexo</span> <span class="comment"># 对Hexo分支进行构建</span></span><br><span class="line"><span class="attr">script:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">hexo</span> <span class="string">generate</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">provider:</span> <span class="string">pages</span></span><br><span class="line">  <span class="attr">skip-cleanup:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">github-token:</span> <span class="string">$GH_TOKEN</span></span><br><span class="line">  <span class="attr">target-branch:</span> <span class="string">master</span> <span class="comment"># 设置部署的目标分支</span></span><br><span class="line">  <span class="attr">keep-history:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">on:</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">hexo</span></span><br><span class="line">  <span class="attr">local-dir:</span> <span class="string">public</span></span><br></pre></td></tr></table></figure>
+<p><strong>Output</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 2 3 3 40</span><br></pre></td></tr></table></figure>
 
-<h3 id="仓库冲突问题"><a href="#仓库冲突问题" class="headerlink" title="仓库冲突问题"></a>仓库冲突问题</h3><p>&emsp;&emsp;按照官方文档操作完毕，.travis.yml也配置完成，使用脚本一套操作把文件推送到Github，默默等待Travis CI部署我的博客。刷新浏览器检验是否成功，居然白板？？赶紧查Travis CI的记录，提示no layout，仓库内的主题文件没有被推送导致静态文件压根没生成！</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/02/200502-1.png" alt=""></p>
-<p>&emsp;&emsp;拐回来看被我无视的bash记录，项目内居然有关联别的仓库？是clone icarus主题时带来的。根据提示输入 git rm –cached themes/icarus 是不行的，icarus目录内存在.git 目录需要删除。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/02/200502-2.png" alt=""></p>
-<p>&emsp;&emsp;进入icarus目录直接删除文件夹。问题解决。</p>
-<h3 id="gitignore问题"><a href="#gitignore问题" class="headerlink" title="gitignore问题"></a>gitignore问题</h3><p>&emsp;&emsp;解决仓库冲突问题后，我又推送了，这回推送过程没问题，Travis CI构建静态文件倒是出了问题。刷新浏览器依然时白板，Travsi CI记录是这样的。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/05/02/200502-3.png" alt=""></p>
-<p>&emsp;&emsp;icarus主题目录里缺了配置文件_config.yml,当icarus发现目录内没有配置文件时会自动创一个，这锅必须是.gitignore的，点开文件发现里面赫然记录着_config.yml,赶紧删掉！</p>
-<hr>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;Travis CI能够提供环境，帮助构建、测试及部署Hexo项目，使用Travis CI部署博客满足了随时随地修改内容的强迫症需求，解决了出差、旅游时不方便水博文的问题，也解决了随着博客内容不断增多造成的生成及推送静态文件时的等待问题（虽然并不多）。优雅地推送源文件就vans了，或者在仓库添加/修改md文件。暂时还没有尝试在其他主机配置Hexo本地文件。以上。</p>
-<p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@mjliao?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Michael Liao"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Michael Liao</span></a></p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;给定起点 S 和终点 D，寻找 S 至 D 的最短路径。两座城市间的信息包括距离和耗费。最短路径不唯一，选择耗费最少的路径。输出路线上的城市序号、最短距离和最小耗费。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mxN = <span class="number">505</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, M, S, D;</span><br><span class="line"><span class="keyword">int</span> G[mxN][mxN], d[mxN], cost[mxN][mxN], c[mxN], pas[mxN];</span><br><span class="line"><span class="keyword">bool</span> vis[mxN] = &#123;<span class="literal">false</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">(<span class="keyword">int</span> s)</span> </span>&#123;</span><br><span class="line">    fill(d, d + N, INT_MAX);</span><br><span class="line">    d[s] = <span class="number">0</span>;</span><br><span class="line">    fill(c, c + N, INT_MAX);</span><br><span class="line">    c[s] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> u = <span class="number">-1</span>, MIN = INT_MAX;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!vis[j] &amp;&amp; d[j] &lt; MIN) &#123;</span><br><span class="line">                MIN = d[j];</span><br><span class="line">                u = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (u == <span class="number">-1</span>) <span class="keyword">return</span>;</span><br><span class="line">        vis[u] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">0</span>; v &lt; N; v++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!vis[v] &amp;&amp; G[u][v]) &#123;</span><br><span class="line">                <span class="keyword">if</span> (d[u] + G[u][v] &lt; d[v]) &#123;</span><br><span class="line">                    d[v] = d[u] + G[u][v];</span><br><span class="line">                    c[v] = c[u] + cost[u][v];</span><br><span class="line">                    pas[v] = u;  <span class="comment">// 记录前驱结点，即从 u → v</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (d[u] + G[u][v] == d[v] &amp;&amp; c[u] + cost[u][v] &lt; c[v]) &#123;</span><br><span class="line">                    c[v] = c[u] + cost[u][v];</span><br><span class="line">                    pas[v] = u;  <span class="comment">// 记录前驱结点</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过终点逆向推出路线，并正向输出</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print_path</span><span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (v == S) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; v &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    print_path(pas[v]);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; v &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N &gt;&gt; M &gt;&gt; S &gt;&gt; D;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; M; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> c1, c2, dd, cc;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; c1 &gt;&gt; c2 &gt;&gt; dd &gt;&gt; cc;</span><br><span class="line">        G[c1][c2] = G[c2][c1] = dd;</span><br><span class="line">        cost[c1][c2] = cost[c2][c1] = cc;</span><br><span class="line">    &#125;</span><br><span class="line">    dijkstra(S);</span><br><span class="line">    print_path(D);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; d[D] &lt;&lt; <span class="string">" "</span> &lt;&lt; c[D];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;回顾 Dijkstra 算法，依然是瞄着模板打的。下次一定自己码出来……</p>
 
         </div>
         
             <article class="message is-info"><div class="message-body">
                 <ul>
-                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/05/02/travis-ci-deploy-hexo/">使用Travis CI部署Hexo博客</a></li>
+                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/07/11/pat-a-1030/">PAT-A 1030 Travel Plan (30)</a></li>
                     <li><strong>本文作者：</strong><a href="https://lokka.me">Kain Zhang</a></li>
-                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/05/02/travis-ci-deploy-hexo/">https://lokka.me/2020/05/02/travis-ci-deploy-hexo/</a></li>
-                    <li><strong>发布时间：</strong>2020-05-02</li>
+                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/07/11/pat-a-1030/">https://lokka.me/2020/07/11/pat-a-1030/</a></li>
+                    <li><strong>发布时间：</strong>2020-07-11</li>
                     <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
                     </li>
                 </ul>
@@ -221,7 +208,7 @@
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
                     <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
-                    <a class="has-link-grey -link" href="/tags/Hexo/" rel="tag">Hexo</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Travis-CI/" rel="tag">Travis CI</a>
+                    <a class="has-link-grey -link" href="/tags/Dijkstra/" rel="tag">Dijkstra</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Graph/" rel="tag">Graph</a>,&nbsp;<a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
                 </div>
             </div>
         </div>
@@ -282,17 +269,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/05/22/01-knapsack-using-branch-n-bound/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">使用分支限界法解决0/1背包问题</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/05/01/image-hosting/">
-                <span class="level-item">Github+PicGo+jsDelivr搭建博客图床</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/10/pat-a-1133/">
+                <span class="level-item">PAT-A 1133 Splitting A Linked List (25)</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -424,29 +404,29 @@
                     Catalogue
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#关于Travis-CI">
+        <a class="is-flex" href="#Input-Specification">
         <span class="has-mr-6">1</span>
-        <span>关于Travis CI</span>
+        <span>Input Specification</span>
         </a></li><li>
-        <a class="is-flex" href="#部署Hexo">
+        <a class="is-flex" href="#Output-Specification">
         <span class="has-mr-6">2</span>
-        <span>部署Hexo</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#分支问题">
-        <span class="has-mr-6">2.1</span>
-        <span>分支问题</span>
+        <span>Output Specification</span>
         </a></li><li>
-        <a class="is-flex" href="#仓库冲突问题">
-        <span class="has-mr-6">2.2</span>
-        <span>仓库冲突问题</span>
-        </a></li><li>
-        <a class="is-flex" href="#gitignore问题">
-        <span class="has-mr-6">2.3</span>
-        <span>gitignore问题</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#总结">
+        <a class="is-flex" href="#Sample">
         <span class="has-mr-6">3</span>
-        <span>总结</span>
+        <span>Sample</span>
+        </a></li><li>
+        <a class="is-flex" href="#Analysis">
+        <span class="has-mr-6">4</span>
+        <span>Analysis</span>
+        </a></li><li>
+        <a class="is-flex" href="#Code">
+        <span class="has-mr-6">5</span>
+        <span>Code</span>
+        </a></li><li>
+        <a class="is-flex" href="#Tsukkomi">
+        <span class="has-mr-6">6</span>
+        <span>Tsukkomi</span>
         </a></li></ul>
             </div>
         </div>
@@ -470,7 +450,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="使用Travis CI部署Hexo博客" height="28">
+                    <img src="/images/logo.svg" alt="PAT-A 1030 Travel Plan (30)" height="28">
                 
                 </a>
                 <p class="is-size-7">
