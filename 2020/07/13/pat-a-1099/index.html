@@ -7,22 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>PAT-A 1021 Deepest Root (25) - LOKKA&#39;s Blog</title>
+<title>PAT-A 1099 Build A Binary Search Tree (30) - LOKKA&#39;s Blog</title>
 
 
-    <meta name="description" content="&amp;nbsp;&amp;nbsp;DFS 遍历无向图；计算树的深度；计算连通分量个数。   A graph which is connected and acyclic can be considered a tree. The height of the tree depends on the selected root. Now you are supposed to find the root th">
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;二分搜索树；中序遍历；层次遍历。   A Binary Search Tree (BST) is recursively defined as a binary tree which has the following properties:  The left subtree of a node contains only nodes with keys less th">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT-A 1021 Deepest Root (25)">
-<meta property="og:url" content="https://lokka.me/2020/07/05/pat-a-1021/index.html">
+<meta property="og:title" content="PAT-A 1099 Build A Binary Search Tree (30)">
+<meta property="og:url" content="https://lokka.me/2020/07/13/pat-a-1099/index.html">
 <meta property="og:site_name" content="LOKKA&#39;s Blog">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;DFS 遍历无向图；计算树的深度；计算连通分量个数。   A graph which is connected and acyclic can be considered a tree. The height of the tree depends on the selected root. Now you are supposed to find the root th">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;二分搜索树；中序遍历；层次遍历。   A Binary Search Tree (BST) is recursively defined as a binary tree which has the following properties:  The left subtree of a node contains only nodes with keys less th">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lokka.me/images/og_image.png">
-<meta property="article:published_time" content="2020-07-05T17:13:38.000Z">
+<meta property="article:published_time" content="2020-07-13T23:30:39.000Z">
 <meta property="article:modified_time" content="2020-07-13T15:54:30.964Z">
 <meta property="article:author" content="Kain Zhang">
 <meta property="article:tag" content="PAT">
-<meta property="article:tag" content="Graph">
 <meta property="article:tag" content="DFS">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://lokka.me/images/og_image.png">
@@ -85,7 +84,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="PAT-A 1021 Deepest Root (25)" height="28">
+                <img src="/images/logo.svg" alt="PAT-A 1099 Build A Binary Search Tree (30)" height="28">
             
             </a>
         </div>
@@ -134,15 +133,11 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-07-05T17:13:38.000Z">2020-07-05</time> -->
-                <time class="level-item has-text-grey" datetime="2020-07-05T17:13:38.000Z">
-                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-05
+                <!-- <time class="level-item has-text-grey" datetime="2020-07-13T23:30:39.000Z">2020-07-13</time> -->
+                <time class="level-item has-text-grey" datetime="2020-07-13T23:30:39.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-13
                 </time>
-                <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-13T15:54:30.964Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-13
-                </time>
-                 -->
+                <!--  -->
                 
                 <div class="level-item">
                 <i class="far fa-folder has-text-grey">&nbsp;</i>
@@ -154,7 +149,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    5 minutes read (About 726 words)
+                    4 minutes read (About 655 words)
                 </span>
                 
                 
@@ -163,50 +158,47 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                PAT-A 1021 Deepest Root (25)
+                PAT-A 1099 Build A Binary Search Tree (30)
             
         </h1>
         <div class="content">
-            <article class="message is-warning"><div class="message-body">
-<p><span class="icon"><i class="fa fa-exclamation-triangle mr-2"></i></span>&nbsp;&nbsp;DFS 遍历无向图；计算树的深度；计算连通分量个数。</p>
+            <article class="message is-success"><div class="message-body">
+<p><span class="icon"><i class="fa fa-check mr-2"></i></span>&nbsp;&nbsp;二分搜索树；中序遍历；层次遍历。</p>
 </div></article>
 
-<p>A graph which is connected and acyclic can be considered a tree. The height of the tree depends on the selected root. Now you are supposed to find the root that results in a highest tree. Such a root is called <strong>the deepest root</strong>.</p>
+<p>A Binary Search Tree (BST) is recursively defined as a binary tree which has the following properties:</p>
+<ul>
+<li>The left subtree of a node contains only nodes with keys less than the node’s key.</li>
+<li>The right subtree of a node contains only nodes with keys greater than or equal to the node’s key.</li>
+<li>Both the left and right subtrees must also be binary search trees.</li>
+</ul>
+<p>Given the structure of a binary tree and a sequence of distinct integer keys, there is only one way to fill these keys into the tree so that the resulting tree satisfies the definition of a BST. You are supposed to output the level order traversal sequence of that tree. The sample is illustrated by Figure 1 and 2.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/07/13/24c2521f-aaed-4ef4-bac8-3ff562d80a1b.jpg" alt=""></p>
 <a id="more"></a>
 
-<p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805482919673856" title="PAT-A 1021 Deepest Root">PAT-A 1021 Deepest Root</a></p>
-<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each case, the first line contains a positive integer N (≤ 10^4) which is the number of nodes, and hence the nodes are numbered from 1 to N. Then N−1 lines follow, each describes an edge by given the two adjacent nodes’ numbers.</p>
-<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each test case, print each of the deepest roots in a line. If such a root is not unique, print them in increasing order of their numbers. In case that the given graph is not a tree, print <code>Error: K components</code> where <code>K</code> is the number of connected components in the graph.</p>
-<h2 id="Sample-1"><a href="#Sample-1" class="headerlink" title="Sample 1"></a>Sample 1</h2><p><strong>Input</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1 2</span><br><span class="line">1 3</span><br><span class="line">1 4</span><br><span class="line">2 5</span><br></pre></td></tr></table></figure>
+<p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805367987355648" title="PAT-A 1099 Build A Binary Search Tree">PAT-A 1099 Build A Binary Search Tree</a></p>
+<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each case, the first line gives a positive integer N (≤100) which is the total number of nodes in the tree. The next N lines each contains the left and the right children of a node in the format <code>left_index right_index</code>, provided that the nodes are numbered from 0 to N−1, and 0 is always the root. If one child is missing, then −1 will represent the NULL child pointer. Finally N distinct integer keys are given in the last line.</p>
+<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each test case, print in one line the level order traversal sequence of that tree. All the numbers must be separated by a space, with no extra space at the end of the line.</p>
+<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><p><strong>Input</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">9</span><br><span class="line">1 6</span><br><span class="line">2 3</span><br><span class="line">-1 -1</span><br><span class="line">-1 4</span><br><span class="line">5 -1</span><br><span class="line">-1 -1</span><br><span class="line">7 -1</span><br><span class="line">-1 8</span><br><span class="line">-1 -1</span><br><span class="line">73 45 11 58 82 25 67 38 42</span><br></pre></td></tr></table></figure>
 
 <p><strong>Output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">58 25 82 11 38 67 45 73 42</span><br></pre></td></tr></table></figure>
 
-<h2 id="Sample-2"><a href="#Sample-2" class="headerlink" title="Sample 2"></a>Sample 2</h2><p><strong>Input</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1 3</span><br><span class="line">1 4</span><br><span class="line">2 5</span><br><span class="line">3 4</span><br></pre></td></tr></table></figure>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;题目大意：给一个二分搜索树的结构，和一个数字序列。将数字填入二分搜索树，即对于每个结点，左子树的结点小于父结点，右子树的结点大于等于父结点，左右子树也要满足二分搜索树的条件。最后按层次遍历输出序列。</p>
+<p>&emsp;&emsp;由于中序遍历二分搜索树的序列是从小到大排列的，因此首先将序列从小到大排序，然后按照中序遍历将数字从小到大填入二分搜索树。不需要真的填，直接按层号保存数据，最后按层次顺序输出序列。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> G[<span class="number">105</span>][<span class="number">2</span>], mxL = <span class="number">-1</span>;</span><br><span class="line">vector&lt;int&gt; nod(105), LYR[105];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build_tree</span><span class="params">(<span class="keyword">int</span> root, <span class="keyword">int</span> lyr, <span class="keyword">int</span>&amp; idx)</span> </span>&#123;</span><br><span class="line">    mxL = max(mxL, lyr);</span><br><span class="line">    <span class="keyword">if</span> (G[root][<span class="number">0</span>] != <span class="number">-1</span>) build_tree(G[root][<span class="number">0</span>], lyr + <span class="number">1</span>, idx);</span><br><span class="line">    LYR[lyr].push_back(nod[idx++]);</span><br><span class="line">    <span class="keyword">if</span> (G[root][<span class="number">1</span>] != <span class="number">-1</span>) build_tree(G[root][<span class="number">1</span>], lyr + <span class="number">1</span>, idx);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> N, l, r;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; l &gt;&gt; r;</span><br><span class="line">        G[i][<span class="number">0</span>] = l, G[i][<span class="number">1</span>] = r;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; nod[i];</span><br><span class="line">    &#125;</span><br><span class="line">    sort(nod.begin(), nod.begin() + N);</span><br><span class="line">    <span class="keyword">int</span> idx = <span class="number">0</span>, flag = <span class="number">0</span>;</span><br><span class="line">    build_tree(<span class="number">0</span>, <span class="number">0</span>, idx);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= mxL; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> len = LYR[i].size();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (flag++) <span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; LYR[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>Output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: 2 components</span><br></pre></td></tr></table></figure>
-
-<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;判断无向图能否构成树结构，即是否为连通图、不成环。判断方法为计算无向图连通分量个数，如果大于 1 则为非连通图，输出错误提示。</p>
-<p>&emsp;&emsp;使用两次 DFS 遍历无向图。第一次遍历选择任意结点作为树根，搜索到当前最深层的叶子结点，同时记录深度相同的叶子结点。第二次遍历，选择第一次遍历解集中的任意结点（最深层的叶子反过来也可以作为树根）作为根结点，获得第二次遍历的解集。两次遍历的解集取并集，使用 set 保存解集，去重并自动排序。</p>
-<article class="message is-info"><div class="message-body">
-<p><span class="icon"><i class="fa fa-paper-plane mr-2"></i></span>&nbsp;&nbsp;第一次遍历使用任意结点作为树根得出的最深层数不一定为最深。例如样例 1 从结点 1 开始遍历，获得最深层数为 3，即 1 -&gt; 2 -&gt; 5，而以 5 为树根进行遍历最深层数为 4，即 5 -&gt; 2 -&gt; 1 -&gt; 3(4)。</p>
-</div></article>
-
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mxN = <span class="number">1e4</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; G[mxN], tmp;  <span class="comment">// 无向图, 临时解集</span></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">vis</span><span class="params">(mxN)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> max_h = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> idx, <span class="keyword">int</span> h)</span> </span>&#123;</span><br><span class="line">    vis[idx] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (h &gt; max_h) &#123;</span><br><span class="line">        max_h = h;</span><br><span class="line">        tmp.clear();</span><br><span class="line">        tmp.push_back(idx);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (h == max_h) &#123;</span><br><span class="line">        tmp.push_back(idx);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 搜索当前结点所有子结点</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> it = G[idx].begin(); it != G[idx].end(); it++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (vis[*it]) <span class="keyword">continue</span>;</span><br><span class="line">        dfs(*it, h + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> N;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> a, b;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        G[a].push_back(b);</span><br><span class="line">        G[b].push_back(a);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> K = <span class="number">0</span>;  <span class="comment">// 统计连通分量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!vis[i]) &#123;</span><br><span class="line">            dfs(i, <span class="number">0</span>);</span><br><span class="line">            K++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (K &gt; <span class="number">1</span>) &#123;  <span class="comment">// 连通分量大于 1, 非连通图, 输出错误</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Error: "</span> &lt;&lt; K &lt;&lt; <span class="string">" components"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 保存第一次深搜的解集</span></span><br><span class="line">    <span class="function"><span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ans</span><span class="params">(tmp.begin(), tmp.end())</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 第二次深搜</span></span><br><span class="line">    fill(vis.begin(), vis.begin() + N + <span class="number">1</span>, <span class="literal">false</span>);</span><br><span class="line">    dfs(tmp[<span class="number">0</span>], <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 保存第二次深搜的解集</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> it = tmp.begin(); it != tmp.end(); it++) &#123;</span><br><span class="line">        ans.insert(*it);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> it = ans.begin(); it != ans.end(); it++) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; *it &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;没什么好吐槽的，继续学习。</p>
+<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;希望考试的时候 30 分的题也出这种……</p>
 
         </div>
         
             <article class="message is-info"><div class="message-body">
                 <ul>
-                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/07/05/pat-a-1021/">PAT-A 1021 Deepest Root (25)</a></li>
+                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/07/13/pat-a-1099/">PAT-A 1099 Build A Binary Search Tree (30)</a></li>
                     <li><strong>本文作者：</strong><a href="https://lokka.me">Kain Zhang</a></li>
-                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/07/05/pat-a-1021/">https://lokka.me/2020/07/05/pat-a-1021/</a></li>
-                    <li><strong>发布时间：</strong>2020-07-05</li>
+                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/07/13/pat-a-1099/">https://lokka.me/2020/07/13/pat-a-1099/</a></li>
+                    <li><strong>发布时间：</strong>2020-07-13</li>
                     <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
                     </li>
                 </ul>
@@ -219,7 +211,7 @@
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
                     <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
-                    <a class="has-link-grey -link" href="/tags/DFS/" rel="tag">DFS</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Graph/" rel="tag">Graph</a>,&nbsp;<a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
+                    <a class="has-link-grey -link" href="/tags/DFS/" rel="tag">DFS</a>,&nbsp;<a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
                 </div>
             </div>
         </div>
@@ -280,17 +272,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/07/06/pat-a-1029/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">PAT-A 1029 Median (25)</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/04/pat-a-1010/">
-                <span class="level-item">PAT-A 1010 Radix (25)</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/11/pat-a-1030/">
+                <span class="level-item">PAT-A 1030 Travel Plan (30)</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -430,24 +415,20 @@
         <span class="has-mr-6">2</span>
         <span>Output Specification</span>
         </a></li><li>
-        <a class="is-flex" href="#Sample-1">
+        <a class="is-flex" href="#Sample">
         <span class="has-mr-6">3</span>
-        <span>Sample 1</span>
-        </a></li><li>
-        <a class="is-flex" href="#Sample-2">
-        <span class="has-mr-6">4</span>
-        <span>Sample 2</span>
+        <span>Sample</span>
         </a></li><li>
         <a class="is-flex" href="#Analysis">
-        <span class="has-mr-6">5</span>
+        <span class="has-mr-6">4</span>
         <span>Analysis</span>
         </a></li><li>
         <a class="is-flex" href="#Code">
-        <span class="has-mr-6">6</span>
+        <span class="has-mr-6">5</span>
         <span>Code</span>
         </a></li><li>
         <a class="is-flex" href="#Tsukkomi">
-        <span class="has-mr-6">7</span>
+        <span class="has-mr-6">6</span>
         <span>Tsukkomi</span>
         </a></li></ul>
             </div>
@@ -472,7 +453,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="PAT-A 1021 Deepest Root (25)" height="28">
+                    <img src="/images/logo.svg" alt="PAT-A 1099 Build A Binary Search Tree (30)" height="28">
                 
                 </a>
                 <p class="is-size-7">
