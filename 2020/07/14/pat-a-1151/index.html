@@ -7,23 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>设计模式 - 工厂模式（Factory Pattern） - LOKKA&#39;s Blog</title>
+<title>PAT-A 1151 LCA in a Binary Tree (30) - LOKKA&#39;s Blog</title>
 
 
-    <meta name="description" content="&amp;emsp;&amp;emsp;Java设计模式 - 工厂模式">
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;通过先序和中序寻找两个结点的最近共同祖先   The lowest common ancestor (LCA) of two nodes U and V in a tree is the deepest node that has both U and V as descendants. Given any two nodes in a binary tree, you">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式 - 工厂模式（Factory Pattern）">
-<meta property="og:url" content="https://lokka.me/2020/04/25/factory-pattern/index.html">
+<meta property="og:title" content="PAT-A 1151 LCA in a Binary Tree (30)">
+<meta property="og:url" content="https://lokka.me/2020/07/14/pat-a-1151/index.html">
 <meta property="og:site_name" content="LOKKA&#39;s Blog">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;Java设计模式 - 工厂模式">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;通过先序和中序寻找两个结点的最近共同祖先   The lowest common ancestor (LCA) of two nodes U and V in a tree is the deepest node that has both U and V as descendants. Given any two nodes in a binary tree, you">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/25/tyler-nix-7ukf-r-Oh-k-unsplash.jpg">
-<meta property="article:published_time" content="2020-04-25T18:24:22.000Z">
-<meta property="article:modified_time" content="2020-07-14T15:57:15.319Z">
+<meta property="og:image" content="https://lokka.me/images/og_image.png">
+<meta property="article:published_time" content="2020-07-14T23:38:13.000Z">
+<meta property="article:modified_time" content="2020-07-14T15:57:15.323Z">
 <meta property="article:author" content="Kain Zhang">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="PAT">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/25/tyler-nix-7ukf-r-Oh-k-unsplash.jpg">
+<meta name="twitter:image" content="https://lokka.me/images/og_image.png">
 
 
 
@@ -83,7 +83,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="设计模式 - 工厂模式（Factory Pattern）" height="28">
+                <img src="/images/logo.svg" alt="PAT-A 1151 LCA in a Binary Tree (30)" height="28">
             
             </a>
         </div>
@@ -128,29 +128,19 @@
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
     
-    <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/25/tyler-nix-7ukf-r-Oh-k-unsplash.jpg" alt="设计模式 - 工厂模式（Factory Pattern）">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-04-25T18:24:22.000Z">2020-04-25</time> -->
-                <time class="level-item has-text-grey" datetime="2020-04-25T18:24:22.000Z">
-                    <i class="far fa-calendar-alt">&nbsp;</i>2020-04-25
+                <!-- <time class="level-item has-text-grey" datetime="2020-07-14T23:38:13.000Z">2020-07-14</time> -->
+                <time class="level-item has-text-grey" datetime="2020-07-14T23:38:13.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-14
                 </time>
-                <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-14T15:57:15.319Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-14
-                </time>
-                 -->
+                <!--  -->
                 
                 <div class="level-item">
                 <i class="far fa-folder has-text-grey">&nbsp;</i>
-                <a class="has-link-grey -link" href="/categories/Note/">Note</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Note/Design-Pattern/">Design Pattern</a>
+                <a class="has-link-grey -link" href="/categories/Note/">Note</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Note/Problem/">Problem</a>
                 </div>
                 
                 
@@ -158,7 +148,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    2 minutes read (About 359 words)
+                    5 minutes read (About 721 words)
                 </span>
                 
                 
@@ -167,42 +157,41 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                设计模式 - 工厂模式（Factory Pattern）
+                PAT-A 1151 LCA in a Binary Tree (30)
             
         </h1>
         <div class="content">
-            <p>&emsp;&emsp;Java设计模式 - 工厂模式</p>
+            <article class="message is-danger"><div class="message-body">
+<p><span class="icon"><i class="fa fa-star mr-2"></i></span>&nbsp;&nbsp;通过先序和中序寻找两个结点的最近共同祖先</p>
+</div></article>
+
+<p>The lowest common ancestor (LCA) of two nodes U and V in a tree is the deepest node that has both U and V as descendants.</p>
+<p>Given any two nodes in a binary tree, you are supposed to find their LCA.</p>
 <a id="more"></a>
 
-<hr>
-<h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><p><strong>简单工厂模式组成：</strong></p>
-<ul>
-<li>工厂类：简单工厂模式的核心，负责创建所需的产品实例。</li>
-<li>抽象产品类：产品类的父类，定义产品类共有的属性和方法。</li>
-<li>产品类： 继承抽象产品类，即具体的产品。</li>
-</ul>
-<p>&emsp;&emsp;首先定义抽象咖啡类，规定所有咖啡共有的接口。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Coffee</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 制作咖啡</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">prepare</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(name + <span class="string">"制作完成！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打包咖啡</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(name + <span class="string">"打包完成!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/1038430130011897856" title="PAT-A 1151 LCA in a Binary Tree">PAT-A 1151 LCA in a Binary Tree</a></p>
+<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each case, the first line gives two positive integers: M (≤ 1,000), the number of pairs of nodes to be tested; and N (≤ 10,000), the number of keys in the binary tree, respectively. In each of the following two lines, N distinct integers are given as the inorder and preorder traversal sequences of the binary tree, respectively. It is guaranteed that the binary tree can be uniquely determined by the input sequences. Then M lines follow, each contains a pair of integer keys U and V. All the keys are in the range of <strong>int</strong>.</p>
+<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each given pair of U and V, print in a line <code>LCA of U and V is A.</code> if the LCA is found and <code>A</code> is the key. But if <code>A</code> is one of U and V, print <code>X is an ancestor of Y.</code> where <code>X</code> is <code>A</code> and <code>Y</code> is the other node. If U or V is not found in the binary tree, print in a line <code>ERROR: U is not found.</code> or <code>ERROR: V is not found.</code> or <code>ERROR: U and V are not found.</code>.</p>
+<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><p><strong>Input</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">6 8</span><br><span class="line">7 2 3 4 6 5 1 8</span><br><span class="line">5 3 7 2 6 4 8 1</span><br><span class="line">2 6</span><br><span class="line">8 1</span><br><span class="line">7 9</span><br><span class="line">12 -3</span><br><span class="line">0 8</span><br><span class="line">99 99</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;定义具体类型的咖啡。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Americano</span> <span class="keyword">extends</span> <span class="title">Coffee</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Americano</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">"美式"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Latte</span> <span class="keyword">extends</span> <span class="title">Coffee</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Latte</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">"拿铁"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mocha</span> <span class="keyword">extends</span> <span class="title">Coffee</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Mocha</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">"摩卡"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Output</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LCA of 2 and 6 is 3.</span><br><span class="line">8 is an ancestor of 1.</span><br><span class="line">ERROR: 9 is not found.</span><br><span class="line">ERROR: 12 and -3 are not found.</span><br><span class="line">ERROR: 0 is not found.</span><br><span class="line">ERROR: 99 and 99 are not found.</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;创建咖啡工厂类，负责具体产品的实例化</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CoffeeFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Coffee <span class="title">createCoffee</span><span class="params">(String coffeeType)</span> </span>&#123;</span><br><span class="line">        Coffee coffee = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (coffeeType.equals(<span class="string">"美式"</span>)) &#123;</span><br><span class="line">            coffee = <span class="keyword">new</span> Americano();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (coffeeType.equals(<span class="string">"拿铁"</span>)) &#123;</span><br><span class="line">            coffee = <span class="keyword">new</span> Latte();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (coffeeType.equals(<span class="string">"摩卡"</span>)) &#123;</span><br><span class="line">            coffee = <span class="keyword">new</span> Mocha();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> coffee;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;题目大意：提供二叉树的中序和先序遍历，然后 M 对结点，寻找每对结点 (U 和 V) 的最近共同祖先，按规定格式输出结果。</p>
+<p>&emsp;&emsp;在先序中设置光标，即选择结点作为根结点。然后在中序中判断当前根结点与 U 和 V的位置关系。注意需要保存各结点在中序中的下标，通过下标进行上述判断，详情见代码。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in, pre;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="keyword">int</span> M, N, u, v;</span><br><span class="line"></span><br><span class="line"><span class="comment">// preCur 为先序中的游标，即当前选中的根结点</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LCA</span><span class="params">(<span class="keyword">int</span> inL, <span class="keyword">int</span> inR, <span class="keyword">int</span> preCur)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 获取 U, V, 当前根结点 在中序中的下标</span></span><br><span class="line">    <span class="keyword">int</span> inU = mp[u], inV = mp[v], inRoot = mp[pre[preCur]];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((inU &lt; inRoot &amp;&amp; inV &gt; inRoot) || (inU &gt; inRoot &amp;&amp; inV &lt; inRoot)) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"LCA of "</span> &lt;&lt; u &lt;&lt; <span class="string">" and "</span> &lt;&lt; v &lt;&lt; <span class="string">" is "</span> &lt;&lt; in[inRoot] &lt;&lt; <span class="string">"."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (inU &lt; inRoot &amp;&amp; inV &lt; inRoot) &#123;  <span class="comment">// U, V 在当前根结点的左子树</span></span><br><span class="line">        LCA(inL, inRoot, preCur + <span class="number">1</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (inU &gt; inRoot &amp;&amp; inV &gt; inRoot) &#123;  <span class="comment">// U, V 在当前根结点的右子树</span></span><br><span class="line">        LCA(inRoot + <span class="number">1</span>, inR, preCur + inRoot - inL + <span class="number">1</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (inU == inRoot) &#123;  <span class="comment">// U 为根结点</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; u &lt;&lt; <span class="string">" is an ancestor of "</span> &lt;&lt; v &lt;&lt; <span class="string">"."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (inV == inRoot) &#123;  <span class="comment">// V 为根结点</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; v &lt;&lt; <span class="string">" is an ancestor of "</span> &lt;&lt; u &lt;&lt; <span class="string">"."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; M &gt;&gt; N;</span><br><span class="line">    in.resize(N + <span class="number">1</span>), pre.resize(N + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; in[i];</span><br><span class="line">        mp[in[i]] = i;  <span class="comment">// 保存结点的中序下标</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; pre[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; M; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v;</span><br><span class="line">        <span class="keyword">if</span> (!mp[u] &amp;&amp; !mp[v]) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"ERROR: "</span> &lt;&lt; u &lt;&lt; <span class="string">" and "</span> &lt;&lt; v &lt;&lt; <span class="string">" are not found."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!mp[u] || !mp[v]) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"ERROR: "</span> &lt;&lt; (!mp[u] ? u : v) &lt;&lt; <span class="string">" is not found."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            LCA(<span class="number">1</span>, N, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;咖啡馆类调用咖啡工厂类。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cafe</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">getCoffeeType</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            BufferedReader strin = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">            System.out.println(<span class="string">"请输入咖啡类别："</span>);</span><br><span class="line">            String str = strin.readLine();</span><br><span class="line">            <span class="keyword">return</span> str;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        CoffeeFactory cf = <span class="keyword">new</span> CoffeeFactory();</span><br><span class="line">        String coffeeType = getCoffeeType();</span><br><span class="line">        Coffee coffee = cf.createCoffee(coffeeType);</span><br><span class="line">        <span class="keyword">if</span> (coffee != <span class="keyword">null</span>) &#123;</span><br><span class="line">            coffee.prepare();</span><br><span class="line">            coffee.pack();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"请求失败！"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@jtylernix?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Tyler Nix"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Tyler Nix</span></a></p>
+<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;没啥吐槽的，碎了……</p>
 
         </div>
         
             <article class="message is-info"><div class="message-body">
                 <ul>
-                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/04/25/factory-pattern/">设计模式 - 工厂模式（Factory Pattern）</a></li>
+                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/07/14/pat-a-1151/">PAT-A 1151 LCA in a Binary Tree (30)</a></li>
                     <li><strong>本文作者：</strong><a href="https://lokka.me">Kain Zhang</a></li>
-                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/04/25/factory-pattern/">https://lokka.me/2020/04/25/factory-pattern/</a></li>
-                    <li><strong>发布时间：</strong>2020-04-25</li>
+                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/07/14/pat-a-1151/">https://lokka.me/2020/07/14/pat-a-1151/</a></li>
+                    <li><strong>发布时间：</strong>2020-07-14</li>
                     <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
                     </li>
                 </ul>
@@ -215,7 +204,7 @@
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
                     <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
-                    <a class="has-link-grey -link" href="/tags/Java/" rel="tag">Java</a>
+                    <a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
                 </div>
             </div>
         </div>
@@ -276,17 +265,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/27/coding-pages-n-custom-domain/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Github+Coding双托管Hexo及自定义域名</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/08/n-queens/">
-                <span class="level-item">N皇后（N-Queens）</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/13/pat-a-1099/">
+                <span class="level-item">PAT-A 1099 Build A Binary Search Tree (30)</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -418,9 +400,29 @@
                     Catalogue
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#简单工厂模式">
+        <a class="is-flex" href="#Input-Specification">
         <span class="has-mr-6">1</span>
-        <span>简单工厂模式</span>
+        <span>Input Specification</span>
+        </a></li><li>
+        <a class="is-flex" href="#Output-Specification">
+        <span class="has-mr-6">2</span>
+        <span>Output Specification</span>
+        </a></li><li>
+        <a class="is-flex" href="#Sample">
+        <span class="has-mr-6">3</span>
+        <span>Sample</span>
+        </a></li><li>
+        <a class="is-flex" href="#Analysis">
+        <span class="has-mr-6">4</span>
+        <span>Analysis</span>
+        </a></li><li>
+        <a class="is-flex" href="#Code">
+        <span class="has-mr-6">5</span>
+        <span>Code</span>
+        </a></li><li>
+        <a class="is-flex" href="#Tsukkomi">
+        <span class="has-mr-6">6</span>
+        <span>Tsukkomi</span>
         </a></li></ul>
             </div>
         </div>
@@ -444,7 +446,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="设计模式 - 工厂模式（Factory Pattern）" height="28">
+                    <img src="/images/logo.svg" alt="PAT-A 1151 LCA in a Binary Tree (30)" height="28">
                 
                 </a>
                 <p class="is-size-7">
