@@ -124,9 +124,9 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-07-14T23:38:13.000Z">2020-07-14</time> -->
-                <time class="level-item has-text-grey" datetime="2020-07-14T23:38:13.000Z">
-                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-14
+                <!-- <time class="level-item has-text-grey" datetime="2020-07-15T14:19:34.000Z">2020-07-15</time> -->
+                <time class="level-item has-text-grey" datetime="2020-07-15T14:19:34.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-15
                 </time>
                 <!--  -->
                 
@@ -140,7 +140,93 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    5 minutes read (About 721 words)
+                    10 minutes read (About 1451 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/07/15/pat-a-1018/">PAT-A 1018 Public Bike Management (30)</a>
+            
+        </h1>
+        <div class="content">
+            <article class="message is-danger"><div class="message-body">
+<p><span class="icon"><i class="fa fa-star mr-2"></i></span>&nbsp;&nbsp;<strong>阅读理解</strong>。使用 Dijkstra 获取所有最短路径；使用 DFS 遍历获取最优解。</p>
+</div></article>
+
+<p>There is a public bike service in Hangzhou City which provides great convenience to the tourists from all over the world. One may rent a bike at any station and return it to any other stations in the city.</p>
+<p>The Public Bike Management Center (PBMC) keeps monitoring the real-time capacity of all the stations. A station is said to be in <strong>perfect</strong> condition if it is exactly half-full. If a station is full or empty, PBMC will collect or send bikes to adjust the condition of that station to perfect. And more, all the stations on the way will be adjusted as well.</p>
+<p>When a problem station is reported, PBMC will always choose the shortest path to reach that station. If there are more than one shortest path, the one that requires the least number of bikes sent from PBMC will be chosen.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/07/15/213.jpg"></p>
+<p>The above figure illustrates an example. The stations are represented by vertices and the roads correspond to the edges. The number on an edge is the time taken to reach one end station from another. The number written inside a vertex S is the current number of bikes stored at S. Given that the maximum capacity of each station is 10. To solve the problem at $S_3$, we have 2 different shortest paths:</p>
+<ol>
+<li>PBMC -&gt; $S_1$ -&gt; $S_3$. In this case, 4 bikes must be sent from PBMC, because we can collect 1 bike from $S_1$ and then take 5 bikes to $S_​3$, so that both stations will be in perfect conditions.</li>
+<li>PBMC -&gt; $S_2$ -&gt; $S_3$. This path requires the same time as path 1, but only 3 bikes sent from PBMC and hence is the one that will be chosen.</li>
+</ol>
+        </div>
+        
+        
+        
+        <!-- <div class="level is-mobile"> -->
+        <div class="level is-mobile is-flex">
+            <div class="level-start">
+                
+                <div class="level-item is-size-7 is-uppercase">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
+                    <a class="has-link-grey -link" href="/tags/DFS/" rel="tag">DFS</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Dijkstra/" rel="tag">Dijkstra</a>,&nbsp;<a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
+                </div>
+                
+            </div>
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/07/15/pat-a-1018/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2020-07-14T23:38:13.000Z">2020-07-14</time> -->
+                <time class="level-item has-text-grey" datetime="2020-07-14T23:38:13.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-14
+                </time>
+                <!-- 
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-15T07:56:16.140Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-15
+                </time>
+                 -->
+                
+                <div class="level-item">
+                <i class="far fa-folder has-text-grey">&nbsp;</i>
+                <a class="has-link-grey -link" href="/categories/Note/">Note</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Note/Problem/">Problem</a>
+                </div>
+                
+                
+                <i class="far fa-clock has-text-grey is-hidden-mobile">&nbsp;</i>
+                <span class="level-item has-text-grey is-hidden-mobile">
+                    
+                    
+                    5 minutes read (About 736 words)
                 </span>
                 
                 
@@ -154,7 +240,7 @@
         </h1>
         <div class="content">
             <article class="message is-danger"><div class="message-body">
-<p><span class="icon"><i class="fa fa-star mr-2"></i></span>&nbsp;&nbsp;通过先序和中序寻找两个结点的最近共同祖先</p>
+<p><span class="icon"><i class="fa fa-star mr-2"></i></span>&nbsp;&nbsp;通过先序和中序寻找两个结点的最近共同祖先。</p>
 </div></article>
 
 <p>The lowest common ancestor (LCA) of two nodes U and V in a tree is the deepest node that has both U and V as descendants.</p>
@@ -204,8 +290,8 @@
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-07-13
                 </time>
                 <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-14T15:57:15.323Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-14
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-15T07:56:16.140Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-15
                 </time>
                  -->
                 
@@ -243,7 +329,7 @@
 <li>Both the left and right subtrees must also be binary search trees.</li>
 </ul>
 <p>Given the structure of a binary tree and a sequence of distinct integer keys, there is only one way to fill these keys into the tree so that the resulting tree satisfies the definition of a BST. You are supposed to output the level order traversal sequence of that tree. The sample is illustrated by Figure 1 and 2.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/07/13/24c2521f-aaed-4ef4-bac8-3ff562d80a1b.jpg" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/07/13/24c2521f-aaed-4ef4-bac8-3ff562d80a1b.jpg"></p>
         </div>
         
         
@@ -289,8 +375,8 @@
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-07-11
                 </time>
                 <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-14T15:57:15.323Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-14
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-15T07:56:16.140Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-15
                 </time>
                  -->
                 
@@ -367,8 +453,8 @@
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-07-10
                 </time>
                 <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-14T15:57:15.323Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-14
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-15T07:56:16.140Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-15
                 </time>
                  -->
                 
@@ -445,8 +531,8 @@
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-07-09
                 </time>
                 <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-14T15:57:15.323Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-14
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-15T07:56:16.140Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-15
                 </time>
                  -->
                 
@@ -460,7 +546,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    4 minutes read (About 662 words)
+                    4 minutes read (About 660 words)
                 </span>
                 
                 
@@ -478,7 +564,7 @@
 </div></article>
 
 <p>Suppose that all the keys in a binary tree are distinct positive integers. A unique binary tree can be determined by a given pair of postorder and inorder traversal sequences. And it is a simple standard routine to print the numbers in level-order. However, if you think the problem is too simple, then you are too naive. This time you are supposed to print the numbers in “zigzagging order” – that is, starting from the root, print the numbers level-by-level, alternating between left to right and right to left. For example, for the following tree you must output: 1 11 5 8 17 12 20 15.</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/07/09/337cbfb0-a7b2-4500-9664-318e9ffc870e.jpg" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/07/09/337cbfb0-a7b2-4500-9664-318e9ffc870e.jpg"></p>
         </div>
         
         
@@ -524,8 +610,8 @@
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-07-08
                 </time>
                 <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-14T15:57:15.323Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-14
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-15T07:56:16.140Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-15
                 </time>
                  -->
                 
@@ -602,8 +688,8 @@
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-07-07
                 </time>
                 <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-14T15:57:15.323Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-14
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-15T07:56:16.140Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-15
                 </time>
                  -->
                 
@@ -682,8 +768,8 @@
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-07-06
                 </time>
                 <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-14T15:57:15.323Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-14
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-15T07:56:16.140Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-15
                 </time>
                  -->
                 
@@ -761,8 +847,8 @@
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-07-05
                 </time>
                 <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-14T15:57:15.323Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-14
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-15T07:56:16.140Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-15
                 </time>
                  -->
                 
@@ -827,85 +913,6 @@
 
 
 
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-07-04T15:28:02.000Z">2020-07-04</time> -->
-                <time class="level-item has-text-grey" datetime="2020-07-04T15:28:02.000Z">
-                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-04
-                </time>
-                <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-14T15:57:15.319Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-14
-                </time>
-                 -->
-                
-                <div class="level-item">
-                <i class="far fa-folder has-text-grey">&nbsp;</i>
-                <a class="has-link-grey -link" href="/categories/Note/">Note</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Note/Problem/">Problem</a>
-                </div>
-                
-                
-                <i class="far fa-clock has-text-grey is-hidden-mobile">&nbsp;</i>
-                <span class="level-item has-text-grey is-hidden-mobile">
-                    
-                    
-                    6 minutes read (About 907 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/07/04/pat-a-1010/">PAT-A 1010 Radix (25)</a>
-            
-        </h1>
-        <div class="content">
-            <article class="message is-danger"><div class="message-body">
-<p><span class="icon"><i class="fa fa-star mr-2"></i></span>&nbsp;&nbsp;进制转换问题，又被测试点教做人了。</p>
-</div></article>
-
-<p>Given a pair of positive integers, for example, 6 and 110, can this equation 6 = 110 be true? The answer is <code>yes</code>, if 6 is a decimal number and 110 is a binary number.</p>
-<p>Now for any pair of positive integers N1 and N2, your task is to find the radix of one number while that of the other is given.</p>
-        </div>
-        
-        
-        
-        <!-- <div class="level is-mobile"> -->
-        <div class="level is-mobile is-flex">
-            <div class="level-start">
-                
-                <div class="level-item is-size-7 is-uppercase">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
-                    <a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
-                </div>
-                
-            </div>
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/07/04/pat-a-1010/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -921,6 +928,8 @@
             <li><a class="pagination-link is-current" href="/">1</a></li>
             
             <li><a class="pagination-link has-text-black-ter" href="/page/2/">2</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/3/">3</a></li>
             
         </ul>
     </nav>
@@ -970,7 +979,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            20
+                            21
                         </p>
                     </a>
                 </div>
@@ -1062,7 +1071,7 @@
                 <span class="level-item">Note</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">16</span>
+                <span class="level-item tag">17</span>
             </span>
         </a><ul><li>
         <a class="level is-marginless" href="/categories/Note/Design-Pattern/">
@@ -1078,7 +1087,7 @@
                 <span class="level-item">Problem</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">15</span>
+                <span class="level-item tag">16</span>
             </span>
         </a></li></ul></li><li>
         <a class="level is-marginless" href="/categories/Tech/">
@@ -1107,7 +1116,7 @@
         <h3 class="menu-label">
             Tag Cloud
         </h3>
-        <a href="/tags/BackTracking/" style="font-size: 10px;">BackTracking</a> <a href="/tags/BnB/" style="font-size: 10px;">BnB</a> <a href="/tags/DFS/" style="font-size: 17.5px;">DFS</a> <a href="/tags/Dijkstra/" style="font-size: 12.5px;">Dijkstra</a> <a href="/tags/Graph/" style="font-size: 15px;">Graph</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linked-List/" style="font-size: 12.5px;">Linked List</a> <a href="/tags/PAT/" style="font-size: 20px;">PAT</a> <a href="/tags/PicGo/" style="font-size: 10px;">PicGo</a> <a href="/tags/Travis-CI/" style="font-size: 10px;">Travis CI</a> <a href="/tags/Two-Pointers/" style="font-size: 10px;">Two Pointers</a> <a href="/tags/jsDelivr/" style="font-size: 10px;">jsDelivr</a>
+        <a href="/tags/BackTracking/" style="font-size: 10px;">BackTracking</a> <a href="/tags/BnB/" style="font-size: 10px;">BnB</a> <a href="/tags/DFS/" style="font-size: 17.5px;">DFS</a> <a href="/tags/Dijkstra/" style="font-size: 15px;">Dijkstra</a> <a href="/tags/Graph/" style="font-size: 15px;">Graph</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linked-List/" style="font-size: 12.5px;">Linked List</a> <a href="/tags/PAT/" style="font-size: 20px;">PAT</a> <a href="/tags/PicGo/" style="font-size: 10px;">PicGo</a> <a href="/tags/Travis-CI/" style="font-size: 10px;">Travis CI</a> <a href="/tags/Two-Pointers/" style="font-size: 10px;">Two Pointers</a> <a href="/tags/jsDelivr/" style="font-size: 10px;">jsDelivr</a>
     </div>
 </div> -->
 
@@ -1120,7 +1129,7 @@
             <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
             <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
             <canvas width="250" height="250" id="resCanvas" style="width:100%">
-                <a href="/tags/BackTracking/" style="font-size: 10px;">BackTracking</a> <a href="/tags/BnB/" style="font-size: 10px;">BnB</a> <a href="/tags/DFS/" style="font-size: 17.5px;">DFS</a> <a href="/tags/Dijkstra/" style="font-size: 12.5px;">Dijkstra</a> <a href="/tags/Graph/" style="font-size: 15px;">Graph</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linked-List/" style="font-size: 12.5px;">Linked List</a> <a href="/tags/PAT/" style="font-size: 20px;">PAT</a> <a href="/tags/PicGo/" style="font-size: 10px;">PicGo</a> <a href="/tags/Travis-CI/" style="font-size: 10px;">Travis CI</a> <a href="/tags/Two-Pointers/" style="font-size: 10px;">Two Pointers</a> <a href="/tags/jsDelivr/" style="font-size: 10px;">jsDelivr</a>
+                <a href="/tags/BackTracking/" style="font-size: 10px;">BackTracking</a> <a href="/tags/BnB/" style="font-size: 10px;">BnB</a> <a href="/tags/DFS/" style="font-size: 17.5px;">DFS</a> <a href="/tags/Dijkstra/" style="font-size: 15px;">Dijkstra</a> <a href="/tags/Graph/" style="font-size: 15px;">Graph</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linked-List/" style="font-size: 12.5px;">Linked List</a> <a href="/tags/PAT/" style="font-size: 20px;">PAT</a> <a href="/tags/PicGo/" style="font-size: 10px;">PicGo</a> <a href="/tags/Travis-CI/" style="font-size: 10px;">Travis CI</a> <a href="/tags/Two-Pointers/" style="font-size: 10px;">Two Pointers</a> <a href="/tags/jsDelivr/" style="font-size: 10px;">jsDelivr</a>
             </canvas>
         </div>
     </div>
@@ -1134,6 +1143,25 @@
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/07/15/pat-a-1018/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="PAT-A 1018 Public Bike Management (30)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-15T14:19:34.000Z">2020-07-15</time></div>
+                    <a href="/2020/07/15/pat-a-1018/" class="title has-link-black-ter is-size-6 has-text-weight-normal">PAT-A 1018 Public Bike Management (30)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Note/">Note</a> / <a class="has-link-grey -link" href="/categories/Note/Problem/">Problem</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -1211,25 +1239,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/07/09/pat-a-1127/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="PAT-A 1127 ZigZagging on a Tree (30)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-09T22:58:20.000Z">2020-07-09</time></div>
-                    <a href="/2020/07/09/pat-a-1127/" class="title has-link-black-ter is-size-6 has-text-weight-normal">PAT-A 1127 ZigZagging on a Tree (30)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Note/">Note</a> / <a class="has-link-grey -link" href="/categories/Note/Problem/">Problem</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -1247,7 +1256,7 @@
                     <span class="level-item">July 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -1304,14 +1313,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/DFS/">
                         <span class="tag">DFS</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Dijkstra/">
                         <span class="tag">Dijkstra</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1346,7 +1355,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/PAT/">
                         <span class="tag">PAT</span>
-                        <span class="tag is-grey">13</span>
+                        <span class="tag is-grey">14</span>
                     </a>
                 </div>
                 
@@ -1402,6 +1411,25 @@
         
         <article class="media">
             
+            <a href="/2020/07/15/pat-a-1018/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="PAT-A 1018 Public Bike Management (30)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-15T14:19:34.000Z">2020-07-15</time></div>
+                    <a href="/2020/07/15/pat-a-1018/" class="title has-link-black-ter is-size-6 has-text-weight-normal">PAT-A 1018 Public Bike Management (30)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Note/">Note</a> / <a class="has-link-grey -link" href="/categories/Note/Problem/">Problem</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/07/14/pat-a-1151/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="PAT-A 1151 LCA in a Binary Tree (30)">
@@ -1476,25 +1504,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/07/09/pat-a-1127/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="PAT-A 1127 ZigZagging on a Tree (30)">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-07-09T22:58:20.000Z">2020-07-09</time></div>
-                    <a href="/2020/07/09/pat-a-1127/" class="title has-link-black-ter is-size-6 has-text-weight-normal">PAT-A 1127 ZigZagging on a Tree (30)</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Note/">Note</a> / <a class="has-link-grey -link" href="/categories/Note/Problem/">Problem</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1512,7 +1521,7 @@
                     <span class="level-item">July 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">12</span>
+                    <span class="level-item tag">13</span>
                 </span>
             </a>
         </li>
@@ -1569,14 +1578,14 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/DFS/">
                         <span class="tag">DFS</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">5</span>
                     </a>
                 </div>
                 
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Dijkstra/">
                         <span class="tag">Dijkstra</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1611,7 +1620,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/PAT/">
                         <span class="tag">PAT</span>
-                        <span class="tag is-grey">13</span>
+                        <span class="tag is-grey">14</span>
                     </a>
                 </div>
                 
