@@ -7,22 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>PAT-A 1029 Median (25) - LOKKA&#39;s Blog</title>
+<title>PAT-A 1057 Stack (30) - LOKKA&#39;s Blog</title>
 
 
-    <meta name="description" content="&amp;nbsp;&amp;nbsp;被测试点卡哭了，时间和内存都很抠。使用 Two Pointers 思想。   Given an increasing sequence S of N integers, the median is the number at the middle position. For example, the median of $S_1$ &#x3D; { 11, 12, 13, 14 }">
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;使用分桶法，平方分割解决超时问题。   Stack is one of the most fundamental data structures, which is based on the principle of Last In First Out (LIFO). The basic operations include Push (inserting an elem">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT-A 1029 Median (25)">
-<meta property="og:url" content="https://lokka.me/2020/07/06/pat-a-1029/index.html">
+<meta property="og:title" content="PAT-A 1057 Stack (30)">
+<meta property="og:url" content="https://lokka.me/2020/07/16/pat-a-1057/index.html">
 <meta property="og:site_name" content="LOKKA&#39;s Blog">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;被测试点卡哭了，时间和内存都很抠。使用 Two Pointers 思想。   Given an increasing sequence S of N integers, the median is the number at the middle position. For example, the median of $S_1$ &#x3D; { 11, 12, 13, 14 }">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;使用分桶法，平方分割解决超时问题。   Stack is one of the most fundamental data structures, which is based on the principle of Last In First Out (LIFO). The basic operations include Push (inserting an elem">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lokka.me/images/og_image.png">
-<meta property="article:published_time" content="2020-07-06T01:23:43.000Z">
+<meta property="article:published_time" content="2020-07-16T23:15:27.000Z">
 <meta property="article:modified_time" content="2020-07-16T15:55:16.647Z">
 <meta property="article:author" content="Kain Zhang">
 <meta property="article:tag" content="PAT">
-<meta property="article:tag" content="Two Pointers">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://lokka.me/images/og_image.png">
 
@@ -84,7 +83,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="PAT-A 1029 Median (25)" height="28">
+                <img src="/images/logo.svg" alt="PAT-A 1057 Stack (30)" height="28">
             
             </a>
         </div>
@@ -133,15 +132,11 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-07-06T01:23:43.000Z">2020-07-06</time> -->
-                <time class="level-item has-text-grey" datetime="2020-07-06T01:23:43.000Z">
-                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-06
+                <!-- <time class="level-item has-text-grey" datetime="2020-07-16T23:15:27.000Z">2020-07-16</time> -->
+                <time class="level-item has-text-grey" datetime="2020-07-16T23:15:27.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-16
                 </time>
-                <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-16T15:55:16.647Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-16
-                </time>
-                 -->
+                <!--  -->
                 
                 <div class="level-item">
                 <i class="far fa-folder has-text-grey">&nbsp;</i>
@@ -153,7 +148,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    6 minutes read (About 842 words)
+                    4 minutes read (About 543 words)
                 </span>
                 
                 
@@ -162,45 +157,42 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                PAT-A 1029 Median (25)
+                PAT-A 1057 Stack (30)
             
         </h1>
         <div class="content">
-            <article class="message is-danger"><div class="message-body">
-<p><span class="icon"><i class="fa fa-star mr-2"></i></span>&nbsp;&nbsp;被测试点卡哭了，时间和内存都很抠。使用 Two Pointers 思想。</p>
+            <article class="message is-warning"><div class="message-body">
+<p><span class="icon"><i class="fa fa-exclamation-triangle mr-2"></i></span>&nbsp;&nbsp;使用分桶法，平方分割解决超时问题。</p>
 </div></article>
 
-<p>Given an increasing sequence S of N integers, the median is the number at the middle position. For example, the median of $S_1$ = { 11, 12, 13, 14 } is 12, and the median of $S_2$ = { 9, 10, 15, 16, 17 } is 15. The median of two sequences is defined to be the median of the nondecreasing sequence which contains all the elements of both sequences. For example, the median of $S_1$ and $S_2$ is 13.</p>
-<p>Given two increasing sequences of integers, you are asked to find their median.</p>
+<p>Stack is one of the most fundamental data structures, which is based on the principle of Last In First Out (LIFO). The basic operations include Push (inserting an element onto the top position) and Pop (deleting the top element). Now you are supposed to implement a stack with an extra operation: PeekMedian – return the median value of all the elements in the stack. With $N$ elements, the median value is defined to be the ( $N/2$ )-th smallest element if $N$ is even, or (( $N+1$ ) $/2$ )-th if $N$ is odd.</p>
 <a id="more"></a>
 
-<p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805466364755968" title="PAT-A 1029 Median">PAT-A 1029 Median</a></p>
-<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. Each case occupies 2 lines, each gives the information of a sequence. For each sequence, the first positive integer N (≤ 2 × $10^5$) is the size of that sequence. Then N integers follow, separated by a space. It is guaranteed that all the integers are in the range of <strong>long int</strong>.</p>
-<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each test case you should output the median of the two given sequences in a line.</p>
-<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4 11 12 13 14</span><br><span class="line">5 9 10 15 16 17</span><br></pre></td></tr></table></figure>
+<p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805417945710592" title="PAT-A 1057 Stack">PAT-A 1057 Stack</a></p>
+<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each case, the first line contains a positive integer $N$ ( $≤10^5$ ). Then $N$ lines follow, each contains a command in one of the following 3 formats:</p>
+<blockquote>
+<p>Push key<br>Pop<br>PeekMedian</p>
+</blockquote>
+<p>where <code>key</code> is a positive integer no more than $10^5$.</p>
+<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each <code>Push</code> command, insert <code>key</code> into the stack and output nothing. For each <code>Pop</code> or <code>PeekMedian</code> command, print in a line the corresponding returned value. If the command is <code>invalid</code>, print Invalid instead.</p>
+<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">17</span><br><span class="line">Pop</span><br><span class="line">PeekMedian</span><br><span class="line">Push 3</span><br><span class="line">PeekMedian</span><br><span class="line">Push 2</span><br><span class="line">PeekMedian</span><br><span class="line">Push 1</span><br><span class="line">PeekMedian</span><br><span class="line">Pop</span><br><span class="line">Pop</span><br><span class="line">Push 5</span><br><span class="line">Push 4</span><br><span class="line">PeekMedian</span><br><span class="line">Pop</span><br><span class="line">Pop</span><br><span class="line">Pop</span><br><span class="line">Pop</span><br></pre></td></tr></table></figure>
 
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">13</span><br></pre></td></tr></table></figure>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Invalid</span><br><span class="line">Invalid</span><br><span class="line">3</span><br><span class="line">2</span><br><span class="line">2</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">4</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">3</span><br><span class="line">Invalid</span><br></pre></td></tr></table></figure>
 
-<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;这题乍一看以为是水题（其实就是水题），看数蛮大的就想着用哈希表统计数字出现次数，然后从小到大累加数字出现次数直至到达中位数。写完交上去的瞬间以为过了，眼睛扫到最下面发现最后一个测试点运行超时…</p>
-<p>&emsp;&emsp;网上搜一圈题解看到很多写法，但无非都是 Two Pointers 的思想。和归并排序差不多，两个指针 i 和 j 分别指向两个序列 $S_1$ 和 $S_2$ 的头部，不断选择最小的元素以生成第三个序列 $S_3$ 也就是合并后的序列。为了节约空间和时间，只读入 $S_1$，$S_2$ 只记录指针当前指向得数，边读入边移动指针，找到中位数即可结束读入。根据题目要求我们不需要真的生成第三个序列，只找到中位数即可，也就是排除 ($N_1$ + $N_2$ - 1) / 2 个数，然后从两个指针指向的数中选择较小的一个输出。</p>
-<p>&emsp;&emsp;合并的序列 $S_3$ 中，可能出现 $S_1$ 所有数在中位数左边，或者 $S_2$ 所有数在中位数左边。因此在 $A_1$ 和 $A_2$ 的末尾添加无穷大，以结束该序列的搜索，具体见代码。</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><p>&emsp;&emsp;最开始的错误解法，哈希表统计数字。满心欢喜提交上去，结果有一个测试点显示超时，我枯了。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mp;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> mid = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++) &#123;</span><br><span class="line">       <span class="keyword">int</span> N, num;</span><br><span class="line">       <span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">       mid += N;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; j++) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; num;</span><br><span class="line">            mp[num]++;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    mid = <span class="built_in">ceil</span>(mid / <span class="number">2.0</span>);</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> it = mp.begin(); it != mp.end(); it++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (cnt + it-&gt;second &lt; mid) &#123;</span><br><span class="line">            cnt += it-&gt;second;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; it-&gt;first &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;题目大意：在栈操作的基础上，添加获取中位数的操作。</p>
+<p>&emsp;&emsp;起初用哈希表统计每个数字出现的次数，利用 map 的自动排序特性，从小到大累加至中位数。然鹅超时，然后在网上学了分桶法，即把大桶的数据分到一个个小桶中进行管理；平方分割，即把 $N$ 个元素分割为 $\sqrt{N}$ 部分。也就是每个桶的大小为 $\sqrt{N}$ ，在查找数据时先找到数据所在的桶，然后再找具体数据。详情见代码。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mxN = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> sqrN = <span class="number">317</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; stk;</span><br><span class="line">vector&lt;int&gt; blk(sqrN), tb(mxN);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> N, p = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="built_in">string</span> cmd;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; cmd;</span><br><span class="line">        <span class="keyword">if</span> (cmd[<span class="number">1</span>] == <span class="string">'u'</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> num;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; num;</span><br><span class="line">            stk.push(num);</span><br><span class="line">            blk[num / sqrN]++;</span><br><span class="line">            tb[num]++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (stk.empty()) &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"Invalid\n"</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (cmd[<span class="number">1</span>] == <span class="string">'e'</span>) &#123;</span><br><span class="line">                    <span class="keyword">int</span> mid, cnt = <span class="number">0</span>, idx = <span class="number">0</span>, len = stk.size();</span><br><span class="line">                    <span class="keyword">if</span> (len &amp; <span class="number">1</span>) mid = (len + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">                    <span class="keyword">else</span> mid = len / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">while</span> (cnt + blk[idx] &lt; mid) &#123;</span><br><span class="line">                        cnt += blk[idx++];</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    idx *= sqrN;</span><br><span class="line">                    <span class="keyword">while</span> (cnt + tb[idx] &lt; mid) &#123;</span><br><span class="line">                        cnt += tb[idx++];</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, idx);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">int</span> t = stk.top();</span><br><span class="line">                    stk.pop();</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, t);</span><br><span class="line">                    blk[t / sqrN]--;</span><br><span class="line">                    tb[t]--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;下面是 AC 代码。嫖了大佬思路，用 Two Pointers 思想的解法。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> N1, N2;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N1;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">S1</span><span class="params">(N1 + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N1; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; S1[i];</span><br><span class="line">    &#125;</span><br><span class="line">    S1[N1] = INT_MAX;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N2;</span><br><span class="line">    <span class="keyword">int</span> mid = (N1 + N2 - <span class="number">1</span>) / <span class="number">2</span>, S2, i = <span class="number">0</span>, j = <span class="number">0</span>, cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; S2;</span><br><span class="line">    <span class="keyword">while</span> (cnt++ &lt; mid) &#123;</span><br><span class="line">        <span class="keyword">if</span> (S1[i] &lt; S2) &#123;</span><br><span class="line">            i++;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (++j &lt; N2) &#123;</span><br><span class="line">                <span class="built_in">cin</span> &gt;&gt; S2;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                S2 = INT_MAX;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; (S1[i] &lt; S2 ? S1[i] : S2) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;想着好不容易逮到一道水题正好让我爽一下，唰唰唰写完交上去结果被测试点卡得怀疑人生。如果考试时候出了这么道题，那我可能要打出 GG 了。</p>
+<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;这道题还有好多解法，有空补上。</p>
 
         </div>
         
             <article class="message is-info"><div class="message-body">
                 <ul>
-                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/07/06/pat-a-1029/">PAT-A 1029 Median (25)</a></li>
+                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/07/16/pat-a-1057/">PAT-A 1057 Stack (30)</a></li>
                     <li><strong>本文作者：</strong><a href="https://lokka.me">Kain Zhang</a></li>
-                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/07/06/pat-a-1029/">https://lokka.me/2020/07/06/pat-a-1029/</a></li>
-                    <li><strong>发布时间：</strong>2020-07-06</li>
+                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/07/16/pat-a-1057/">https://lokka.me/2020/07/16/pat-a-1057/</a></li>
+                    <li><strong>发布时间：</strong>2020-07-16</li>
                     <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
                     </li>
                 </ul>
@@ -213,7 +205,7 @@
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
                     <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
-                    <a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Two-Pointers/" rel="tag">Two Pointers</a>
+                    <a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
                 </div>
             </div>
         </div>
@@ -274,17 +266,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/07/07/pat-a-1056/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">PAT-A 1056 Mice and Rice (25)</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/05/pat-a-1021/">
-                <span class="level-item">PAT-A 1021 Deepest Root (25)</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/16/pat-a-1047/">
+                <span class="level-item">PAT-A 1047 Student List for Course (25)</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -470,7 +455,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="PAT-A 1029 Median (25)" height="28">
+                    <img src="/images/logo.svg" alt="PAT-A 1057 Stack (30)" height="28">
                 
                 </a>
                 <p class="is-size-7">

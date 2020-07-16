@@ -19,11 +19,12 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lokka.me/images/og_image.png">
 <meta property="article:published_time" content="2020-07-15T14:19:34.000Z">
-<meta property="article:modified_time" content="2020-07-15T07:56:16.140Z">
+<meta property="article:modified_time" content="2020-07-16T15:55:16.647Z">
 <meta property="article:author" content="Kain Zhang">
+<meta property="article:tag" content="DFS">
 <meta property="article:tag" content="PAT">
 <meta property="article:tag" content="Dijkstra">
-<meta property="article:tag" content="DFS">
+<meta property="article:tag" content="Graph">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://lokka.me/images/og_image.png">
 
@@ -138,7 +139,11 @@
                 <time class="level-item has-text-grey" datetime="2020-07-15T14:19:34.000Z">
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-07-15
                 </time>
-                <!--  -->
+                <!-- 
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-16T15:55:16.647Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-16
+                </time>
+                 -->
                 
                 <div class="level-item">
                 <i class="far fa-folder has-text-grey">&nbsp;</i>
@@ -150,7 +155,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    10 minutes read (About 1451 words)
+                    10 minutes read (About 1443 words)
                 </span>
                 
                 
@@ -182,20 +187,16 @@
 <h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each case, the first line contains 4 numbers: $C_{max}$ (≤100), always an even number, is the maximum capacity of each station; N (≤500), the total number of stations; $S_p$, the index of the problem station (the stations are numbered from 1 to N, and PBMC is represented by the vertex 0); and M, the number of roads. The second line contains N non-negative numbers $C_i$(i=1,⋯,N) where each $C_i$ is the current number of bikes at $S_i$ respectively. Then M lines follow, each contains 3 numbers: $S_i$, $S_j$, and $T_{ij}$ which describe the time $T_​{ij}$ taken to move betwen stations $S_i$ and $S_j$ . All the numbers in a line are separated by a space.</p>
 <h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each test case, print your results in one line. First output the number of bikes that PBMC must send. Then after one space, output the path in the format: 0−&gt;$S_1$−&gt;⋯−&gt;$S_p$. Finally after another space, output the number of bikes that we must take back to PBMC after the condition of $S_p$ is adjusted to perfect.</p>
 <p>Note that if such a path is not unique, output the one that requires minimum number of bikes that we must take back to PBMC. The judge’s data guarantee that such a path is unique.</p>
-<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><p><strong>Input</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">10 3 3 5</span><br><span class="line">6 7 0</span><br><span class="line">0 1 1</span><br><span class="line">0 2 1</span><br><span class="line">0 3 3</span><br><span class="line">1 3 1</span><br><span class="line">2 3 1</span><br></pre></td></tr></table></figure>
+<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">10 3 3 5</span><br><span class="line">6 7 0</span><br><span class="line">0 1 1</span><br><span class="line">0 2 1</span><br><span class="line">0 3 3</span><br><span class="line">1 3 1</span><br><span class="line">2 3 1</span><br></pre></td></tr></table></figure>
 
-<p><strong>Output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 0-&gt;2-&gt;3 0</span><br></pre></td></tr></table></figure>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 0-&gt;2-&gt;3 0</span><br></pre></td></tr></table></figure>
 
-<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;题目大意：共享单车调度，要求每个车站的共享单车数量为总容量的一半。当一个车站需要调度时，从管理中心出发，选择最短路线到达该车站，如果最短路线存在多条，那么选择从管理中心派送最少车辆的路线，途径的每个车站都要顺便把它调整为半满。例如 $S_3$ 缺五辆，沿途可从 $S_2$ 取走 2 辆给 $S_3$，因此只需要从管理中心取 3 辆，两个车站均达到半满。输出需要派送的最少单车数量，按格式输出路线，最后输出带回管理中心的最少单车数量。</p>
-<p>&emsp;&emsp;使用 Dijkstra 算法获取最短路径，记录路径中每个结点的前置结点。因为有距离相同的情况，使用二维数组保存前置结点，从而获得多条路径。使用 DFS 对所有最短路径进行遍历，比较每条路径的派送和带回单车的数量，获得管理中心的最少派送数量和最少派送条件下的最少带回数量。</p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;题目大意：共享单车调度，要求每个车站的共享单车数量为总容量的一半。当一个车站需要调度时，从管理中心出发，选择最短路线到达该车站，如果最短路线存在多条，那么选择从管理中心派送最少车辆的路线，途经的每个车站都要顺便把它调整为半满。例如 $S_3$ 缺 5 辆，沿途可从 $S_2$ 取走 2 辆给 $S_3$，因此只需要从管理中心取 3 辆，两个车站均达到半满。输出需要派送的最少单车数量，按格式输出路线，最后输出带回管理中心的最少单车数量。</p>
+<p>&emsp;&emsp;使用 Dijkstra 算法获取最短路径，记录路径中每个结点的前置结点。因为有距离相同的情况，使用二维数组保存前置结点，从而获得多条路径。使用 DFS 对所有最短路径进行遍历，比较每条路径的派送和带回单车的数量，获得最少派送数量和最少派送条件下的最少带回数量。</p>
 <article class="message is-danger"><div class="message-body">
 <p><span class="icon"><i class="fa fa-bomb mr-2"></i></span>&nbsp;&nbsp;<strong>坑：</strong> 行驶路线是单向无往返的，也就是从管理中心出发，每到一个车站就要将该车站的单车数量调整为半满，不能利用返程调整。例如：总容量为 10，$S_1$为 2，$S_2$为 8，路线 PBMC-&gt;$S_1$-&gt;$S_2$，不能从$S_2$取 3 辆调度到 $S_1$，需要从管理中心派送 3 辆，并带回 3 辆。</p>
 </div></article>
 
-
-<p>&emsp;&emsp;</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mxN = <span class="number">505</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> C, N, S, M, G[mxN][mxN], w[mxN], d[mxN];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; pre[mxN], path, tmp_path;</span><br><span class="line"><span class="keyword">bool</span> vis[mxN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">(<span class="keyword">int</span> s)</span> </span>&#123;</span><br><span class="line">    fill(d, d + mxN, INT_MAX);</span><br><span class="line">    d[s] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= N; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> u = <span class="number">-1</span>, mnD = INT_MAX;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= N; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!vis[j] &amp;&amp; d[j] &lt; mnD) &#123;</span><br><span class="line">                mnD = d[j];</span><br><span class="line">                u = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (u == <span class="number">-1</span>) <span class="keyword">return</span>;</span><br><span class="line">        vis[u] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">0</span>; v &lt;= N; v++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!vis[v] &amp;&amp; G[u][v] != INT_MAX) &#123;</span><br><span class="line">                <span class="keyword">if</span> (d[u] + G[u][v] &lt; d[v]) &#123;</span><br><span class="line">                    d[v] = d[u] + G[u][v];</span><br><span class="line">                    pre[v].clear();</span><br><span class="line">                    pre[v].push_back(u);</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (d[u] + G[u][v] == d[v]) &#123;</span><br><span class="line">                    pre[v].push_back(u);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> min_bk = INT_MAX, min_sd = INT_MAX;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">    tmp_path.push_back(v);</span><br><span class="line">    <span class="keyword">if</span> (v == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> len = tmp_path.size(), bk = <span class="number">0</span>, sd = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;  <span class="comment">// 去掉出发点</span></span><br><span class="line">            <span class="keyword">int</span> num = w[tmp_path[i]] - C / <span class="number">2</span>;  <span class="comment">// 当前车站的数量情况</span></span><br><span class="line">            <span class="keyword">if</span> (num &lt; <span class="number">0</span>) &#123;  <span class="comment">// 缺车</span></span><br><span class="line">                <span class="keyword">if</span> (-num &gt; bk) &#123;</span><br><span class="line">                    sd += -num - bk;</span><br><span class="line">                    bk = <span class="number">0</span>;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    bk += num;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (num &gt; <span class="number">0</span>) &#123;  <span class="comment">// 多车</span></span><br><span class="line">                bk += num;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (sd &lt; min_sd) &#123;</span><br><span class="line">            min_sd = sd;</span><br><span class="line">            min_bk = bk;</span><br><span class="line">            path = tmp_path;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (sd == min_sd &amp;&amp; bk &lt; min_bk) &#123;</span><br><span class="line">            min_bk = bk;</span><br><span class="line">            path = tmp_path;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> len = pre[v].size();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        dfs(pre[v][i]);</span><br><span class="line">    &#125;</span><br><span class="line">    tmp_path.pop_back();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    fill (G[<span class="number">0</span>], G[<span class="number">0</span>] + mxN * mxN, INT_MAX);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; C &gt;&gt; N &gt;&gt; S &gt;&gt; M;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; w[i]; <span class="comment">// 单车数量</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; M; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> a, b, t;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b &gt;&gt; t;</span><br><span class="line">        G[a][b] = G[b][a] = t;</span><br><span class="line">    &#125;</span><br><span class="line">    dijkstra(<span class="number">0</span>);</span><br><span class="line">    dfs(S);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; min_sd &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">    <span class="keyword">int</span> len = path.size();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = len - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; len - <span class="number">1</span>) <span class="built_in">cout</span> &lt;&lt; <span class="string">"-&gt;"</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; path[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span> &lt;&lt; min_bk &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;瞎脑补了一堆骚操作，怼了一个多小时，测试点就只过一半。网上搜大佬题解才知道自己加戏了，路程是单向的…… 另外题目说明了要选择从管理中心派送单车数量最少的路线，如果存在多条路线派送数量相同，那么选带回单车数量最少的。</p>
@@ -220,7 +221,7 @@
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
                     <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
-                    <a class="has-link-grey -link" href="/tags/DFS/" rel="tag">DFS</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Dijkstra/" rel="tag">Dijkstra</a>,&nbsp;<a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
+                    <a class="has-link-grey -link" href="/tags/DFS/" rel="tag">DFS</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Dijkstra/" rel="tag">Dijkstra</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Graph/" rel="tag">Graph</a>,&nbsp;<a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
                 </div>
             </div>
         </div>
@@ -281,6 +282,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/07/16/pat-a-1047/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">PAT-A 1047 Student List for Course (25)</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
             <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/14/pat-a-1151/">
@@ -338,7 +346,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            21
+                            23
                         </p>
                     </a>
                 </div>
@@ -427,7 +435,15 @@
         <a class="is-flex" href="#Sample">
         <span class="has-mr-6">3</span>
         <span>Sample</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Input">
+        <span class="has-mr-6">3.1</span>
+        <span>Input</span>
         </a></li><li>
+        <a class="is-flex" href="#Output">
+        <span class="has-mr-6">3.2</span>
+        <span>Output</span>
+        </a></li></ul></li><li>
         <a class="is-flex" href="#Analysis">
         <span class="has-mr-6">4</span>
         <span>Analysis</span>

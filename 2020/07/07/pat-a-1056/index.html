@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lokka.me/images/og_image.png">
 <meta property="article:published_time" content="2020-07-07T23:09:49.000Z">
-<meta property="article:modified_time" content="2020-07-15T07:56:16.140Z">
+<meta property="article:modified_time" content="2020-07-16T15:55:16.647Z">
 <meta property="article:author" content="Kain Zhang">
 <meta property="article:tag" content="PAT">
 <meta name="twitter:card" content="summary">
@@ -137,8 +137,8 @@
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-07-07
                 </time>
                 <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-15T07:56:16.140Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-15
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-16T15:55:16.647Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-16
                 </time>
                  -->
                 
@@ -152,7 +152,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    6 minutes read (About 916 words)
+                    6 minutes read (About 930 words)
                 </span>
                 
                 
@@ -170,21 +170,19 @@
 </div></article>
 
 <p><strong>Mice and Rice</strong> is the name of a programming contest in which each programmer must write a piece of code to control the movements of a mouse in a given map. The goal of each mouse is to eat as much rice as possible in order to become a FatMouse.</p>
-<p>First the playing order is randomly decided for NP programmers. Then every N​G programmers are grouped in a match. The fattest mouse in a group wins and enters the next turn. All the losers in this turn are ranked the same. Every NG winners are then grouped in the next match until a final winner is determined.</p>
+<p>First the playing order is randomly decided for $N_P$ programmers. Then every $N​_G$ programmers are grouped in a match. The fattest mouse in a group wins and enters the next turn. All the losers in this turn are ranked the same. Every NG winners are then grouped in the next match until a final winner is determined.</p>
 <p>For the sake of simplicity, assume that the weight of each mouse is fixed once the programmer submits his/her code. Given the weights of all the mice and the initial playing order, you are supposed to output the ranks for the programmers.</p>
 <a id="more"></a>
 
 <p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805419468242944" title="PAT-A 1056 Mice and Rice">PAT-A 1056 Mice and Rice</a></p>
-<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each case, the first line contains 2 positive integers: NP and NG (≤1000), the number of programmers and the maximum number of mice in a group, respectively. If there are less than NG mice at the end of the player’s list, then all the mice left will be put into the last group. The second line contains NP distinct non-negative numbers W​i(i = 0,⋯,NP − 1) where each Wi is the weight of the i-th mouse respectively. The third line gives the initial playing order which is a permutation of 0,⋯,NP​ − 1 (assume that the programmers are numbered from 0 to NP − 1). All the numbers in a line are separated by a space.</p>
+<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each case, the first line contains 2 positive integers: $N_P$ and $N_G$ (≤1000), the number of programmers and the maximum number of mice in a group, respectively. If there are less than $N_G$ mice at the end of the player’s list, then all the mice left will be put into the last group. The second line contains $N_P$ distinct non-negative numbers W​i(i = 0,⋯,$N_P$ − 1) where each Wi is the weight of the i-th mouse respectively. The third line gives the initial playing order which is a permutation of 0,⋯,$N_P$​ − 1 (assume that the programmers are numbered from 0 to $N_P$ − 1). All the numbers in a line are separated by a space.</p>
 <h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each test case, print the final ranks in a line. The i-th number is the rank of the i-th programmer, and all the numbers must be separated by a space, with no extra space at the end of the line.</p>
-<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><p><strong>Input</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">11 3</span><br><span class="line">25 18 0 46 37 3 19 22 57 56 10</span><br><span class="line">6 0 8 7 10 5 9 1 4 2 3</span><br></pre></td></tr></table></figure>
+<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">11 3</span><br><span class="line">25 18 0 46 37 3 19 22 57 56 10</span><br><span class="line">6 0 8 7 10 5 9 1 4 2 3</span><br></pre></td></tr></table></figure>
 
-<p><strong>Output</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5 5 5 2 5 5 5 3 1 3 5</span><br></pre></td></tr></table></figure>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5 5 5 2 5 5 5 3 1 3 5</span><br></pre></td></tr></table></figure>
 
-<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;题目大意：有 NP 个程序猿，每只程序猿一只老鼠，参加老鼠比重量的比赛。每轮比赛划分多个组，每组 NG 位选手，如果最后剩余不足 NG 数量的选手也组成一组。每组中最重的老鼠晋级参加下一轮。要求计算出参赛选手的排名，其中同一轮的失败者名次并列。</p>
-<p>&emsp;&emsp;按照题意模拟就 vans 了。数据读入第二行为每只老鼠的重量，第三行为老鼠的序号，因此需要先将序号与选手匹配（我用了 map ）。使用队列存放参赛选手，不断从队列取老鼠，每 NG 只判断一次获胜者，并添加至队列末端，对最后的不足 NG 选手的组也要判断。需要确定每一轮的 NP，即总参赛鼠数，同时更新排名数据。详情见代码。</p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;题目大意：有 $N_P$ 个程序猿，每只程序猿一只老鼠，参加老鼠比重量的比赛。每轮比赛划分多个组，每组 $N_G$ 位选手，如果最后剩余不足 $N_G$ 数量的选手也组成一组。每组中最重的老鼠晋级参加下一轮。要求计算出参赛选手的排名，其中同一轮的失败者名次并列。</p>
+<p>&emsp;&emsp;按照题意模拟就 vans 了。数据读入第二行为每只老鼠的重量，第三行为老鼠的序号，因此需要先将序号与选手匹配（我用了 map ）。使用队列存放参赛选手，不断从队列取老鼠，每 $N_G$ 只判断一次获胜者，并添加至队列末端，对最后的不足 $N_G$ 选手的组也要判断。需要确定每一轮的 $N_P$，即总参赛鼠数，同时更新排名数据。详情见代码。</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">mic</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> idx, weit, ranc;  <span class="comment">// 序号, 重量, 排名</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, mic&gt; mp;</span><br><span class="line"><span class="built_in">queue</span>&lt;mic&gt; que;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">int</span> NP, NG;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; NP &gt;&gt; NG;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">W</span><span class="params">(NP)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; NP; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; W[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; NP; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> idx;</span><br><span class="line">        mic m;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; idx;</span><br><span class="line">        m.idx = idx;</span><br><span class="line">        m.weit = W[idx];</span><br><span class="line">        que.push(m);</span><br><span class="line">        mp[idx] = m;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>, rk = <span class="built_in">ceil</span>(NP * <span class="number">1.0</span> / NG) + <span class="number">1</span>, mxW = <span class="number">-1</span>, mxW_id;</span><br><span class="line">    <span class="keyword">while</span> (!que.empty()) &#123;</span><br><span class="line">        mic mm = que.front();</span><br><span class="line">        que.pop();</span><br><span class="line">        <span class="keyword">if</span> (mm.weit &gt; mxW) &#123;  <span class="comment">// 获取当前组最重数据</span></span><br><span class="line">            mxW = mm.weit;</span><br><span class="line">            mxW_id = mm.idx;</span><br><span class="line">        &#125;</span><br><span class="line">        mp[mm.idx].ranc = rk;  <span class="comment">// 更新排名</span></span><br><span class="line">        cnt++;</span><br><span class="line">        <span class="keyword">if</span> (cnt % NG == <span class="number">0</span> || cnt == NP) &#123;  <span class="comment">// 一组结束</span></span><br><span class="line">            que.push(mp[mxW_id]);  <span class="comment">// 添加获胜者至队尾</span></span><br><span class="line">            mxW = <span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">if</span> (cnt == NP) &#123;  <span class="comment">// 本轮结束</span></span><br><span class="line">                NP = que.size();  <span class="comment">// 更新选手数量</span></span><br><span class="line">                <span class="keyword">if</span> (NP == <span class="number">1</span>) &#123;  <span class="comment">// 只剩一老鼠，结束循环</span></span><br><span class="line">                    mp[mxW_id].ranc = <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                rk = <span class="built_in">ceil</span>(NP * <span class="number">1.0</span> / NG) + <span class="number">1</span>;  <span class="comment">// 计算下一组失败者名次</span></span><br><span class="line">                cnt = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;i : mp) &#123;</span><br><span class="line">        <span class="keyword">if</span> (flag) <span class="built_in">cout</span> &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; i.second.ranc;</span><br><span class="line">        flag++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;题目比较简单，但是读了好几遍才读懂，起初没明白输入第三行是干啥的，就很烦。第一遍代码写得逻辑很乱以为过不了，居然过了。改了改感觉还是不清晰，有缘再改吧。</p>
@@ -334,7 +332,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            21
+                            23
                         </p>
                     </a>
                 </div>
@@ -423,7 +421,15 @@
         <a class="is-flex" href="#Sample">
         <span class="has-mr-6">3</span>
         <span>Sample</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Input">
+        <span class="has-mr-6">3.1</span>
+        <span>Input</span>
         </a></li><li>
+        <a class="is-flex" href="#Output">
+        <span class="has-mr-6">3.2</span>
+        <span>Output</span>
+        </a></li></ul></li><li>
         <a class="is-flex" href="#Analysis">
         <span class="has-mr-6">4</span>
         <span>Analysis</span>
