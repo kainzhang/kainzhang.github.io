@@ -7,21 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>PAT-A 1151 LCA in a Binary Tree (30) - LOKKA&#39;s Blog</title>
+<title>PAT-A 1091 Acute Stroke (30) - LOKKA&#39;s Blog</title>
 
 
-    <meta name="description" content="&amp;nbsp;&amp;nbsp;通过先序和中序寻找两个结点的最近共同祖先。   The lowest common ancestor (LCA) of two nodes U and V in a tree is the deepest node that has both U and V as descendants. Given any two nodes in a binary tree, you">
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;BFS 广度优先搜索。   One important factor to identify acute stroke (急性脑卒中) is the volume of the stroke core. Given the results of image analysis in which the core regions are identified in each">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT-A 1151 LCA in a Binary Tree (30)">
-<meta property="og:url" content="https://lokka.me/2020/07/14/pat-a-1151/index.html">
+<meta property="og:title" content="PAT-A 1091 Acute Stroke (30)">
+<meta property="og:url" content="https://lokka.me/2020/07/18/pat-a-1091/index.html">
 <meta property="og:site_name" content="LOKKA&#39;s Blog">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;通过先序和中序寻找两个结点的最近共同祖先。   The lowest common ancestor (LCA) of two nodes U and V in a tree is the deepest node that has both U and V as descendants. Given any two nodes in a binary tree, you">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;BFS 广度优先搜索。   One important factor to identify acute stroke (急性脑卒中) is the volume of the stroke core. Given the results of image analysis in which the core regions are identified in each">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lokka.me/images/og_image.png">
-<meta property="article:published_time" content="2020-07-14T23:38:13.000Z">
+<meta property="article:published_time" content="2020-07-18T23:37:02.000Z">
 <meta property="article:modified_time" content="2020-07-18T15:57:26.201Z">
 <meta property="article:author" content="Kain Zhang">
 <meta property="article:tag" content="PAT">
+<meta property="article:tag" content="BFS">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://lokka.me/images/og_image.png">
 
@@ -83,7 +84,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="PAT-A 1151 LCA in a Binary Tree (30)" height="28">
+                <img src="/images/logo.svg" alt="PAT-A 1091 Acute Stroke (30)" height="28">
             
             </a>
         </div>
@@ -132,15 +133,11 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-07-14T23:38:13.000Z">2020-07-14</time> -->
-                <time class="level-item has-text-grey" datetime="2020-07-14T23:38:13.000Z">
-                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-14
+                <!-- <time class="level-item has-text-grey" datetime="2020-07-18T23:37:02.000Z">2020-07-18</time> -->
+                <time class="level-item has-text-grey" datetime="2020-07-18T23:37:02.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-18
                 </time>
-                <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-18T15:57:26.201Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-18
-                </time>
-                 -->
+                <!--  -->
                 
                 <div class="level-item">
                 <i class="far fa-folder has-text-grey">&nbsp;</i>
@@ -152,7 +149,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    5 minutes read (About 736 words)
+                    4 minutes read (About 602 words)
                 </span>
                 
                 
@@ -161,39 +158,49 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                PAT-A 1151 LCA in a Binary Tree (30)
+                PAT-A 1091 Acute Stroke (30)
             
         </h1>
         <div class="content">
-            <article class="message is-danger"><div class="message-body">
-<p><span class="icon"><i class="fa fa-star mr-2"></i></span>&nbsp;&nbsp;通过先序和中序寻找两个结点的最近共同祖先。</p>
+            <article class="message is-success"><div class="message-body">
+<p><span class="icon"><i class="fa fa-check mr-2"></i></span>&nbsp;&nbsp;BFS 广度优先搜索。</p>
 </div></article>
 
-<p>The lowest common ancestor (LCA) of two nodes U and V in a tree is the deepest node that has both U and V as descendants.</p>
-<p>Given any two nodes in a binary tree, you are supposed to find their LCA.</p>
+<p>One important factor to identify acute stroke (急性脑卒中) is the volume of the stroke core. Given the results of image analysis in which the core regions are identified in each MRI slice, your job is to calculate the volume of the stroke core.</p>
 <a id="more"></a>
 
-<p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/1038430130011897856" title="PAT-A 1151 LCA in a Binary Tree">PAT-A 1151 LCA in a Binary Tree</a></p>
-<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each case, the first line gives two positive integers: M (≤ 1,000), the number of pairs of nodes to be tested; and N (≤ 10,000), the number of keys in the binary tree, respectively. In each of the following two lines, N distinct integers are given as the inorder and preorder traversal sequences of the binary tree, respectively. It is guaranteed that the binary tree can be uniquely determined by the input sequences. Then M lines follow, each contains a pair of integer keys U and V. All the keys are in the range of <strong>int</strong>.</p>
-<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each given pair of U and V, print in a line <code>LCA of U and V is A.</code> if the LCA is found and <code>A</code> is the key. But if <code>A</code> is one of U and V, print <code>X is an ancestor of Y.</code> where <code>X</code> is <code>A</code> and <code>Y</code> is the other node. If U or V is not found in the binary tree, print in a line <code>ERROR: U is not found.</code> or <code>ERROR: V is not found.</code> or <code>ERROR: U and V are not found.</code>.</p>
-<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">6 8</span><br><span class="line">7 2 3 4 6 5 1 8</span><br><span class="line">5 3 7 2 6 4 8 1</span><br><span class="line">2 6</span><br><span class="line">8 1</span><br><span class="line">7 9</span><br><span class="line">12 -3</span><br><span class="line">0 8</span><br><span class="line">99 99</span><br></pre></td></tr></table></figure>
+<p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805375457411072" title="PAT-A 1091 Acute Stroke">PAT-A 1091 Acute Stroke</a></p>
+<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each case, the first line contains 4 positive integers: $M$, $N$, $L$ and $T$, where $M$ and $N$ are the sizes of each slice (i.e. pixels of a slice are in an $M×N$ matrix, and the maximum resolution is 1286 by 128); $L(≤60)$ is the number of slices of a brain; and $T$ is the integer threshold (i.e. if the volume of a connected core is less than $T$, then that core must not be counted).</p>
+<p>Then $L$ slices are given. Each slice is represented by an $M×N$ matrix of 0’s and 1’s, where 1 represents a pixel of stroke, and 0 means normal. Since the thickness of a slice is a constant, we only have to count the number of 1’s to obtain the volume. However, there might be several separated core regions in a brain, and only those with their volumes no less than $T$ are counted. Two pixels are <strong>connected</strong> and hence belong to the same region if they share a common side, as shown by Figure 1 where all the 6 red pixels are connected to the blue one.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Figure 1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/07/15/f85c00cc-62ce-41ff-8dd0-d1c288d87409.jpg"></td>
+</tr>
+</tbody></table>
+<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each case, output in a line the total volume of the stroke core.</p>
+<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">3 4 5 2</span><br><span class="line">1 1 1 1</span><br><span class="line">1 1 1 1</span><br><span class="line">1 1 1 1</span><br><span class="line">0 0 1 1</span><br><span class="line">0 0 1 1</span><br><span class="line">0 0 1 1</span><br><span class="line">1 0 1 1</span><br><span class="line">0 1 0 0</span><br><span class="line">0 0 0 0</span><br><span class="line">1 0 1 1</span><br><span class="line">0 0 0 0</span><br><span class="line">0 0 0 0</span><br><span class="line">0 0 0 1</span><br><span class="line">0 0 0 1</span><br><span class="line">1 0 0 0</span><br></pre></td></tr></table></figure>
 
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LCA of 2 and 6 is 3.</span><br><span class="line">8 is an ancestor of 1.</span><br><span class="line">ERROR: 9 is not found.</span><br><span class="line">ERROR: 12 and -3 are not found.</span><br><span class="line">ERROR: 0 is not found.</span><br><span class="line">ERROR: 99 and 99 are not found.</span><br></pre></td></tr></table></figure>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">26</span><br></pre></td></tr></table></figure>
 
-<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;题目大意：提供二叉树的中序和先序遍历，然后 M 对结点，寻找每对结点 (U 和 V) 的最近共同祖先，按规定格式输出结果。</p>
-<p>&emsp;&emsp;在先序中设置光标，选择结点作为根结点。然后在通过中序判断当前根结点与 U 和 V 的位置关系。注意需要保存各结点在中序中的下标，通过下标进行上述判断，详情见代码。</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; in, pre;</span><br><span class="line"><span class="built_in">map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mp;</span><br><span class="line"><span class="keyword">int</span> M, N, u, v, inU, inV;</span><br><span class="line"></span><br><span class="line"><span class="comment">// inL 为中序的左边界, preCur 为先序中的游标，即当前选中的根结点</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LCA</span><span class="params">(<span class="keyword">int</span> inL, <span class="keyword">int</span> preCur)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 获取当前根结点在中序中的下标</span></span><br><span class="line">    <span class="keyword">int</span> inRoot = mp[pre[preCur]];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((inU &lt; inRoot &amp;&amp; inV &gt; inRoot) || (inU &gt; inRoot &amp;&amp; inV &lt; inRoot)) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"LCA of "</span> &lt;&lt; u &lt;&lt; <span class="string">" and "</span> &lt;&lt; v &lt;&lt; <span class="string">" is "</span> &lt;&lt; in[inRoot] &lt;&lt; <span class="string">"."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (inU &lt; inRoot &amp;&amp; inV &lt; inRoot) &#123;  <span class="comment">// U, V 在当前根结点的左子树</span></span><br><span class="line">        LCA(inL, preCur + <span class="number">1</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (inU &gt; inRoot &amp;&amp; inV &gt; inRoot) &#123;  <span class="comment">// U, V 在当前根结点的右子树</span></span><br><span class="line">        LCA(inRoot + <span class="number">1</span>, preCur + (inRoot - inL) + <span class="number">1</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (inU == inRoot) &#123;  <span class="comment">// U 为根结点</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; u &lt;&lt; <span class="string">" is an ancestor of "</span> &lt;&lt; v &lt;&lt; <span class="string">"."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (inV == inRoot) &#123;  <span class="comment">// V 为根结点</span></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; v &lt;&lt; <span class="string">" is an ancestor of "</span> &lt;&lt; u &lt;&lt; <span class="string">"."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; M &gt;&gt; N;</span><br><span class="line">    in.resize(N + <span class="number">1</span>), pre.resize(N + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; in[i];</span><br><span class="line">        mp[in[i]] = i;  <span class="comment">// 保存结点的中序下标</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; pre[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; M; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v;</span><br><span class="line">        <span class="keyword">if</span> (!mp[u] &amp;&amp; !mp[v]) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"ERROR: "</span> &lt;&lt; u &lt;&lt; <span class="string">" and "</span> &lt;&lt; v &lt;&lt; <span class="string">" are not found."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!mp[u] || !mp[v]) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"ERROR: "</span> &lt;&lt; (!mp[u] ? u : v) &lt;&lt; <span class="string">" is not found."</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            inU = mp[u], inV = mp[v];  <span class="comment">// 获取 U, V 在中序中的下标</span></span><br><span class="line">            LCA(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;题目大意：按照上面图示的连接方式，在三维数组里搜索 1 的数量。其中 1 数量大于等于 $T$ 的区域被认为是 stroke core，否则无视。求所有符合要求的区域中一共多少个 1 即体积。</p>
+<p>&emsp;&emsp;基础 BFS 题，注意搜索的是上面图示的邻近 6 个结点，做好边界判断。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> M, N, L, T, G[<span class="number">65</span>][<span class="number">1300</span>][<span class="number">130</span>];</span><br><span class="line"><span class="keyword">int</span> dh[] = &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;, dx[] = &#123;<span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>&#125;, dy[] = &#123;<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> x, y, h;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">(<span class="keyword">int</span> h, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">queue</span>&lt;Node&gt; que;</span><br><span class="line">    que.push(Node&#123;x, y, h&#125;);</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (!que.empty()) &#123;</span><br><span class="line">        Node node = que.front();</span><br><span class="line">        que.pop();</span><br><span class="line">        cnt++;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> nh = node.h + dh[i];</span><br><span class="line">            <span class="keyword">int</span> nx = node.x + dx[i];</span><br><span class="line">            <span class="keyword">int</span> ny = node.y + dy[i];</span><br><span class="line">            <span class="keyword">if</span> (nh &lt; <span class="number">0</span> || nh &gt;= L || nx &lt; <span class="number">0</span> || nx &gt;= M || ny &lt; <span class="number">0</span> || ny &gt;= N || G[nh][nx][ny] == <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">            G[nh][nx][ny] = <span class="number">0</span>;</span><br><span class="line">            que.push(Node&#123;nx, ny, nh&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cnt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d %d %d %d"</span>, &amp;M, &amp;N, &amp;L, &amp;T);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; L; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; M; j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; N; k++) &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;G[i][j][k]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; L; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; M; j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; N; k++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (G[i][j][k] == <span class="number">1</span>) &#123;</span><br><span class="line">                    G[i][j][k] = <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">int</span> tmp = bfs(i, j, k);</span><br><span class="line">                    <span class="keyword">if</span> (tmp &gt;= T) ans += tmp;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;没啥吐槽的，碎了……</p>
+<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;30 分白送，嘻嘻。</p>
 
         </div>
         
             <article class="message is-info"><div class="message-body">
                 <ul>
-                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/07/14/pat-a-1151/">PAT-A 1151 LCA in a Binary Tree (30)</a></li>
+                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/07/18/pat-a-1091/">PAT-A 1091 Acute Stroke (30)</a></li>
                     <li><strong>本文作者：</strong><a href="https://lokka.me">Kain Zhang</a></li>
-                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/07/14/pat-a-1151/">https://lokka.me/2020/07/14/pat-a-1151/</a></li>
-                    <li><strong>发布时间：</strong>2020-07-14</li>
+                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/07/18/pat-a-1091/">https://lokka.me/2020/07/18/pat-a-1091/</a></li>
+                    <li><strong>发布时间：</strong>2020-07-18</li>
                     <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
                     </li>
                 </ul>
@@ -206,7 +213,7 @@
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
                     <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
-                    <a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
+                    <a class="has-link-grey -link" href="/tags/BFS/" rel="tag">BFS</a>,&nbsp;<a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
                 </div>
             </div>
         </div>
@@ -267,17 +274,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/07/15/pat-a-1018/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">PAT-A 1018 Public Bike Management (30)</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/13/pat-a-1099/">
-                <span class="level-item">PAT-A 1099 Build A Binary Search Tree (30)</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/17/pat-a-1074/">
+                <span class="level-item">PAT-A 1074 Reversing Linked List (25)</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -463,7 +463,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="PAT-A 1151 LCA in a Binary Tree (30)" height="28">
+                    <img src="/images/logo.svg" alt="PAT-A 1091 Acute Stroke (30)" height="28">
                 
                 </a>
                 <p class="is-size-7">
