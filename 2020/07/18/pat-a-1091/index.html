@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lokka.me/images/og_image.png">
 <meta property="article:published_time" content="2020-07-18T23:37:02.000Z">
-<meta property="article:modified_time" content="2020-07-18T15:57:26.201Z">
+<meta property="article:modified_time" content="2020-07-19T08:27:18.472Z">
 <meta property="article:author" content="Kain Zhang">
 <meta property="article:tag" content="PAT">
 <meta property="article:tag" content="BFS">
@@ -137,7 +137,11 @@
                 <time class="level-item has-text-grey" datetime="2020-07-18T23:37:02.000Z">
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-07-18
                 </time>
-                <!--  -->
+                <!-- 
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-19T08:27:18.472Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-19
+                </time>
+                 -->
                 
                 <div class="level-item">
                 <i class="far fa-folder has-text-grey">&nbsp;</i>
@@ -149,7 +153,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    4 minutes read (About 602 words)
+                    4 minutes read (About 606 words)
                 </span>
                 
                 
@@ -172,16 +176,11 @@
 <p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805375457411072" title="PAT-A 1091 Acute Stroke">PAT-A 1091 Acute Stroke</a></p>
 <h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each case, the first line contains 4 positive integers: $M$, $N$, $L$ and $T$, where $M$ and $N$ are the sizes of each slice (i.e. pixels of a slice are in an $M×N$ matrix, and the maximum resolution is 1286 by 128); $L(≤60)$ is the number of slices of a brain; and $T$ is the integer threshold (i.e. if the volume of a connected core is less than $T$, then that core must not be counted).</p>
 <p>Then $L$ slices are given. Each slice is represented by an $M×N$ matrix of 0’s and 1’s, where 1 represents a pixel of stroke, and 0 means normal. Since the thickness of a slice is a constant, we only have to count the number of 1’s to obtain the volume. However, there might be several separated core regions in a brain, and only those with their volumes no less than $T$ are counted. Two pixels are <strong>connected</strong> and hence belong to the same region if they share a common side, as shown by Figure 1 where all the 6 red pixels are connected to the blue one.</p>
-<table>
-<thead>
-<tr>
-<th align="center">Figure 1</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/07/15/f85c00cc-62ce-41ff-8dd0-d1c288d87409.jpg"></td>
-</tr>
-</tbody></table>
+<div align="center">
+<p><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/07/15/f85c00cc-62ce-41ff-8dd0-d1c288d87409.jpg" alt="Figure 1"></p>
+</div>
+
+
 <h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each case, output in a line the total volume of the stroke core.</p>
 <h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">3 4 5 2</span><br><span class="line">1 1 1 1</span><br><span class="line">1 1 1 1</span><br><span class="line">1 1 1 1</span><br><span class="line">0 0 1 1</span><br><span class="line">0 0 1 1</span><br><span class="line">0 0 1 1</span><br><span class="line">1 0 1 1</span><br><span class="line">0 1 0 0</span><br><span class="line">0 0 0 0</span><br><span class="line">1 0 1 1</span><br><span class="line">0 0 0 0</span><br><span class="line">0 0 0 0</span><br><span class="line">0 0 0 1</span><br><span class="line">0 0 0 1</span><br><span class="line">1 0 0 0</span><br></pre></td></tr></table></figure>
 
@@ -274,6 +273,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/07/19/pat-a-1016/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">PAT-A 1016 Phone Bills (25)</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
             <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/17/pat-a-1074/">
@@ -331,7 +337,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            25
+                            26
                         </p>
                     </a>
                 </div>

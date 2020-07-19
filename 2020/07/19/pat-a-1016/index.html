@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.1" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>PAT-A 1016 Phone Bills (25) - LOKKA&#39;s Blog</title>
+
+
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;结构体排序。   A long-distance telephone company charges its customers by the following rules: Making a long-distance call costs a certain amount per minute, depending on the time of day when t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT-A 1016 Phone Bills (25)">
+<meta property="og:url" content="https://lokka.me/2020/07/19/pat-a-1016/index.html">
+<meta property="og:site_name" content="LOKKA&#39;s Blog">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;结构体排序。   A long-distance telephone company charges its customers by the following rules: Making a long-distance call costs a certain amount per minute, depending on the time of day when t">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://lokka.me/images/og_image.png">
+<meta property="article:published_time" content="2020-07-19T15:52:17.000Z">
+<meta property="article:modified_time" content="2020-07-19T08:27:18.472Z">
+<meta property="article:author" content="Kain Zhang">
+<meta property="article:tag" content="PAT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://lokka.me/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<!-- <body class="is-2-column"> -->
+
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="PAT-A 1016 Phone Bills (25)" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <!-- <time class="level-item has-text-grey" datetime="2020-07-19T15:52:17.000Z">2020-07-19</time> -->
+                <time class="level-item has-text-grey" datetime="2020-07-19T15:52:17.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-19
+                </time>
+                <!--  -->
+                
+                <div class="level-item">
+                <i class="far fa-folder has-text-grey">&nbsp;</i>
+                <a class="has-link-grey -link" href="/categories/Note/">Note</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Note/Problem/">Problem</a>
+                </div>
+                
+                
+                <i class="far fa-clock has-text-grey is-hidden-mobile">&nbsp;</i>
+                <span class="level-item has-text-grey is-hidden-mobile">
+                    
+                    
+                    9 minutes read (About 1306 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                PAT-A 1016 Phone Bills (25)
+            
+        </h1>
+        <div class="content">
+            <article class="message is-danger"><div class="message-body">
+<p><span class="icon"><i class="fa fa-star mr-2"></i></span>&nbsp;&nbsp;结构体排序。</p>
+</div></article>
+
+<p>A long-distance telephone company charges its customers by the following rules:</p>
+<p>Making a long-distance call costs a certain amount per minute, depending on the time of day when the call is made. When a customer starts connecting a long-distance call, the time will be recorded, and so will be the time when the customer hangs up the phone. Every calendar month, a bill is sent to the customer for each minute called (at a rate determined by the time of day). Your job is to prepare the bills for each month, given a set of phone call records.</p>
+<a id="more"></a>
+
+<p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805493648703488" title="PAT-A 1016 Phone Bills">PAT-A 1016 Phone Bills</a></p>
+<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. Each case has two parts: the rate structure, and the phone call records.</p>
+<p>The rate structure consists of a line with 24 non-negative integers denoting the toll (cents/minute) from 00:00 - 01:00, the toll from 01:00 - 02:00, and so on for each hour in the day.</p>
+<p>The next line contains a positive number $N(≤1000)$, followed by $N$ lines of records. Each phone call record consists of the name of the customer (string of up to 20 characters without space), the time and date (<code>MM:dd:HH:mm</code>), and the word <code>on-line</code> or <code>off-line</code>.</p>
+<p>For each test case, all dates will be within a single month. Each <code>on-line</code> record is paired with the chronologically next record for the same customer provided it is an <code>off-line</code> record. Any <code>on-line</code> records that are not paired with an <code>off-line</code> record are ignored, as are <code>off-line</code> records not paired with an <code>on-line</code> record. It is guaranteed that at least one call is well paired in the input. You may assume that no two records for the same customer have the same time. Times are recorded using a 24-hour clock.</p>
+<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each test case, you must print a phone bill for each customer.</p>
+<p>Bills must be printed in alphabetical order of customers’ names. For each customer, first print in a line the name of the customer and the month of the bill in the format shown by the sample. Then for each time period of a call, print in one line the beginning and ending time and date (<code>dd:HH:mm</code>), the lasting time (in minute) and the charge of the call. The calls must be listed in chronological order. Finally, print the total charge for the month in the format shown by the sample.</p>
+<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">10 10 10 10 10 10 20 20 20 15 15 15 15 15 15 15 20 30 20 15 15 10 10 10</span><br><span class="line">10</span><br><span class="line">CYLL 01:01:06:01 on-line</span><br><span class="line">CYLL 01:28:16:05 off-line</span><br><span class="line">CYJJ 01:01:07:00 off-line</span><br><span class="line">CYLL 01:01:08:03 off-line</span><br><span class="line">CYJJ 01:01:05:59 on-line</span><br><span class="line">aaa 01:01:01:03 on-line</span><br><span class="line">aaa 01:02:00:01 on-line</span><br><span class="line">CYLL 01:28:15:41 on-line</span><br><span class="line">aaa 01:05:02:24 on-line</span><br><span class="line">aaa 01:04:23:59 off-line</span><br></pre></td></tr></table></figure>
+
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CYJJ 01</span><br><span class="line">01:05:59 01:07:00 61 $12.10</span><br><span class="line">Total amount: $12.10</span><br><span class="line">CYLL 01</span><br><span class="line">01:06:01 01:08:03 122 $24.40</span><br><span class="line">28:15:41 28:16:05 24 $3.85</span><br><span class="line">Total amount: $28.25</span><br><span class="line">aaa 01</span><br><span class="line">02:00:01 04:23:59 4318 $638.80</span><br><span class="line">Total amount: $638.80</span><br></pre></td></tr></table></figure>
+
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;题目大意：计算用户的通话账单，首先给出 24 小时中每小时的收费标准。然后给出用户的接通和挂断的时间记录，接通和挂断必须按时间顺序相互匹配，否则无视。最后按格式输出用户的通话记录、通话时长、费用等信息。</p>
+<p>&emsp;&emsp;创建结构体保存每条通话记录的用户名、时间及状态，将所有通话记录按用户名从小到大排序，用户名相同的按记录时间排序。然后遍历排序后的通话记录 $V$，如果 $V_i$ 与 $V_{i+1}$ 用户名相同，且一个接听一个挂断，则匹配成功。先输出用户名和月份，如果已输出则跳过，之后计算这一对记录的通话时长和费用并按要求输出记录。当一个用户的账单信息输出结束，输出该用户的总费用。具体见代码。</p>
+<article class="message is-danger"><div class="message-body">
+<p><strong>坑及注意事项</strong></p>
+<ul>
+<li>所有数据均在同一月，不需要对月份处理。</li>
+<li>通话记录存在跨日的，需要特别判断。</li>
+<li>string 必须用 cin/cout，否则就用 char[]。</div></article>
+
+</li>
+</ul>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Rec</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">25</span>];</span><br><span class="line">    <span class="keyword">int</span> dd, HH, mm, time;</span><br><span class="line">    <span class="keyword">bool</span> on;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> Rec &amp;x) <span class="keyword">const</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="built_in">strcmp</span>(name, x.name) == <span class="number">0</span> ? time &lt; x.time : <span class="built_in">strcmp</span>(name, x.name) &lt; <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, c[<span class="number">25</span>];</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;Rec&gt; <span class="title">v</span><span class="params">(<span class="number">1005</span>)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">GetCharge</span><span class="params">(Rec A, Rec B)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">double</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (A.dd != B.dd || A.HH != B.HH || A.mm != B.mm) &#123;</span><br><span class="line">        <span class="keyword">if</span> (A.dd == B.dd &amp;&amp; A.HH == B.HH) &#123;</span><br><span class="line">            res += c[A.HH] * (B.mm - A.mm);</span><br><span class="line">            A.mm = B.mm;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            res += c[A.HH] * (<span class="number">60</span> - A.mm);</span><br><span class="line">            A.mm = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (A.HH == <span class="number">23</span>) &#123;</span><br><span class="line">                A.HH = <span class="number">0</span>;</span><br><span class="line">                A.dd++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                A.HH++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res / <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">24</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;c[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;N);</span><br><span class="line">    <span class="keyword">int</span> MM;</span><br><span class="line">    <span class="keyword">char</span> sign[<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s %d:%d:%d:%d %s"</span>, v[i].name, &amp;MM, &amp;v[i].dd, &amp;v[i].HH, &amp;v[i].mm, sign);</span><br><span class="line">        v[i].time = (v[i].dd * <span class="number">24</span> + v[i].HH) * <span class="number">60</span> + v[i].mm;</span><br><span class="line">        <span class="keyword">if</span> (sign[<span class="number">1</span>] == <span class="string">'n'</span>) v[i].on = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> v[i].on = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(v.begin(), v.begin() + N);</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> total_amt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">strcmp</span>(v[i].name, v[i + <span class="number">1</span>].name) == <span class="number">0</span> &amp;&amp; v[i].on &amp;&amp; !v[i + <span class="number">1</span>].on) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!flag) &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%s %02d\n"</span>, v[i].name, MM);</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">double</span> chag = GetCharge(v[i], v[i + <span class="number">1</span>]);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%02d:%02d:%02d %02d:%02d:%02d "</span>, v[i].dd, v[i].HH, v[i].mm, v[i + <span class="number">1</span>].dd, v[i + <span class="number">1</span>].HH, v[i + <span class="number">1</span>].mm);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d $%.2f\n"</span>, v[i + <span class="number">1</span>].time - v[i].time, chag);</span><br><span class="line">            total_amt += chag;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">strcmp</span>(v[i].name, v[i + <span class="number">1</span>].name))&#123;</span><br><span class="line">            <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"Total amount: $%.2f\n"</span>, total_amt);</span><br><span class="line">            &#125;</span><br><span class="line">            flag = total_amt = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Total amount: $%.2f\n"</span>, total_amt);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;起初我的 string 类型是先 resize 然后按地址用 scanf 输入的，输出的时候用 printf 配合 c_str()，然鹅样例过了，交上去却全是错的。我以为是有逻辑错误，就在网上查，看到有人说费用为 0 的不能输出，于是我就先处理信息再输出，结果还是全错。然后看到有人说 string 不能用，我就把涉及 string 的输入/输出改成了 cin/cout，结果交上去真的 AC 了？？？最后证明测试点中并没有费用为 0 不输出的坑，string 的坑是有的，虽然暂时不清楚为什么。</p>
+<p>&emsp;&emsp;但是 u1s1，作为一道 25 分的题，确实有点恶心了。</p>
+
+        </div>
+        
+            <article class="message is-info"><div class="message-body">
+                <ul>
+                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/07/19/pat-a-1016/">PAT-A 1016 Phone Bills (25)</a></li>
+                    <li><strong>本文作者：</strong><a href="https://lokka.me">Kain Zhang</a></li>
+                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/07/19/pat-a-1016/">https://lokka.me/2020/07/19/pat-a-1016/</a></li>
+                    <li><strong>发布时间：</strong>2020-07-19</li>
+                    <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+                    </li>
+                </ul>
+            </div></article>
+            <br>
+        
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
+                    <a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<a class="button is-warning donate" onclick="document.getElementById(&#39;paypal-donate-form&#39;).submit()">
+    <span class="icon is-small">
+        <i class="fab fa-paypal"></i>
+    </span>
+    <span>Paypal</span>
+</a>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" rel="noopener" id="paypal-donate-form">
+    <input type="hidden" name="cmd" value="_donations" />
+    <input type="hidden" name="business" value="E5US23TM56DQN" />
+    <input type="hidden" name="currency_code" value="USD" />
+</form>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="/images/wechat.jpg" alt="Wechat"></div>
+</a>
+
+                
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="/images/alipay.jpg" alt="Alipay"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/18/pat-a-1091/">
+                <span class="level-item">PAT-A 1091 Acute Stroke (30)</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="is-rounded" src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/common/hitomi.png" alt="Kain Zhang">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Kain Zhang
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        LIVE A LIFE YOU WILL REMEMBER
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>からっぽ島</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            26
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            6
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            14
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/kainzhang" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i>&nbsp;
+                Github
+            </a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Steam" href="http://steamcommunity.com/id/kainzhang">
+                
+                <i class="fab fa-steam"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://facebook.com/kz.lokka">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Twitter" href="https://twitter.com/kz_lokka">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+
+    <!-- <div class="card widget" id="toc"> -->
+    <div class="card widget column-left is-sticky" id="toc">
+        <div class="card-content">
+            <div class="menu">
+                <h3 class="menu-label">
+                    Catalogue
+                </h3>
+                <ul class="menu-list"><li>
+        <a class="is-flex" href="#Input-Specification">
+        <span class="has-mr-6">1</span>
+        <span>Input Specification</span>
+        </a></li><li>
+        <a class="is-flex" href="#Output-Specification">
+        <span class="has-mr-6">2</span>
+        <span>Output Specification</span>
+        </a></li><li>
+        <a class="is-flex" href="#Sample">
+        <span class="has-mr-6">3</span>
+        <span>Sample</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#Input">
+        <span class="has-mr-6">3.1</span>
+        <span>Input</span>
+        </a></li><li>
+        <a class="is-flex" href="#Output">
+        <span class="has-mr-6">3.2</span>
+        <span>Output</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#Analysis">
+        <span class="has-mr-6">4</span>
+        <span>Analysis</span>
+        </a></li><li>
+        <a class="is-flex" href="#Code">
+        <span class="has-mr-6">5</span>
+        <span>Code</span>
+        </a></li><li>
+        <a class="is-flex" href="#Tsukkomi">
+        <span class="has-mr-6">6</span>
+        <span>Tsukkomi</span>
+        </a></li></ul>
+            </div>
+        </div>
+    </div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+        </div>
+    
+</div>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="PAT-A 1016 Phone Bills (25)" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 Kain Zhang&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Noncommericial" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons-nc"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Share Alike" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                        
+                        <i class="fab fa-creative-commons-sa"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'https://lokka.me',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":225,"height":350},"mobile":{"show":false,"scale":0.7},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
