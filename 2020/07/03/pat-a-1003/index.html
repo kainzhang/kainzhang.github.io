@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lokka.me/images/og_image.png">
 <meta property="article:published_time" content="2020-07-03T12:19:41.000Z">
-<meta property="article:modified_time" content="2020-07-19T08:27:18.468Z">
+<meta property="article:modified_time" content="2020-07-19T17:52:54.832Z">
 <meta property="article:author" content="Kain Zhang">
 <meta property="article:tag" content="PAT">
 <meta property="article:tag" content="Dijkstra">
@@ -139,7 +139,7 @@
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-07-03
                 </time>
                 <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-19T08:27:18.468Z">
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-19T17:52:54.832Z">
                     <i class="far fa-calendar-check">&nbsp;</i>2020-07-19
                 </time>
                  -->
@@ -154,7 +154,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    7 minutes read (About 982 words)
+                    7 minutes read (About 983 words)
                 </span>
                 
                 
@@ -177,9 +177,9 @@
 <p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805523835109376" title="PAT-A 1003 Emergency">PAT-A 1003 Emergency</a></p>
 <h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each test case, the first line contains 4 positive integers: N (≤ 500) - the number of cities (and the cities are numbered from 0 to N − 1), M - the number of roads, $C_1$ and $C_2$ - the cities that you are currently in and that you must save, respectively. The next line contains N integers, where the i-th integer is the number of rescue teams in the i-th city. Then M lines follow, each describes a road with three integers $c_​1$, $c_2$ and L, which are the pair of cities connected by a road and the length of that road, respectively. It is guaranteed that there exists at least one path from $C_​1$ to $C_2$.</p>
 <h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each test case, print in one line two numbers: the number of different shortest paths between $C_1$ and $C_2$, and the maximum amount of rescue teams you can possibly gather. All the numbers in a line must be separated by exactly one space, and there is no extra space allowed at the end of a line.</p>
-<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">5 6 0 2</span><br><span class="line">1 2 1 5 3</span><br><span class="line">0 1 1</span><br><span class="line">0 2 2</span><br><span class="line">0 3 1</span><br><span class="line">1 2 1</span><br><span class="line">2 4 1</span><br><span class="line">3 4 1</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">5 6 0 2</span><br><span class="line">1 2 1 5 3</span><br><span class="line">0 1 1</span><br><span class="line">0 2 2</span><br><span class="line">0 3 1</span><br><span class="line">1 2 1</span><br><span class="line">2 4 1</span><br><span class="line">3 4 1</span><br></pre></td></tr></table></figure>
 
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 4</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 4</span><br></pre></td></tr></table></figure>
 
 <h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;单源最短路径问题，用 Dijkstra 算法。根据题意，每个城市的救援队数量为点权，城市之间的距离为边权。由于题目要求输出结果为最短路径数和最大点权和，添加 num 数组记录起点至各顶点的最短路径数，添加 w 数组记录起点至各个顶点的最大点权和，在计算 d 的同时更新上述两个数组，详情见代码注释。</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mxN = <span class="number">505</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// N:顶点数, M:边数, C1:起点, C2:终点</span></span><br><span class="line"><span class="keyword">int</span> N, M, C1, C2;</span><br><span class="line"><span class="comment">// G:邻接矩阵, d:起点至各点的最短距离, weight:点权, w:最大点权和, num:最短路径条数</span></span><br><span class="line"><span class="keyword">int</span> G[mxN][mxN], d[mxN], weight[mxN], w[mxN], num[mxN];</span><br><span class="line"><span class="keyword">bool</span> vis[mxN] = &#123;<span class="literal">false</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">(<span class="keyword">int</span> s)</span> </span>&#123; <span class="comment">// s 为起点</span></span><br><span class="line"></span><br><span class="line">    fill(d, d + N, INT_MAX);  <span class="comment">// 初始化 d 数组</span></span><br><span class="line">    d[s] = <span class="number">0</span>;  <span class="comment">// 起点到自身距离为 0</span></span><br><span class="line">    w[s] = weight[s];  <span class="comment">// 起点最大点权</span></span><br><span class="line">    num[s] = <span class="number">1</span>;  <span class="comment">// 起点至起点路径数为 1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> u = <span class="number">-1</span>, MIN = INT_MAX;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 遍历 N 个点, 寻找最小 d[]和对应顶点</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; N; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!vis[j] &amp;&amp; d[j] &lt; MIN) &#123;</span><br><span class="line">                MIN = d[j];</span><br><span class="line">                u = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (u == <span class="number">-1</span>) <span class="keyword">return</span>;  <span class="comment">// 未找到通路，剩下的顶点与起点不通</span></span><br><span class="line">        vis[u] = <span class="literal">true</span>;  <span class="comment">// 标记 u 已访问</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> v = <span class="number">0</span>; v &lt; N; v++) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 如果 v 未访问, 且 u - v 连通</span></span><br><span class="line">            <span class="keyword">if</span> (!vis[v] &amp;&amp; G[u][v] != INT_MAX) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 如果以 u 为中介点至 v 的距离小于已知 d[v]</span></span><br><span class="line">                <span class="keyword">if</span> (d[u] + G[u][v] &lt; d[v]) &#123;</span><br><span class="line">                    d[v] = d[u] + G[u][v];  <span class="comment">// 更新 d[v]</span></span><br><span class="line">                    w[v] = w[u] + weight[v];  <span class="comment">// 更新点权和</span></span><br><span class="line">                    num[v] = num[u];  <span class="comment">// 更新路径数</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (d[u] + G[u][v] == d[v]) &#123;  <span class="comment">// 路径长度相同</span></span><br><span class="line">                    w[v] = max(w[v], w[u] + weight[v]);  <span class="comment">// 比较获取最大点权</span></span><br><span class="line">                    num[v] += num[u];  <span class="comment">// 路径数累加</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span>.tie(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N &gt;&gt; M &gt;&gt; C1 &gt;&gt; C2;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读入点权, 即每个城市的救援队数量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; weight[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化图 G, 边权为无穷大</span></span><br><span class="line">    fill(G[<span class="number">0</span>], G[<span class="number">0</span>] + mxN * mxN, INT_MAX);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读入边权, 即每两个城市的距离, 无向图双向赋值</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; M; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> u, v, l;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; u &gt;&gt; v &gt;&gt; l;</span><br><span class="line">        G[u][v] = G[v][u] = l;</span><br><span class="line">    &#125;</span><br><span class="line">    dijkstra(C1);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; num[C2] &lt;&lt; <span class="string">" "</span> &lt;&lt; w[C2] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -331,7 +331,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            26
+                            27
                         </p>
                     </a>
                 </div>
@@ -417,28 +417,24 @@
         <span class="has-mr-6">2</span>
         <span>Output Specification</span>
         </a></li><li>
-        <a class="is-flex" href="#Sample">
+        <a class="is-flex" href="#Sample-Input">
         <span class="has-mr-6">3</span>
-        <span>Sample</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#Input">
-        <span class="has-mr-6">3.1</span>
-        <span>Input</span>
+        <span>Sample Input</span>
         </a></li><li>
-        <a class="is-flex" href="#Output">
-        <span class="has-mr-6">3.2</span>
-        <span>Output</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#Analysis">
+        <a class="is-flex" href="#Sample-Output">
         <span class="has-mr-6">4</span>
+        <span>Sample Output</span>
+        </a></li><li>
+        <a class="is-flex" href="#Analysis">
+        <span class="has-mr-6">5</span>
         <span>Analysis</span>
         </a></li><li>
         <a class="is-flex" href="#Code">
-        <span class="has-mr-6">5</span>
+        <span class="has-mr-6">6</span>
         <span>Code</span>
         </a></li><li>
         <a class="is-flex" href="#Tsukkomi">
-        <span class="has-mr-6">6</span>
+        <span class="has-mr-6">7</span>
         <span>Tsukkomi</span>
         </a></li></ul>
             </div>

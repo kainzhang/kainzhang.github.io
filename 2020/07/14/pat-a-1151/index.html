@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lokka.me/images/og_image.png">
 <meta property="article:published_time" content="2020-07-14T23:38:13.000Z">
-<meta property="article:modified_time" content="2020-07-19T08:27:18.468Z">
+<meta property="article:modified_time" content="2020-07-19T17:52:54.832Z">
 <meta property="article:author" content="Kain Zhang">
 <meta property="article:tag" content="PAT">
 <meta name="twitter:card" content="summary">
@@ -137,7 +137,7 @@
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-07-14
                 </time>
                 <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-19T08:27:18.468Z">
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-19T17:52:54.832Z">
                     <i class="far fa-calendar-check">&nbsp;</i>2020-07-19
                 </time>
                  -->
@@ -152,7 +152,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    5 minutes read (About 736 words)
+                    5 minutes read (About 737 words)
                 </span>
                 
                 
@@ -176,9 +176,9 @@
 <p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/1038430130011897856" title="PAT-A 1151 LCA in a Binary Tree">PAT-A 1151 LCA in a Binary Tree</a></p>
 <h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each case, the first line gives two positive integers: M (≤ 1,000), the number of pairs of nodes to be tested; and N (≤ 10,000), the number of keys in the binary tree, respectively. In each of the following two lines, N distinct integers are given as the inorder and preorder traversal sequences of the binary tree, respectively. It is guaranteed that the binary tree can be uniquely determined by the input sequences. Then M lines follow, each contains a pair of integer keys U and V. All the keys are in the range of <strong>int</strong>.</p>
 <h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each given pair of U and V, print in a line <code>LCA of U and V is A.</code> if the LCA is found and <code>A</code> is the key. But if <code>A</code> is one of U and V, print <code>X is an ancestor of Y.</code> where <code>X</code> is <code>A</code> and <code>Y</code> is the other node. If U or V is not found in the binary tree, print in a line <code>ERROR: U is not found.</code> or <code>ERROR: V is not found.</code> or <code>ERROR: U and V are not found.</code>.</p>
-<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">6 8</span><br><span class="line">7 2 3 4 6 5 1 8</span><br><span class="line">5 3 7 2 6 4 8 1</span><br><span class="line">2 6</span><br><span class="line">8 1</span><br><span class="line">7 9</span><br><span class="line">12 -3</span><br><span class="line">0 8</span><br><span class="line">99 99</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">6 8</span><br><span class="line">7 2 3 4 6 5 1 8</span><br><span class="line">5 3 7 2 6 4 8 1</span><br><span class="line">2 6</span><br><span class="line">8 1</span><br><span class="line">7 9</span><br><span class="line">12 -3</span><br><span class="line">0 8</span><br><span class="line">99 99</span><br></pre></td></tr></table></figure>
 
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LCA of 2 and 6 is 3.</span><br><span class="line">8 is an ancestor of 1.</span><br><span class="line">ERROR: 9 is not found.</span><br><span class="line">ERROR: 12 and -3 are not found.</span><br><span class="line">ERROR: 0 is not found.</span><br><span class="line">ERROR: 99 and 99 are not found.</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LCA of 2 and 6 is 3.</span><br><span class="line">8 is an ancestor of 1.</span><br><span class="line">ERROR: 9 is not found.</span><br><span class="line">ERROR: 12 and -3 are not found.</span><br><span class="line">ERROR: 0 is not found.</span><br><span class="line">ERROR: 99 and 99 are not found.</span><br></pre></td></tr></table></figure>
 
 <h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;题目大意：提供二叉树的中序和先序遍历，然后 M 对结点，寻找每对结点 (U 和 V) 的最近共同祖先，按规定格式输出结果。</p>
 <p>&emsp;&emsp;在先序中设置光标，选择结点作为根结点。然后在通过中序判断当前根结点与 U 和 V 的位置关系。注意需要保存各结点在中序中的下标，通过下标进行上述判断，详情见代码。</p>
@@ -331,7 +331,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            26
+                            27
                         </p>
                     </a>
                 </div>
@@ -417,28 +417,24 @@
         <span class="has-mr-6">2</span>
         <span>Output Specification</span>
         </a></li><li>
-        <a class="is-flex" href="#Sample">
+        <a class="is-flex" href="#Sample-Input">
         <span class="has-mr-6">3</span>
-        <span>Sample</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#Input">
-        <span class="has-mr-6">3.1</span>
-        <span>Input</span>
+        <span>Sample Input</span>
         </a></li><li>
-        <a class="is-flex" href="#Output">
-        <span class="has-mr-6">3.2</span>
-        <span>Output</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#Analysis">
+        <a class="is-flex" href="#Sample-Output">
         <span class="has-mr-6">4</span>
+        <span>Sample Output</span>
+        </a></li><li>
+        <a class="is-flex" href="#Analysis">
+        <span class="has-mr-6">5</span>
         <span>Analysis</span>
         </a></li><li>
         <a class="is-flex" href="#Code">
-        <span class="has-mr-6">5</span>
+        <span class="has-mr-6">6</span>
         <span>Code</span>
         </a></li><li>
         <a class="is-flex" href="#Tsukkomi">
-        <span class="has-mr-6">6</span>
+        <span class="has-mr-6">7</span>
         <span>Tsukkomi</span>
         </a></li></ul>
             </div>

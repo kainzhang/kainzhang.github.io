@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lokka.me/images/og_image.png">
 <meta property="article:published_time" content="2020-07-18T23:37:02.000Z">
-<meta property="article:modified_time" content="2020-07-19T08:27:18.472Z">
+<meta property="article:modified_time" content="2020-07-19T17:52:54.832Z">
 <meta property="article:author" content="Kain Zhang">
 <meta property="article:tag" content="PAT">
 <meta property="article:tag" content="BFS">
@@ -138,7 +138,7 @@
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-07-18
                 </time>
                 <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-19T08:27:18.472Z">
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-19T17:52:54.832Z">
                     <i class="far fa-calendar-check">&nbsp;</i>2020-07-19
                 </time>
                  -->
@@ -153,7 +153,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    4 minutes read (About 606 words)
+                    4 minutes read (About 607 words)
                 </span>
                 
                 
@@ -182,9 +182,9 @@
 
 
 <h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each case, output in a line the total volume of the stroke core.</p>
-<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">3 4 5 2</span><br><span class="line">1 1 1 1</span><br><span class="line">1 1 1 1</span><br><span class="line">1 1 1 1</span><br><span class="line">0 0 1 1</span><br><span class="line">0 0 1 1</span><br><span class="line">0 0 1 1</span><br><span class="line">1 0 1 1</span><br><span class="line">0 1 0 0</span><br><span class="line">0 0 0 0</span><br><span class="line">1 0 1 1</span><br><span class="line">0 0 0 0</span><br><span class="line">0 0 0 0</span><br><span class="line">0 0 0 1</span><br><span class="line">0 0 0 1</span><br><span class="line">1 0 0 0</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">3 4 5 2</span><br><span class="line">1 1 1 1</span><br><span class="line">1 1 1 1</span><br><span class="line">1 1 1 1</span><br><span class="line">0 0 1 1</span><br><span class="line">0 0 1 1</span><br><span class="line">0 0 1 1</span><br><span class="line">1 0 1 1</span><br><span class="line">0 1 0 0</span><br><span class="line">0 0 0 0</span><br><span class="line">1 0 1 1</span><br><span class="line">0 0 0 0</span><br><span class="line">0 0 0 0</span><br><span class="line">0 0 0 1</span><br><span class="line">0 0 0 1</span><br><span class="line">1 0 0 0</span><br></pre></td></tr></table></figure>
 
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">26</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">26</span><br></pre></td></tr></table></figure>
 
 <h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;题目大意：按照上面图示的连接方式，在三维数组里搜索 1 的数量。其中 1 数量大于等于 $T$ 的区域被认为是 stroke core，否则无视。求所有符合要求的区域中一共多少个 1 即体积。</p>
 <p>&emsp;&emsp;基础 BFS 题，注意搜索的是上面图示的邻近 6 个结点，做好边界判断。</p>
@@ -337,7 +337,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            26
+                            27
                         </p>
                     </a>
                 </div>
@@ -423,28 +423,24 @@
         <span class="has-mr-6">2</span>
         <span>Output Specification</span>
         </a></li><li>
-        <a class="is-flex" href="#Sample">
+        <a class="is-flex" href="#Sample-Input">
         <span class="has-mr-6">3</span>
-        <span>Sample</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#Input">
-        <span class="has-mr-6">3.1</span>
-        <span>Input</span>
+        <span>Sample Input</span>
         </a></li><li>
-        <a class="is-flex" href="#Output">
-        <span class="has-mr-6">3.2</span>
-        <span>Output</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#Analysis">
+        <a class="is-flex" href="#Sample-Output">
         <span class="has-mr-6">4</span>
+        <span>Sample Output</span>
+        </a></li><li>
+        <a class="is-flex" href="#Analysis">
+        <span class="has-mr-6">5</span>
         <span>Analysis</span>
         </a></li><li>
         <a class="is-flex" href="#Code">
-        <span class="has-mr-6">5</span>
+        <span class="has-mr-6">6</span>
         <span>Code</span>
         </a></li><li>
         <a class="is-flex" href="#Tsukkomi">
-        <span class="has-mr-6">6</span>
+        <span class="has-mr-6">7</span>
         <span>Tsukkomi</span>
         </a></li></ul>
             </div>

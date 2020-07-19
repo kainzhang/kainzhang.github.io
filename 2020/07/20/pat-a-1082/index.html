@@ -7,23 +7,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>设计模式 - 工厂模式（Factory Pattern） - LOKKA&#39;s Blog</title>
+<title>PAT-A 1082 Read Number in Chinese (25) - LOKKA&#39;s Blog</title>
 
 
-    <meta name="description" content="&amp;emsp;&amp;emsp;Java设计模式 - 工厂模式">
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;简单模拟，输出格式有坑。   Given an integer with no more than 9 digits, you are supposed to read it in the traditional Chinese way. Output Fu first if it is negative. For example, -123456789 is read">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计模式 - 工厂模式（Factory Pattern）">
-<meta property="og:url" content="https://lokka.me/2020/04/25/factory-pattern/index.html">
+<meta property="og:title" content="PAT-A 1082 Read Number in Chinese (25)">
+<meta property="og:url" content="https://lokka.me/2020/07/20/pat-a-1082/index.html">
 <meta property="og:site_name" content="LOKKA&#39;s Blog">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;Java设计模式 - 工厂模式">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;简单模拟，输出格式有坑。   Given an integer with no more than 9 digits, you are supposed to read it in the traditional Chinese way. Output Fu first if it is negative. For example, -123456789 is read">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/25/tyler-nix-7ukf-r-Oh-k-unsplash.jpg">
-<meta property="article:published_time" content="2020-04-25T18:24:22.000Z">
+<meta property="og:image" content="https://lokka.me/images/og_image.png">
+<meta property="article:published_time" content="2020-07-20T01:22:49.000Z">
 <meta property="article:modified_time" content="2020-07-19T17:52:54.832Z">
 <meta property="article:author" content="Kain Zhang">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="PAT">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/25/tyler-nix-7ukf-r-Oh-k-unsplash.jpg">
+<meta name="twitter:image" content="https://lokka.me/images/og_image.png">
 
 
 
@@ -83,7 +83,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="设计模式 - 工厂模式（Factory Pattern）" height="28">
+                <img src="/images/logo.svg" alt="PAT-A 1082 Read Number in Chinese (25)" height="28">
             
             </a>
         </div>
@@ -128,29 +128,19 @@
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
     
-    <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/25/tyler-nix-7ukf-r-Oh-k-unsplash.jpg" alt="设计模式 - 工厂模式（Factory Pattern）">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-04-25T18:24:22.000Z">2020-04-25</time> -->
-                <time class="level-item has-text-grey" datetime="2020-04-25T18:24:22.000Z">
-                    <i class="far fa-calendar-alt">&nbsp;</i>2020-04-25
+                <!-- <time class="level-item has-text-grey" datetime="2020-07-20T01:22:49.000Z">2020-07-20</time> -->
+                <time class="level-item has-text-grey" datetime="2020-07-20T01:22:49.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-20
                 </time>
-                <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-19T17:52:54.832Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-07-19
-                </time>
-                 -->
+                <!--  -->
                 
                 <div class="level-item">
                 <i class="far fa-folder has-text-grey">&nbsp;</i>
-                <a class="has-link-grey -link" href="/categories/Note/">Note</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Note/Design-Pattern/">Design Pattern</a>
+                <a class="has-link-grey -link" href="/categories/Note/">Note</a>&nbsp;/&nbsp;<a class="has-link-grey -link" href="/categories/Note/Problem/">Problem</a>
                 </div>
                 
                 
@@ -158,7 +148,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    2 minutes read (About 359 words)
+                    4 minutes read (About 546 words)
                 </span>
                 
                 
@@ -167,42 +157,42 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                设计模式 - 工厂模式（Factory Pattern）
+                PAT-A 1082 Read Number in Chinese (25)
             
         </h1>
         <div class="content">
-            <p>&emsp;&emsp;Java设计模式 - 工厂模式</p>
+            <article class="message is-success"><div class="message-body">
+<p><span class="icon"><i class="fa fa-check mr-2"></i></span>&nbsp;&nbsp;简单模拟，输出格式有坑。</p>
+</div></article>
+
+<p>Given an integer with no more than 9 digits, you are supposed to read it in the traditional Chinese way. Output <code>Fu</code> first if it is negative. For example, -123456789 is read as <code>Fu yi Yi er Qian san Bai si Shi wu Wan liu Qian qi Bai ba Shi jiu</code>. Note: zero (<code>ling</code>) must be handled correctly according to the Chinese tradition. For example, 100800 is <code>yi Shi Wan ling ba Bai</code>.</p>
 <a id="more"></a>
 
-<hr>
-<h2 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h2><p><strong>简单工厂模式组成：</strong></p>
-<ul>
-<li>工厂类：简单工厂模式的核心，负责创建所需的产品实例。</li>
-<li>抽象产品类：产品类的父类，定义产品类共有的属性和方法。</li>
-<li>产品类： 继承抽象产品类，即具体的产品。</li>
-</ul>
-<p>&emsp;&emsp;首先定义抽象咖啡类，规定所有咖啡共有的接口。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Coffee</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 制作咖啡</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">prepare</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(name + <span class="string">"制作完成！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打包咖啡</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(name + <span class="string">"打包完成!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805385053978624" title="PAT-A 1082 Read Number in Chinese">PAT-A 1082 Read Number in Chinese</a></p>
+<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case, which gives an integer with no more than 9 digits.</p>
+<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each test case, print in a line the Chinese way of reading the number. The characters are separated by a space and there must be no extra space at the end of the line.</p>
+<h2 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1"></a>Sample Input 1</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-123456789</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;定义具体类型的咖啡。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Americano</span> <span class="keyword">extends</span> <span class="title">Coffee</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Americano</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">"美式"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Latte</span> <span class="keyword">extends</span> <span class="title">Coffee</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Latte</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">"拿铁"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Mocha</span> <span class="keyword">extends</span> <span class="title">Coffee</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Mocha</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">"摩卡"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output 1"></a>Sample Output 1</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Fu yi Yi er Qian san Bai si Shi wu Wan liu Qian qi Bai ba Shi jiu</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;创建咖啡工厂类，负责具体产品的实例化</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CoffeeFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Coffee <span class="title">createCoffee</span><span class="params">(String coffeeType)</span> </span>&#123;</span><br><span class="line">        Coffee coffee = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (coffeeType.equals(<span class="string">"美式"</span>)) &#123;</span><br><span class="line">            coffee = <span class="keyword">new</span> Americano();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (coffeeType.equals(<span class="string">"拿铁"</span>)) &#123;</span><br><span class="line">            coffee = <span class="keyword">new</span> Latte();</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (coffeeType.equals(<span class="string">"摩卡"</span>)) &#123;</span><br><span class="line">            coffee = <span class="keyword">new</span> Mocha();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> coffee;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2"></a>Sample Input 2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">100800</span><br></pre></td></tr></table></figure>
 
-<p>&emsp;&emsp;咖啡馆类调用咖啡工厂类。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cafe</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">getCoffeeType</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            BufferedReader strin = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(System.in));</span><br><span class="line">            System.out.println(<span class="string">"请输入咖啡类别："</span>);</span><br><span class="line">            String str = strin.readLine();</span><br><span class="line">            <span class="keyword">return</span> str;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        CoffeeFactory cf = <span class="keyword">new</span> CoffeeFactory();</span><br><span class="line">        String coffeeType = getCoffeeType();</span><br><span class="line">        Coffee coffee = cf.createCoffee(coffeeType);</span><br><span class="line">        <span class="keyword">if</span> (coffee != <span class="keyword">null</span>) &#123;</span><br><span class="line">            coffee.prepare();</span><br><span class="line">            coffee.pack();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"请求失败！"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2"></a>Sample Output 2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yi Shi Wan ling ba Bai</span><br></pre></td></tr></table></figure>
 
-<p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@jtylernix?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Tyler Nix"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Tyler Nix</span></a></p>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;给一个最多九位的整数，用汉语拼音表示该数字，简单模拟。需要注意 0 的输出，当遇到 0 的时候做标记，直至遇到非 0 数时再输出 ling。测试点好像有一个输入数据是 0，所以对 0 的位置也要判断。另外测试点并不完全严谨，比如 100,000,000 不用严格输出 yi Yi，输出 yi Yi Wan 并不影响。在输出至第 4 位或第 8 位的时候无论当前位是不是 0，都要输出 Wan 或 Yi。</p>
+<p>&emsp;&emsp;<strong>遇到的坑：</strong> 个位的 “” 并不是空的，会导致格式错误。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> num[] = &#123;<span class="string">"ling"</span>, <span class="string">"yi"</span>, <span class="string">"er"</span>, <span class="string">"san"</span>, <span class="string">"si"</span>, <span class="string">"wu"</span>, <span class="string">"liu"</span>, <span class="string">"qi"</span>, <span class="string">"ba"</span>, <span class="string">"jiu"</span>&#125;;</span><br><span class="line"><span class="built_in">string</span> jw[] = &#123;<span class="string">""</span>, <span class="string">"Shi"</span>, <span class="string">"Bai"</span>, <span class="string">"Qian"</span>, <span class="string">"Wan"</span>, <span class="string">"Shi"</span>, <span class="string">"Bai"</span>, <span class="string">"Qian"</span>, <span class="string">"Yi"</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; str;</span><br><span class="line">    <span class="keyword">int</span> flag = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (str[<span class="number">0</span>] == <span class="string">'-'</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Fu"</span>);</span><br><span class="line">        str = str.substr(<span class="number">1</span>);</span><br><span class="line">        flag++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> len = str.size(), zero = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (str[i] == <span class="string">'0'</span> &amp;&amp; i) &#123;</span><br><span class="line">            zero = <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (zero) <span class="built_in">printf</span>(<span class="string">" ling"</span>);</span><br><span class="line">            <span class="keyword">if</span> (flag++) <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%s"</span>, num[str[i] - <span class="string">'0'</span>].c_str());</span><br><span class="line">            zero = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> tmp = len - i - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (tmp &amp;&amp; (!zero || tmp == <span class="number">4</span> || tmp == <span class="number">8</span>)) &#123; <span class="comment">// tmp为 0 时输出 "" 会格式错误</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">" %s"</span>, jw[tmp % <span class="number">9</span>].c_str());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;格式错误给我整懵了，改了半天寻思空格也没搁错啊…… 万万想不到被 “” 卡了。这题以前好像在蓝桥杯的 OJ 上写过，测试也是不严谨，不过这次确实是写得最简洁的一次了。</p>
 
         </div>
         
             <article class="message is-info"><div class="message-body">
                 <ul>
-                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/04/25/factory-pattern/">设计模式 - 工厂模式（Factory Pattern）</a></li>
+                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/07/20/pat-a-1082/">PAT-A 1082 Read Number in Chinese (25)</a></li>
                     <li><strong>本文作者：</strong><a href="https://lokka.me">Kain Zhang</a></li>
-                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/04/25/factory-pattern/">https://lokka.me/2020/04/25/factory-pattern/</a></li>
-                    <li><strong>发布时间：</strong>2020-04-25</li>
+                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/07/20/pat-a-1082/">https://lokka.me/2020/07/20/pat-a-1082/</a></li>
+                    <li><strong>发布时间：</strong>2020-07-20</li>
                     <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
                     </li>
                 </ul>
@@ -215,7 +205,7 @@
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
                     <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
-                    <a class="has-link-grey -link" href="/tags/Java/" rel="tag">Java</a>
+                    <a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
                 </div>
             </div>
         </div>
@@ -276,17 +266,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/04/27/coding-pages-n-custom-domain/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Github+Coding双托管Hexo及自定义域名</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/08/n-queens/">
-                <span class="level-item">N皇后（N-Queens）</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/19/pat-a-1016/">
+                <span class="level-item">PAT-A 1016 Phone Bills (25)</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -418,9 +401,41 @@
                     Catalogue
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#简单工厂模式">
+        <a class="is-flex" href="#Input-Specification">
         <span class="has-mr-6">1</span>
-        <span>简单工厂模式</span>
+        <span>Input Specification</span>
+        </a></li><li>
+        <a class="is-flex" href="#Output-Specification">
+        <span class="has-mr-6">2</span>
+        <span>Output Specification</span>
+        </a></li><li>
+        <a class="is-flex" href="#Sample-Input-1">
+        <span class="has-mr-6">3</span>
+        <span>Sample Input 1</span>
+        </a></li><li>
+        <a class="is-flex" href="#Sample-Output-1">
+        <span class="has-mr-6">4</span>
+        <span>Sample Output 1</span>
+        </a></li><li>
+        <a class="is-flex" href="#Sample-Input-2">
+        <span class="has-mr-6">5</span>
+        <span>Sample Input 2</span>
+        </a></li><li>
+        <a class="is-flex" href="#Sample-Output-2">
+        <span class="has-mr-6">6</span>
+        <span>Sample Output 2</span>
+        </a></li><li>
+        <a class="is-flex" href="#Analysis">
+        <span class="has-mr-6">7</span>
+        <span>Analysis</span>
+        </a></li><li>
+        <a class="is-flex" href="#Code">
+        <span class="has-mr-6">8</span>
+        <span>Code</span>
+        </a></li><li>
+        <a class="is-flex" href="#Tsukkomi">
+        <span class="has-mr-6">9</span>
+        <span>Tsukkomi</span>
         </a></li></ul>
             </div>
         </div>
@@ -444,7 +459,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="设计模式 - 工厂模式（Factory Pattern）" height="28">
+                    <img src="/images/logo.svg" alt="PAT-A 1082 Read Number in Chinese (25)" height="28">
                 
                 </a>
                 <p class="is-size-7">

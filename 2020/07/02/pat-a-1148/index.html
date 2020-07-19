@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lokka.me/images/og_image.png">
 <meta property="article:published_time" content="2020-07-02T11:06:42.000Z">
-<meta property="article:modified_time" content="2020-07-19T08:27:18.468Z">
+<meta property="article:modified_time" content="2020-07-19T17:52:54.832Z">
 <meta property="article:author" content="Kain Zhang">
 <meta property="article:tag" content="PAT">
 <meta name="twitter:card" content="summary">
@@ -137,7 +137,7 @@
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-07-02
                 </time>
                 <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-19T08:27:18.468Z">
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-19T17:52:54.832Z">
                     <i class="far fa-calendar-check">&nbsp;</i>2020-07-19
                 </time>
                  -->
@@ -184,17 +184,17 @@
 <p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/1038429808099098624" title="PAT-A 1148 Werewolf - Simple Version">PAT-A 1148 Werewolf - Simple Version</a></p>
 <h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each case, the first line gives a positive integer N (5 ≤ N ≤ 100). Then N lines follow and the i-th line gives the statement of the i-th player (1 ≤ i ≤ N), which is represented by the index of the player with a positive sign for a human and a negative sign for a werewolf.</p>
 <h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>If a solution exists, print in a line in ascending order the indices of the two werewolves. The numbers must be separated by exactly one space with no extra spaces at the beginning or the end of the line. If there are more than one solution, you must output the smallest solution sequence – that is, for two sequences A=a[1],…,a[M] and B=b[1],…,b[M], if there exists 0 ≤ k &lt; M such that a[i] = b[i] (i ≤ k) and a[k+1]&lt;b[k+1], then A is said to be smaller than B. In case there is no solution, simply print  <code>No Solution</code>.</p>
-<h2 id="Sample-1"><a href="#Sample-1" class="headerlink" title="Sample 1"></a>Sample 1</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">-2</span><br><span class="line">+3</span><br><span class="line">-4</span><br><span class="line">+5</span><br><span class="line">+4</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1"></a>Sample Input 1</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">-2</span><br><span class="line">+3</span><br><span class="line">-4</span><br><span class="line">+5</span><br><span class="line">+4</span><br></pre></td></tr></table></figure>
 
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 4</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output 1"></a>Sample Output 1</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 4</span><br></pre></td></tr></table></figure>
 
-<h2 id="Sample-2"><a href="#Sample-2" class="headerlink" title="Sample 2"></a>Sample 2</h2><h3 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">+6</span><br><span class="line">+3</span><br><span class="line">+1</span><br><span class="line">-5</span><br><span class="line">-2</span><br><span class="line">+4</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2"></a>Sample Input 2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">+6</span><br><span class="line">+3</span><br><span class="line">+1</span><br><span class="line">-5</span><br><span class="line">-2</span><br><span class="line">+4</span><br></pre></td></tr></table></figure>
 
-<h3 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 5</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2"></a>Sample Output 2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 5</span><br></pre></td></tr></table></figure>
 
-<h2 id="Sample-3"><a href="#Sample-3" class="headerlink" title="Sample 3"></a>Sample 3</h2><h3 id="Input-2"><a href="#Input-2" class="headerlink" title="Input"></a>Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">-2</span><br><span class="line">-3</span><br><span class="line">-4</span><br><span class="line">-5</span><br><span class="line">-1</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Input-3"><a href="#Sample-Input-3" class="headerlink" title="Sample Input 3"></a>Sample Input 3</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">-2</span><br><span class="line">-3</span><br><span class="line">-4</span><br><span class="line">-5</span><br><span class="line">-1</span><br></pre></td></tr></table></figure>
 
-<h3 id="Output-2"><a href="#Output-2" class="headerlink" title="Output"></a>Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No Solution</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Output-3"><a href="#Sample-Output-3" class="headerlink" title="Sample Output 3"></a>Sample Output 3</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No Solution</span><br></pre></td></tr></table></figure>
 
 <h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>题目划重点：</p>
 <ul>
@@ -353,7 +353,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            26
+                            27
                         </p>
                     </a>
                 </div>
@@ -439,52 +439,40 @@
         <span class="has-mr-6">2</span>
         <span>Output Specification</span>
         </a></li><li>
-        <a class="is-flex" href="#Sample-1">
+        <a class="is-flex" href="#Sample-Input-1">
         <span class="has-mr-6">3</span>
-        <span>Sample 1</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#Input">
-        <span class="has-mr-6">3.1</span>
-        <span>Input</span>
+        <span>Sample Input 1</span>
         </a></li><li>
-        <a class="is-flex" href="#Output">
-        <span class="has-mr-6">3.2</span>
-        <span>Output</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#Sample-2">
+        <a class="is-flex" href="#Sample-Output-1">
         <span class="has-mr-6">4</span>
-        <span>Sample 2</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#Input-1">
-        <span class="has-mr-6">4.1</span>
-        <span>Input</span>
+        <span>Sample Output 1</span>
         </a></li><li>
-        <a class="is-flex" href="#Output-1">
-        <span class="has-mr-6">4.2</span>
-        <span>Output</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#Sample-3">
+        <a class="is-flex" href="#Sample-Input-2">
         <span class="has-mr-6">5</span>
-        <span>Sample 3</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#Input-2">
-        <span class="has-mr-6">5.1</span>
-        <span>Input</span>
+        <span>Sample Input 2</span>
         </a></li><li>
-        <a class="is-flex" href="#Output-2">
-        <span class="has-mr-6">5.2</span>
-        <span>Output</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#Analysis">
+        <a class="is-flex" href="#Sample-Output-2">
         <span class="has-mr-6">6</span>
+        <span>Sample Output 2</span>
+        </a></li><li>
+        <a class="is-flex" href="#Sample-Input-3">
+        <span class="has-mr-6">7</span>
+        <span>Sample Input 3</span>
+        </a></li><li>
+        <a class="is-flex" href="#Sample-Output-3">
+        <span class="has-mr-6">8</span>
+        <span>Sample Output 3</span>
+        </a></li><li>
+        <a class="is-flex" href="#Analysis">
+        <span class="has-mr-6">9</span>
         <span>Analysis</span>
         </a></li><li>
         <a class="is-flex" href="#Code">
-        <span class="has-mr-6">7</span>
+        <span class="has-mr-6">10</span>
         <span>Code</span>
         </a></li><li>
         <a class="is-flex" href="#Tsukkomi">
-        <span class="has-mr-6">8</span>
+        <span class="has-mr-6">11</span>
         <span>Tsukkomi</span>
         </a></li></ul>
             </div>

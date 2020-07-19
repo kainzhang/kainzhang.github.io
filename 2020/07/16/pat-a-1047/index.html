@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lokka.me/images/og_image.png">
 <meta property="article:published_time" content="2020-07-16T22:50:15.000Z">
-<meta property="article:modified_time" content="2020-07-19T08:27:18.472Z">
+<meta property="article:modified_time" content="2020-07-19T17:52:54.832Z">
 <meta property="article:author" content="Kain Zhang">
 <meta property="article:tag" content="PAT">
 <meta name="twitter:card" content="summary">
@@ -137,7 +137,7 @@
                     <i class="far fa-calendar-alt">&nbsp;</i>2020-07-16
                 </time>
                 <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-19T08:27:18.472Z">
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-07-19T17:52:54.832Z">
                     <i class="far fa-calendar-check">&nbsp;</i>2020-07-19
                 </time>
                  -->
@@ -152,7 +152,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    3 minutes read (About 437 words)
+                    3 minutes read (About 438 words)
                 </span>
                 
                 
@@ -175,9 +175,9 @@
 <p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805433955368960" title="PAT-A 1047 Student List for Course">PAT-A 1047 Student List for Course</a></p>
 <h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. For each case, the first line contains 2 numbers: $N(≤40,000)$, the total number of students, and $K(≤2,500)$, the total number of courses. Then $N$ lines follow, each contains a student’s name (3 capital English letters plus a one-digit number), a positive number $C(≤20)$ which is the number of courses that this student has registered, and then followed by $C$ course numbers. For the sake of simplicity, the courses are numbered from 1 to $K$ .</p>
 <h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each test case, print the student name lists of all the courses in increasing order of the course numbers. For each course, first print in one line the course number and the number of registered students, separated by a space. Then output the students’ names in alphabetical order. Each name occupies a line.</p>
-<h2 id="Sample"><a href="#Sample" class="headerlink" title="Sample"></a>Sample</h2><h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">10 5</span><br><span class="line">ZOE1 2 4 5</span><br><span class="line">ANN0 3 5 2 1</span><br><span class="line">BOB5 5 3 4 2 1 5</span><br><span class="line">JOE4 1 2</span><br><span class="line">JAY9 4 1 2 5 4</span><br><span class="line">FRA8 3 4 2 5</span><br><span class="line">DON2 2 4 5</span><br><span class="line">AMY7 1 5</span><br><span class="line">KAT3 3 5 4 2</span><br><span class="line">LOR6 4 2 4 1 5</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">10 5</span><br><span class="line">ZOE1 2 4 5</span><br><span class="line">ANN0 3 5 2 1</span><br><span class="line">BOB5 5 3 4 2 1 5</span><br><span class="line">JOE4 1 2</span><br><span class="line">JAY9 4 1 2 5 4</span><br><span class="line">FRA8 3 4 2 5</span><br><span class="line">DON2 2 4 5</span><br><span class="line">AMY7 1 5</span><br><span class="line">KAT3 3 5 4 2</span><br><span class="line">LOR6 4 2 4 1 5</span><br></pre></td></tr></table></figure>
 
-<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">1 4</span><br><span class="line">ANN0</span><br><span class="line">BOB5</span><br><span class="line">JAY9</span><br><span class="line">LOR6</span><br><span class="line">2 7</span><br><span class="line">ANN0</span><br><span class="line">BOB5</span><br><span class="line">FRA8</span><br><span class="line">JAY9</span><br><span class="line">JOE4</span><br><span class="line">KAT3</span><br><span class="line">LOR6</span><br><span class="line">3 1</span><br><span class="line">BOB5</span><br><span class="line">4 7</span><br><span class="line">BOB5</span><br><span class="line">DON2</span><br><span class="line">FRA8</span><br><span class="line">JAY9</span><br><span class="line">KAT3</span><br><span class="line">LOR6</span><br><span class="line">ZOE1</span><br><span class="line">5 9</span><br><span class="line">AMY7</span><br><span class="line">ANN0</span><br><span class="line">BOB5</span><br><span class="line">DON2</span><br><span class="line">FRA8</span><br><span class="line">JAY9</span><br><span class="line">KAT3</span><br><span class="line">LOR6</span><br><span class="line">ZOE1</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">1 4</span><br><span class="line">ANN0</span><br><span class="line">BOB5</span><br><span class="line">JAY9</span><br><span class="line">LOR6</span><br><span class="line">2 7</span><br><span class="line">ANN0</span><br><span class="line">BOB5</span><br><span class="line">FRA8</span><br><span class="line">JAY9</span><br><span class="line">JOE4</span><br><span class="line">KAT3</span><br><span class="line">LOR6</span><br><span class="line">3 1</span><br><span class="line">BOB5</span><br><span class="line">4 7</span><br><span class="line">BOB5</span><br><span class="line">DON2</span><br><span class="line">FRA8</span><br><span class="line">JAY9</span><br><span class="line">KAT3</span><br><span class="line">LOR6</span><br><span class="line">ZOE1</span><br><span class="line">5 9</span><br><span class="line">AMY7</span><br><span class="line">ANN0</span><br><span class="line">BOB5</span><br><span class="line">DON2</span><br><span class="line">FRA8</span><br><span class="line">JAY9</span><br><span class="line">KAT3</span><br><span class="line">LOR6</span><br><span class="line">ZOE1</span><br></pre></td></tr></table></figure>
 
 <h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;水题，排序完输出即可。</p>
 <p>&emsp;&emsp;cout 会超时，关闭同步也没用，老老实实用 scanf 和 printf。</p>
@@ -330,7 +330,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            26
+                            27
                         </p>
                     </a>
                 </div>
@@ -416,28 +416,24 @@
         <span class="has-mr-6">2</span>
         <span>Output Specification</span>
         </a></li><li>
-        <a class="is-flex" href="#Sample">
+        <a class="is-flex" href="#Sample-Input">
         <span class="has-mr-6">3</span>
-        <span>Sample</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#Input">
-        <span class="has-mr-6">3.1</span>
-        <span>Input</span>
+        <span>Sample Input</span>
         </a></li><li>
-        <a class="is-flex" href="#Output">
-        <span class="has-mr-6">3.2</span>
-        <span>Output</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#Analysis">
+        <a class="is-flex" href="#Sample-Output">
         <span class="has-mr-6">4</span>
+        <span>Sample Output</span>
+        </a></li><li>
+        <a class="is-flex" href="#Analysis">
+        <span class="has-mr-6">5</span>
         <span>Analysis</span>
         </a></li><li>
         <a class="is-flex" href="#Code">
-        <span class="has-mr-6">5</span>
+        <span class="has-mr-6">6</span>
         <span>Code</span>
         </a></li><li>
         <a class="is-flex" href="#Tsukkomi">
-        <span class="has-mr-6">6</span>
+        <span class="has-mr-6">7</span>
         <span>Tsukkomi</span>
         </a></li></ul>
             </div>
