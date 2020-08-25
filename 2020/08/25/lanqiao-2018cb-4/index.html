@@ -7,21 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>PAT-A 1010 Radix (25) - LOKKA&#39;s Blog</title>
+<title>Lanqiao-2018-CB省赛 测试次数 - LOKKA&#39;s Blog</title>
 
 
-    <meta name="description" content="&amp;nbsp;&amp;nbsp;进制转换问题，又被测试点教做人了。   Given a pair of positive integers, for example, 6 and 110, can this equation 6 &#x3D; 110 be true? The answer is yes, if 6 is a decimal number and 110 is a binary number. N">
+    <meta name="description" content="&amp;nbsp;&amp;nbsp;第九届蓝桥杯省赛填空题，动态规划。   x星球的居民脾气不太好，但好在他们生气的时候唯一的异常举动是：摔手机。各大厂商也就纷纷推出各种耐摔型手机。x星球的质监局规定了手机必须经过耐摔测试，并且评定出一个耐摔指数来，之后才允许上市流通。 x星球有很多高耸入云的高塔，刚好可以用来做耐摔测试。塔的每一层高度都是一样的，与地球上稍有不同的是，他们的第一层不是地面，而是相当于我们的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT-A 1010 Radix (25)">
-<meta property="og:url" content="https://lokka.me/2020/07/04/pat-a-1010/index.html">
+<meta property="og:title" content="Lanqiao-2018-CB省赛 测试次数">
+<meta property="og:url" content="https://lokka.me/2020/08/25/lanqiao-2018cb-4/index.html">
 <meta property="og:site_name" content="LOKKA&#39;s Blog">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;进制转换问题，又被测试点教做人了。   Given a pair of positive integers, for example, 6 and 110, can this equation 6 &#x3D; 110 be true? The answer is yes, if 6 is a decimal number and 110 is a binary number. N">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;第九届蓝桥杯省赛填空题，动态规划。   x星球的居民脾气不太好，但好在他们生气的时候唯一的异常举动是：摔手机。各大厂商也就纷纷推出各种耐摔型手机。x星球的质监局规定了手机必须经过耐摔测试，并且评定出一个耐摔指数来，之后才允许上市流通。 x星球有很多高耸入云的高塔，刚好可以用来做耐摔测试。塔的每一层高度都是一样的，与地球上稍有不同的是，他们的第一层不是地面，而是相当于我们的">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lokka.me/images/og_image.png">
-<meta property="article:published_time" content="2020-07-04T15:28:02.000Z">
+<meta property="article:published_time" content="2020-08-25T12:09:23.000Z">
 <meta property="article:modified_time" content="2020-08-25T04:32:06.708Z">
 <meta property="article:author" content="Kain Zhang">
-<meta property="article:tag" content="PAT">
+<meta property="article:tag" content="DP">
+<meta property="article:tag" content="Lanqiao">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://lokka.me/images/og_image.png">
 
@@ -83,7 +84,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="PAT-A 1010 Radix (25)" height="28">
+                <img src="/images/logo.svg" alt="Lanqiao-2018-CB省赛 测试次数" height="28">
             
             </a>
         </div>
@@ -132,15 +133,11 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-07-04T15:28:02.000Z">2020-07-04</time> -->
-                <time class="level-item has-text-grey" datetime="2020-07-04T15:28:02.000Z">
-                    <i class="far fa-calendar-alt">&nbsp;</i>2020-07-04
+                <!-- <time class="level-item has-text-grey" datetime="2020-08-25T12:09:23.000Z">2020-08-25</time> -->
+                <time class="level-item has-text-grey" datetime="2020-08-25T12:09:23.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2020-08-25
                 </time>
-                <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2020-08-25T04:32:06.708Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2020-08-25
-                </time>
-                 -->
+                <!--  -->
                 
                 <div class="level-item">
                 <i class="far fa-folder has-text-grey">&nbsp;</i>
@@ -152,7 +149,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    6 minutes read (About 909 words)
+                    5 minutes read (About 802 words)
                 </span>
                 
                 
@@ -161,52 +158,36 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                PAT-A 1010 Radix (25)
+                Lanqiao-2018-CB省赛 测试次数
             
         </h1>
         <div class="content">
-            <article class="message is-danger"><div class="message-body">
-<p><span class="icon"><i class="fa fa-star mr-2"></i></span>&nbsp;&nbsp;进制转换问题，又被测试点教做人了。</p>
+            <article class="message is-warning"><div class="message-body">
+<p><span class="icon"><i class="fa fa-exclamation-triangle mr-2"></i></span>&nbsp;&nbsp;第九届蓝桥杯省赛填空题，动态规划。</p>
 </div></article>
 
-<p>Given a pair of positive integers, for example, 6 and 110, can this equation 6 = 110 be true? The answer is <code>yes</code>, if 6 is a decimal number and 110 is a binary number.</p>
-<p>Now for any pair of positive integers $N_1$ and $N_2$, your task is to find the radix of one number while that of the other is given.</p>
+<p>x星球的居民脾气不太好，但好在他们生气的时候唯一的异常举动是：摔手机。<br>各大厂商也就纷纷推出各种耐摔型手机。x星球的质监局规定了手机必须经过耐摔测试，并且评定出一个耐摔指数来，之后才允许上市流通。</p>
+<p>x星球有很多高耸入云的高塔，刚好可以用来做耐摔测试。塔的每一层高度都是一样的，与地球上稍有不同的是，他们的第一层不是地面，而是相当于我们的2楼。</p>
+<p>如果手机从第7层扔下去没摔坏，但第8层摔坏了，则手机耐摔指数=7。<br>特别地，如果手机从第1层扔下去就坏了，则耐摔指数=0。<br>如果到了塔的最高层第n层扔没摔坏，则耐摔指数=n</p>
+<p>为了减少测试次数，从每个厂家抽样3部手机参加测试。</p>
+<p>某次测试的塔高为1000层，如果我们总是采用最佳策略，在最坏的运气下最多需要测试多少次才能确定手机的耐摔指数呢？</p>
+<p>请填写这个最多测试次数。</p>
+<p>注意：需要填写的是一个整数，不要填写任何多余内容。</p>
 <a id="more"></a>
 
-<p><strong>Problem:</strong>&nbsp;<a href="https://pintia.cn/problem-sets/994805342720868352/problems/994805507225665536" title="PAT-A 1010 Radix">PAT-A 1010 Radix</a></p>
-<h2 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification"></a>Input Specification</h2><p>Each input file contains one test case. Each case occupies a line which contains 4 positive integers:</p>
-<blockquote>
-<p>N1 N2 tag radix</p>
-</blockquote>
-<p>Here <code>N1</code> and <code>N2</code> each has no more than 10 digits. A digit is less than its radix and is chosen from the set { 0-9, <code>a</code> - <code>z</code> } where 0-9 represent the decimal numbers 0-9, and <code>a</code> - <code>z</code> represent the decimal numbers 10-35. The last number <code>radix</code> is the radix of <code>N1</code> if <code>tag</code> is 1, or of <code>N2</code> if <code>tag</code> is 2.</p>
-<h2 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification"></a>Output Specification</h2><p>For each test case, print in one line the radix of the other number so that the equation <code>N1</code> = <code>N2</code> is true. If the equation is impossible, print <code>Impossible</code>. If the solution is not unique, output the smallest possible radix.</p>
-<h2 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1"></a>Sample Input 1</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6 110 1 10</span><br></pre></td></tr></table></figure>
+<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;这题的坑在于 <strong>最佳策略和最坏运气</strong>，只能在最后一个手机测出耐摔指数，也就是子问题要多摔，原问题尽可能少摔。摔第 m 个手机时，在第 k 层的情况可划分为两个子问题，即摔坏和没摔坏，两个子问题取测试次数最多的（最坏运气）；原问题取测试次数最少的。在第 k 层摔坏即上个手机在 [0, k-1] 内摔坏，在第 k 层没摔坏即当前手机在 [k + 1, 1000] 摔坏，也就是剩余的层数。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// dp[m][f] 表示 m 个手机, f 层时的最多测试次数</span></span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">5</span>][<span class="number">1005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// M: Mobile, F: Floor</span></span><br><span class="line">    <span class="keyword">int</span> M = <span class="number">3</span>, F = <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 一个手机时，测试次数等于层数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> f = <span class="number">1</span>; f &lt;= F; f++) &#123;</span><br><span class="line">        dp[<span class="number">1</span>][f] = f;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">2</span>; m &lt;= M; m++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> f = <span class="number">2</span>; f &lt;= F; f++) &#123;</span><br><span class="line">            dp[m][f] = INT_MAX;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 当前手机数量和层数下，获取最少测试次数</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">2</span>; k &lt;= f; k++) &#123;</span><br><span class="line">                <span class="comment">// 在第 k 层，原问题划分为当前手机摔坏和没摔坏两个子问题，子问题取测试次数最多的</span></span><br><span class="line">                <span class="comment">// 摔坏了则上个手机在[1, k-1]摔坏，没摔坏则当前手机在[k+1, 1000]摔坏，同时测试次数 +1</span></span><br><span class="line">                dp[m][f] = min(dp[m][f], max(dp[m - <span class="number">1</span>][k - <span class="number">1</span>], dp[m][f - k]) + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; dp[<span class="number">3</span>][<span class="number">1000</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output 1"></a>Sample Output 1</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
-
-<h2 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2"></a>Sample Input 2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 ab 1 2</span><br></pre></td></tr></table></figure>
-
-<h2 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2"></a>Sample Output 2</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Impossible</span><br></pre></td></tr></table></figure>
-
-<h2 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h2><p>&emsp;&emsp;给两个数，已知其中一个数的基数，判断另一个数是否存在基数使两个数相等，求出该基数，不存在则输出 Impossible。从题意来看就是普通的进制转换，先求出已知基数的数的 10 进制，再求出另一个数在不同基数下转为 10 进制的值，比较两数大小，如果相等则当前基数为所求解。但是测试点很恐怖，参考了大佬的代码才全过。遇到以下坑：</p>
-<ul>
-<li>题目未说明 <strong>基数取值范围</strong>。实际下限大于未知基数的数中的任何一个数字，上限为已知基数的数，并不是简单的数字 + 字母的 [2, 35]。</li>
-<li>题目只说明了数最大有 10 位，所以 int 显然不够存了，而且如果基数比较大，那么 long long 也不够存。根据前辈们的踩坑经历，幸好测试用例中所有数据都在 long long 范围内，不然就太折腾了。</li>
-<li>由于基数可能非常大，从小到大一个个遍历会有一个测试点过不去，因此搜索基数的时候采用 <strong>二分查找</strong>，使用的上限和下限也就是基数的取值范围。</li>
-<li>二分查找的过程中会出现 <strong>long long 溢出</strong> 导致返回值为负数，查找时要增加判断。</li>
-</ul>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">using</span> ll = <span class="keyword">long</span> <span class="keyword">long</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符串转 10 进制</span></span><br><span class="line"><span class="function">ll <span class="title">str_to_dec</span><span class="params">(<span class="built_in">string</span> str, ll radix)</span> </span>&#123;</span><br><span class="line">    ll res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> len = str.size();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> tmp = (<span class="built_in">isdigit</span>(str[i]) ? str[i] - <span class="string">'0'</span> : str[i] - <span class="string">'a'</span> + <span class="number">10</span>);</span><br><span class="line">        res += tmp * <span class="built_in">pow</span>(radix, len - i - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取基数</span></span><br><span class="line"><span class="function">ll <span class="title">get_radix</span><span class="params">(<span class="built_in">string</span> str, ll num)</span> </span>&#123;  <span class="comment">// num 为已知数的 10 进制</span></span><br><span class="line">    ll radix = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 计算基数范围</span></span><br><span class="line">    <span class="keyword">char</span> maxC = *max_element(str.begin(), str.end()); <span class="comment">// 找到最大字符</span></span><br><span class="line">    ll lo = (<span class="built_in">isdigit</span>(maxC) ? maxC - <span class="string">'0'</span> : maxC - <span class="string">'a'</span> + <span class="number">10</span>) + <span class="number">1</span>;</span><br><span class="line">    ll hi = max(lo, num);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用二分查找计算基数</span></span><br><span class="line">    <span class="keyword">while</span> (lo &lt;= hi) &#123;</span><br><span class="line">        ll mid = (lo + hi) / <span class="number">2</span>;</span><br><span class="line">        ll tmp = str_to_dec(str, mid);</span><br><span class="line">        <span class="keyword">if</span> (tmp &gt; num || tmp &lt; <span class="number">0</span>) &#123;  <span class="comment">// 比已知数大或向上溢出</span></span><br><span class="line">            hi = mid - <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (tmp &lt; num) &#123;  <span class="comment">// 比已知数小</span></span><br><span class="line">            lo = mid + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            radix = mid;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> radix;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> N1, N2;</span><br><span class="line">    <span class="keyword">int</span> tag, radix;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N1 &gt;&gt; N2 &gt;&gt; tag &gt;&gt; radix;</span><br><span class="line">    ll num = (tag &amp; <span class="number">1</span>) ? str_to_dec(N1, radix) : str_to_dec(N2, radix);</span><br><span class="line">    ll ans = (tag &amp; <span class="number">1</span>) ? get_radix(N2, num) : get_radix(N1, num);</span><br><span class="line">    <span class="keyword">if</span> (ans) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Impossible"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;测试点太恶心（个人太菜），题目表述也不清（还是个人太菜）。折腾一下午，看着 20 个测试点的结果不断变换，始终有几个点过不去，心态爆炸。嫖完大佬的思路拐回来写，顿时觉得也没什么难度了，主要还是菜。</p>
+<h2 id="Tsukkomi"><a href="#Tsukkomi" class="headerlink" title="Tsukkomi"></a>Tsukkomi</h2><p>&emsp;&emsp;18 年省赛时候没学过 DP 就没写出来，后来也没再写过。昨天有学弟问我会不会，浏览一遍题还是不会。。。一大早起床就在网上搜题解，总算是有点感觉了。</p>
 
         </div>
         
             <article class="message is-info"><div class="message-body">
                 <ul>
-                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/07/04/pat-a-1010/">PAT-A 1010 Radix (25)</a></li>
+                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/08/25/lanqiao-2018cb-4/">Lanqiao-2018-CB省赛 测试次数</a></li>
                     <li><strong>本文作者：</strong><a href="https://lokka.me">Kain Zhang</a></li>
-                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/07/04/pat-a-1010/">https://lokka.me/2020/07/04/pat-a-1010/</a></li>
-                    <li><strong>发布时间：</strong>2020-07-04</li>
+                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/08/25/lanqiao-2018cb-4/">https://lokka.me/2020/08/25/lanqiao-2018cb-4/</a></li>
+                    <li><strong>发布时间：</strong>2020-08-25</li>
                     <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
                     </li>
                 </ul>
@@ -219,7 +200,7 @@
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
                     <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
-                    <a class="has-link-grey -link" href="/tags/PAT/" rel="tag">PAT</a>
+                    <a class="has-link-grey -link" href="/tags/DP/" rel="tag">DP</a>,&nbsp;<a class="has-link-grey -link" href="/tags/Lanqiao/" rel="tag">Lanqiao</a>
                 </div>
             </div>
         </div>
@@ -285,17 +266,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/07/05/pat-a-1021/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">PAT-A 1021 Deepest Root (25)</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/03/pat-a-1003/">
-                <span class="level-item">PAT-A 1003 Emergency (25)</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/07/20/pat-a-1082/">
+                <span class="level-item">PAT-A 1082 Read Number in Chinese (25)</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -427,40 +401,16 @@
                     Catalogue
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#Input-Specification">
-        <span class="has-mr-6">1</span>
-        <span>Input Specification</span>
-        </a></li><li>
-        <a class="is-flex" href="#Output-Specification">
-        <span class="has-mr-6">2</span>
-        <span>Output Specification</span>
-        </a></li><li>
-        <a class="is-flex" href="#Sample-Input-1">
-        <span class="has-mr-6">3</span>
-        <span>Sample Input 1</span>
-        </a></li><li>
-        <a class="is-flex" href="#Sample-Output-1">
-        <span class="has-mr-6">4</span>
-        <span>Sample Output 1</span>
-        </a></li><li>
-        <a class="is-flex" href="#Sample-Input-2">
-        <span class="has-mr-6">5</span>
-        <span>Sample Input 2</span>
-        </a></li><li>
-        <a class="is-flex" href="#Sample-Output-2">
-        <span class="has-mr-6">6</span>
-        <span>Sample Output 2</span>
-        </a></li><li>
         <a class="is-flex" href="#Analysis">
-        <span class="has-mr-6">7</span>
+        <span class="has-mr-6">1</span>
         <span>Analysis</span>
         </a></li><li>
         <a class="is-flex" href="#Code">
-        <span class="has-mr-6">8</span>
+        <span class="has-mr-6">2</span>
         <span>Code</span>
         </a></li><li>
         <a class="is-flex" href="#Tsukkomi">
-        <span class="has-mr-6">9</span>
+        <span class="has-mr-6">3</span>
         <span>Tsukkomi</span>
         </a></li></ul>
             </div>
@@ -485,7 +435,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="PAT-A 1010 Radix (25)" height="28">
+                    <img src="/images/logo.svg" alt="Lanqiao-2018-CB省赛 测试次数" height="28">
                 
                 </a>
                 <p class="is-size-7">
