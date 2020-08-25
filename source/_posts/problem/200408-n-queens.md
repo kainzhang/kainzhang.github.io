@@ -8,7 +8,7 @@ categories:
     - Note
     - Problem
 tags:
-    - BackTracking
+    - Back Tracking
     - DFS
 ---
 
