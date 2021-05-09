@@ -16,16 +16,16 @@ tags:
 
 <!--more-->
 
-在 Clion -> Preferences -> Build -> Toolchains 查看 C++ Complier 的路径，如下图所示。
+在 Clion -> Preferences -> Build -> Toolchains 查看 C++ Compiler 的路径，如下图所示。
 
 ![](https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/08/25/20200825133044.png)
-
-
-cd 至 /usr 即可，在该目录下找到include文件夹，在该文件夹内创建 `bits` 文件夹，然后把下面的 `stdc++.h` 拖入文件夹即可。
 
 ```
 cd /library/developer/commandlinetools/usr
 ```
+
+cd 至 /usr 即可，在该目录下找到include文件夹，在该文件夹内创建 `bits` 文件夹，然后把下面的 `stdc++.h` 拖入文件夹即可。
+
 
 ``` cpp
 // C++ includes used for precompiling -*- C++ -*-
