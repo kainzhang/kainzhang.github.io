@@ -7,23 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Github+Coding双托管Hexo及自定义域名 - LOKKA&#39;s Blog</title>
+<title>MacOS 安装及配置 MongoDB - LOKKA&#39;s Blog</title>
 
 
-    <meta name="description" content="&amp;emsp;&amp;emsp;为了改善加载速度分别尝试了Coding和Gitee的托管以及CloudFlare的CDN加（减）速。无奈都不太乐观，倒是把博客同时托管在Coding，多了个备胎这样子。国内的CDN都要求必须备案，不想备案就只能走境外CDN或者只使用DNS解析。 &amp;emsp;&amp;emsp;心血来潮买了个域名，迫不及待把它绑定到博客。这个.me的黑山国家域名我还蛮喜欢，虽然觉得.cc更可爱些，但">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Github+Coding双托管Hexo及自定义域名">
-<meta property="og:url" content="https://lokka.me/2020/04/27/coding-pages-n-custom-domain/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="MacOS 安装及配置 MongoDB">
+<meta property="og:url" content="https://lokka.me/2021/05/09/install-mongodb-on-macos/index.html">
 <meta property="og:site_name" content="LOKKA&#39;s Blog">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;为了改善加载速度分别尝试了Coding和Gitee的托管以及CloudFlare的CDN加（减）速。无奈都不太乐观，倒是把博客同时托管在Coding，多了个备胎这样子。国内的CDN都要求必须备案，不想备案就只能走境外CDN或者只使用DNS解析。 &amp;emsp;&amp;emsp;心血来潮买了个域名，迫不及待把它绑定到博客。这个.me的黑山国家域名我还蛮喜欢，虽然觉得.cc更可爱些，但">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/27/polina-rytova-1AUe0hwdC3o-unsplash.jpg">
-<meta property="article:published_time" content="2020-04-27T23:14:16.000Z">
+<meta property="og:image" content="https://lokka.me/images/og_image.png">
+<meta property="article:published_time" content="2021-05-09T19:54:21.000Z">
 <meta property="article:modified_time" content="2021-05-09T13:06:24.848Z">
 <meta property="article:author" content="Kain Zhang">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="MongoDB">
+<meta property="article:tag" content="Mac OS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/27/polina-rytova-1AUe0hwdC3o-unsplash.jpg">
+<meta name="twitter:image" content="https://lokka.me/images/og_image.png">
 
 
 
@@ -83,7 +82,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Github+Coding双托管Hexo及自定义域名" height="28">
+                <img src="/images/logo.svg" alt="MacOS 安装及配置 MongoDB" height="28">
             
             </a>
         </div>
@@ -128,25 +127,15 @@
                 <div class="column is-8-tablet is-8-desktop is-8-widescreen has-order-2 column-main">
 <div class="card">
     
-    <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/27/polina-rytova-1AUe0hwdC3o-unsplash.jpg" alt="Github+Coding双托管Hexo及自定义域名">
-        </span>
-    </div>
-    
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <!-- <time class="level-item has-text-grey" datetime="2020-04-27T23:14:16.000Z">2020-04-27</time> -->
-                <time class="level-item has-text-grey" datetime="2020-04-27T23:14:16.000Z">
-                    <i class="far fa-calendar-alt">&nbsp;</i>2020-04-27
+                <!-- <time class="level-item has-text-grey" datetime="2021-05-09T19:54:21.000Z">2021-05-09</time> -->
+                <time class="level-item has-text-grey" datetime="2021-05-09T19:54:21.000Z">
+                    <i class="far fa-calendar-alt">&nbsp;</i>2021-05-09
                 </time>
-                <!-- 
-                <time class="level-item has-text-grey is-hidden-mobile" datetime="2021-05-09T13:06:24.848Z">
-                    <i class="far fa-calendar-check">&nbsp;</i>2021-05-09
-                </time>
-                 -->
+                <!--  -->
                 
                 <div class="level-item">
                 <i class="far fa-folder has-text-grey">&nbsp;</i>
@@ -158,7 +147,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    17 minutes read (About 2488 words)
+                    2 minutes read (About 361 words)
                 </span>
                 
                 
@@ -167,66 +156,51 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Github+Coding双托管Hexo及自定义域名
+                MacOS 安装及配置 MongoDB
             
         </h1>
         <div class="content">
-            <p>&emsp;&emsp;为了改善加载速度分别尝试了Coding和Gitee的托管以及CloudFlare的CDN加（减）速。无奈都不太乐观，倒是把博客同时托管在Coding，多了个备胎这样子。国内的CDN都要求必须备案，不想备案就只能走境外CDN或者只使用DNS解析。</p>
-<p>&emsp;&emsp;心血来潮买了个域名，迫不及待把它绑定到博客。这个.me的黑山国家域名我还蛮喜欢，虽然觉得.cc更可爱些，但个人博客果然是.me比较合适（上面thumbnail是黑山的科托尔）。于是博客迎来全新域名 <a href="https://lokka.me/">lokka.me</a>。</p>
+            <br>
+
+<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/21/05/09/20210509200454.jpeg" width="100%" height="100%" />
+
+<br>
+
 <a id="more"></a>
 
-<hr>
-<h2 id="使用Coding托管Hexo"><a href="#使用Coding托管Hexo" class="headerlink" title="使用Coding托管Hexo"></a>使用Coding托管Hexo</h2><h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>&emsp;&emsp;首先就是注册 <a href="https://coding.net/">Coding</a> 账号，创建仓库，操作流程和Github一样，项目模板选择代码托管项目。项目名称随你，项目封面随你，其他的默认就好。Coding没要求必须公开源代码，README也可不添加。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/27/200427-1.png"></p>
-<h3 id="本地Hexo设置"><a href="#本地Hexo设置" class="headerlink" title="本地Hexo设置"></a>本地Hexo设置</h3><p>&emsp;&emsp;进入建好的仓库页面，复制页面右边提供的仓库SSH地址。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/27/200427-2.png"></p>
-<p>&emsp;&emsp;将SSH粘贴至Hexo的_config.yml对应位置，换行加上就行，注意格式。没错，加上Gitee三托管也可以的，喜欢就只管加上。下次hexo d的时候就会一起发布。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/27/200427-3.png"></p>
-<h3 id="添加SSH公钥"><a href="#添加SSH公钥" class="headerlink" title="添加SSH公钥"></a>添加SSH公钥</h3><p>&emsp;&emsp;为了方便发布，把之前搞GithubPages生成的SSH密钥添加到Coding，SSH密钥一般藏在下面这个位置。</p>
-<blockquote>
-<p>C:\Users\用户名\.ssh\id_rsa.pub</p>
-</blockquote>
-<p>&emsp;&emsp;在Coding页面右上角的弹框里找到 <strong>个人设置</strong>，然后添加 <strong>SSH公钥</strong>，复制粘贴确认即可。之后使用hexo d发布时会需要确认，直接回复yes。</p>
-<h3 id="静态页面部署"><a href="#静态页面部署" class="headerlink" title="静态页面部署"></a>静态页面部署</h3><p>&emsp;&emsp;Hexo生成的静态网页成功发布到Coding仓库后进入项目页面，页面左下角找到项目设置 -&gt; 项目与成员 -&gt; 功能开关，然后打开 <strong>持续集成</strong> 和 <strong>持续部署</strong>（部署静态页面必须项）。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/27/200427-4.png"></p>
-<p>&emsp;&emsp;开启上述两项功能后，回到项目主页，左边目录多了持续集成和持续部署两个选项，找到 <strong>静态网站</strong>，点击立即部署即可。Coding会自动生成一个地址（我看网上别人的都是coding.me的域名，可能现在改版就没了），然后就发布成功啦!点开那个丑陋的地址看看吧！</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/27/200427-5.png"></p>
-<hr>
-<h2 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h2><p>&emsp;&emsp;CodingPages生成的域名实在不能接受，赶！紧！买！域！名！</p>
-<h3 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h3><p>&emsp;&emsp;年幼无知的我没做足功课就把第一次献给了 <a href="https://sg.godaddy.com/zh/">GoDaddy</a>，在这里建议萌新在购买域名前，一定要先在 <a href="https://www.domcomp.com/">domcomp</a> 查询一下，这里可以查到你喜欢的域名的最便宜价格及提供该价格的注册商，也可以顺便选一下顶级域名。除了GoDaddy外，部分注册商如 <a href="https://www.dynadot.com/zh/">dynadot</a> 也是支持支付宝的。</p>
-<p>&emsp;&emsp;由于我是之后才知道domcomp的，已经在GoDaddy买过了。购买流程就是选域名，加购物车，然后结账时候顺便注册账号，选择支付宝，掏出手机扫码付款，按提示来就vans了。GoDaddy的隐私保护是收费的，如果不购买的话，查询whois是可以看到你姓名、电话和邮箱的。不怕信息公开当然可以不买，但是有些注册商比如Porkbun、Dynadot、NameSilo、NameCheap等等一般会免费赠送隐私保护。GoDaddy这里每年除了续费贵，隐私保护也是按年交的，当然不差钱就无所谓啦。</p>
-<h3 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h3><p>&emsp;&emsp;购买成功后找到购买的域名，点击 <strong>DNS管理</strong>，配置CNAME记录值为CodingPages的地址,CNAME名称填 @ 就好。如果想解析到GithubPages，同理。</p>
-<p>&emsp;&emsp;配置完成后回到Coding，在静态网站中找到设置，在 <strong>绑定新域名</strong> 处添加域名，如果你没有配置DNS是会提示申请证书失败的。另外由于网站是由Coding或Github托管的，所以不需要备案，正确配置CNAME即可。待证书状态显示 <strong>正常</strong> 就绑定成功了，用新域名访问博客吧！</p>
-<h3 id="CloudFlare域名解析"><a href="#CloudFlare域名解析" class="headerlink" title="CloudFlare域名解析"></a>CloudFlare域名解析</h3><p>&emsp;&emsp;上一步GoDaddy的DNS我们可以不用，可直接省略。使用CloudFlare解析域名，顺便蹭一蹭免费CDN。账号注册成功后，点击添加站点（会自动弹出），然后输入要使用的域名，之后CloudFlare会提供两个NS地址，要求在域名注册商那里修改NS地址。</p>
-<p>&emsp;&emsp;回到GoDaddy，进入域名管理，修改域名服务器，把CloudFlare提供的两个NS地址粘贴进去，然后确认，之后会显示：<em>我们无法显示您的DNS信息，因为您的域名服务器不是由我们管理的。</em> OK，没GoDaddy啥事儿了。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/27/200427-7.png"></p>
-<p>&emsp;&emsp;返回CloudFlare后点击检查名称服务器（忘了具体名称了，看页面提示就行），然后会提示在排队等待检查。修改DNS后需要等一会CloudFlare才有反应。</p>
-<p>&emsp;&emsp;域名在CloudFlare这边添加成功后，点击域名进入域名管理界面，找到 <strong>DNS</strong> 配置CNAME。其中小云朵标志代表开启CDN加速，如果你网站的主要访客来自境外，那么建议开启，橙色代表开启。国内的话就关闭吧，速度比Github还慢。所以这个CDN加速与国内无缘，关掉后只使用域名解析。（我郑州联通，ping GithubPages的地址只有100ms出头的延迟，走CDN居然飙到将近300ms？？CloudFlare对国内真的不友好）</p>
-<p>&emsp;&emsp;Coding和Github都有免费提供SSL证书的，自定义域名后直接在设置页面开启 <strong>强制HTTPS</strong> 就好，Github在自定义域名后会自动申请证书。此外也可以找CloudFlare申请证书。域名管理页面找到 <strong>SSL/TLS</strong>，确认SSL/TLS加密模式为完全，一般默认就是。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/27/200427-9.png"></p>
-<p>&emsp;&emsp;之后在 <strong>边缘证书</strong> 栏目找到 <strong>始终使用HTTPS</strong>，确认该项为开启状态。之后就慢慢等吧，CloudFlare会在24小时内为域名颁发证书。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/27/200427-10.png"></p>
-<h3 id="阿里云域名解析"><a href="#阿里云域名解析" class="headerlink" title="阿里云域名解析"></a>阿里云域名解析</h3><p>&emsp;&emsp;为了实现国内走Coding，国外走Github，可以选择用阿里云的DNS解析（腾讯云也差不多，都一样的东西）。流程跟CloudFlare一样，账号注册完成后，在主页找到控制台 -&gt; 域名 -&gt; 进入域名解析列表 -&gt; 添加域名，然后回到域名注册商，改成下面阿里云的两个DNS，稍等几分钟就OK了。</p>
-<blockquote>
-<p>ns1.alidns.com<br>ns2.alidns.com</p>
-</blockquote>
-<p>&emsp;&emsp;域名添加成功后，为Github和Coding的博客分别添加CNAME记录，默认解析到Coding，境外解析到Github。</p>
-<p>&emsp;&emsp;<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/20/04/27/200427-11.png"></p>
-<hr>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;这一波折腾完觉得自己知识面真的太窄，一开始想贪CloudFlare的免费CDN，就去用他的DNS解析，结果是反向加速，GithubPages被闲置，域名只解析到CodingPages。用国内的CDN是需要备案的，想到CloudFlare的CDN是反向加速，也没什么好抱怨了（主要还是懒得备案）。</p>
-<p>&emsp;&emsp;我还尝试了GiteePages，速度蛮快的，毕竟国内阿里云，Ping一下全国都深绿的，有条件的用Gitee托管效果应该不错。搭建流程跟GithubPages一样，项目名称使用用户名能开启 XXX.gitee.io的地址，否则地址末尾会包含项目名。但是Gitee很抠，升级pro版才能自定义域名和自动部署，而且普通版每次发布后还要手动更新。Pro版每年99元，新用户有1个月的免费体验，我试了下，配置证书的时候出了问题，Gitee要求粘贴域名证书和密钥，没整成（可能是我太笨），如果你搞定了一定要告诉我，不胜感激！</p>
-<p>&emsp;&emsp;CodingPages用的新加坡的腾讯云，延迟和加载速度肯定比不了Gitee，但比直接GithubPages肯定强多了，ping一下我觉得延迟还行吧，郑州联通大概80+的延迟，具体分时段，加载速度还算能接受。具体如何选择还是看个人吧。</p>
-<p>&emsp;&emsp;<strong>PS：每次Hexo发布会自动覆盖CNAME文件，如果是直接在Github仓库加的CNAME文件，每次发布后自定义域名会失效，解决办法是把CNAME文件放入Hexo的source文件夹。</strong></p>
-<p><a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@polina_art?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Polina Rytova"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Polina Rytova</span></a></p>
+<br>
+&emsp;&emsp;折腾半天把 Homebrew 更新完，发现 MongoDB 不再支持 Homebrew 安装了 = =！
+
+
+<h2 id="官网下载压缩包"><a href="#官网下载压缩包" class="headerlink" title="官网下载压缩包"></a>官网下载压缩包</h2><p>&emsp;&emsp;<a href="https://www.mongodb.com/try/download/community">MongoDB官网</a> 选择相应版本并下载压缩包，解压后将文件夹放至喜欢的地方，用喜欢的名字重命名，我放在了 Home 目录下。</p>
+<img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/21/05/09/20210509202344.png" width="50%" height="50%" />
+
+
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>&emsp;&emsp;打开终端修改以下文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~&#x2F;.zshrc</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;添加以下内容，地址为 MongoDB 的二进制文件夹地址。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;&#x2F;Users&#x2F;kainzhang&#x2F;mongodb&#x2F;bin:$&#123;PATH&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;保存退出，使环境变量生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.zshrc</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="启动-MongoDB"><a href="#启动-MongoDB" class="headerlink" title="启动 MongoDB"></a>启动 MongoDB</h2><p>&emsp;&emsp;成果配置环境变量后，在喜欢的位置为 MongoDB 创建 data 文件夹，我在 Home 目录下创建了 <code>mongodb-data</code>。终端使用如下代码运行启动 MongoDB server，同时指定 dbpath。服务器默认在 27017 端口，不清楚为啥 4.4.5 的 log 显示成这样，4.0.24 的挺好的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --dbpath &#x2F;Users&#x2F;kainzhang&#x2F;mongodb-data</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/21/05/09/20210509203531.png" alt="mongod"></p>
+<p>&emsp;&emsp;cmd + t 打开新的终端 tab，启动 MongoDB Shell 连接 Server。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongo</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/21/05/09/20210509203910.png" alt="mongo"></p>
+<p>&emsp;&emsp;一些基础操作。<br><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/21/05/09/20210509204826.png"></p>
+<h2 id="关闭-MongoDB"><a href="#关闭-MongoDB" class="headerlink" title="关闭 MongoDB"></a>关闭 MongoDB</h2><p>&emsp;&emsp;推荐使用如下命令关闭 Server，否则会导致端口占用，影响下次使用。在 Shell 这边输入如下指令。<br><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/21/05/09/20210509204833.png" width="50%" height="50%" /></p>
 
         </div>
         
             <article class="message is-info"><div class="message-body">
                 <ul>
-                    <li><strong>本文标题：</strong><a href="https://lokka.me/2020/04/27/coding-pages-n-custom-domain/">Github+Coding双托管Hexo及自定义域名</a></li>
+                    <li><strong>本文标题：</strong><a href="https://lokka.me/2021/05/09/install-mongodb-on-macos/">MacOS 安装及配置 MongoDB</a></li>
                     <li><strong>本文作者：</strong><a href="https://lokka.me">Kain Zhang</a></li>
-                    <li><strong>本文链接：</strong><a href="https://lokka.me/2020/04/27/coding-pages-n-custom-domain/">https://lokka.me/2020/04/27/coding-pages-n-custom-domain/</a></li>
-                    <li><strong>发布时间：</strong>2020-04-27</li>
+                    <li><strong>本文链接：</strong><a href="https://lokka.me/2021/05/09/install-mongodb-on-macos/">https://lokka.me/2021/05/09/install-mongodb-on-macos/</a></li>
+                    <li><strong>发布时间：</strong>2021-05-09</li>
                     <li><strong>版权声明：</strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
                     </li>
                 </ul>
@@ -239,7 +213,7 @@
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
                     <!-- <i class="fas fa-tags has-text-grey"></i>&nbsp; -->
-                    <a class="has-link-grey -link" href="/tags/Hexo/" rel="tag">Hexo</a>
+                    <a class="has-link-grey -link" href="/tags/Mac-OS/" rel="tag">Mac OS</a>,&nbsp;<a class="has-link-grey -link" href="/tags/MongoDB/" rel="tag">MongoDB</a>
                 </div>
             </div>
         </div>
@@ -305,17 +279,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/05/01/image-hosting/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Github+PicGo+jsDelivr搭建博客图床</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2020/04/25/factory-pattern/">
-                <span class="level-item">设计模式 - 工厂模式（Factory Pattern）</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/08/25/include-bits-stdc-in-clion/">
+                <span class="level-item">解决MacOS Clion引用 &lt;bits/stdc++.h&gt; 问题</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -447,49 +414,21 @@
                     Catalogue
                 </h3>
                 <ul class="menu-list"><li>
-        <a class="is-flex" href="#使用Coding托管Hexo">
+        <a class="is-flex" href="#官网下载压缩包">
         <span class="has-mr-6">1</span>
-        <span>使用Coding托管Hexo</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#创建项目">
-        <span class="has-mr-6">1.1</span>
-        <span>创建项目</span>
+        <span>官网下载压缩包</span>
         </a></li><li>
-        <a class="is-flex" href="#本地Hexo设置">
-        <span class="has-mr-6">1.2</span>
-        <span>本地Hexo设置</span>
-        </a></li><li>
-        <a class="is-flex" href="#添加SSH公钥">
-        <span class="has-mr-6">1.3</span>
-        <span>添加SSH公钥</span>
-        </a></li><li>
-        <a class="is-flex" href="#静态页面部署">
-        <span class="has-mr-6">1.4</span>
-        <span>静态页面部署</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#自定义域名">
+        <a class="is-flex" href="#配置环境变量">
         <span class="has-mr-6">2</span>
-        <span>自定义域名</span>
-        </a><ul class="menu-list"><li>
-        <a class="is-flex" href="#购买域名">
-        <span class="has-mr-6">2.1</span>
-        <span>购买域名</span>
+        <span>配置环境变量</span>
         </a></li><li>
-        <a class="is-flex" href="#绑定域名">
-        <span class="has-mr-6">2.2</span>
-        <span>绑定域名</span>
-        </a></li><li>
-        <a class="is-flex" href="#CloudFlare域名解析">
-        <span class="has-mr-6">2.3</span>
-        <span>CloudFlare域名解析</span>
-        </a></li><li>
-        <a class="is-flex" href="#阿里云域名解析">
-        <span class="has-mr-6">2.4</span>
-        <span>阿里云域名解析</span>
-        </a></li></ul></li><li>
-        <a class="is-flex" href="#总结">
+        <a class="is-flex" href="#启动-MongoDB">
         <span class="has-mr-6">3</span>
-        <span>总结</span>
+        <span>启动 MongoDB</span>
+        </a></li><li>
+        <a class="is-flex" href="#关闭-MongoDB">
+        <span class="has-mr-6">4</span>
+        <span>关闭 MongoDB</span>
         </a></li></ul>
             </div>
         </div>
@@ -513,7 +452,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Github+Coding双托管Hexo及自定义域名" height="28">
+                    <img src="/images/logo.svg" alt="MacOS 安装及配置 MongoDB" height="28">
                 
                 </a>
                 <p class="is-size-7">
