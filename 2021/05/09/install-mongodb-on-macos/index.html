@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://lokka.me/images/og_image.png">
 <meta property="article:published_time" content="2021-05-09T19:54:21.000Z">
-<meta property="article:modified_time" content="2021-05-09T13:06:24.848Z">
+<meta property="article:modified_time" content="2021-05-12T15:04:58.266Z">
 <meta property="article:author" content="Kain Zhang">
 <meta property="article:tag" content="MongoDB">
 <meta property="article:tag" content="Mac OS">
@@ -135,7 +135,11 @@
                 <time class="level-item has-text-grey" datetime="2021-05-09T19:54:21.000Z">
                     <i class="far fa-calendar-alt">&nbsp;</i>2021-05-09
                 </time>
-                <!--  -->
+                <!-- 
+                <time class="level-item has-text-grey is-hidden-mobile" datetime="2021-05-12T15:04:58.266Z">
+                    <i class="far fa-calendar-check">&nbsp;</i>2021-05-12
+                </time>
+                 -->
                 
                 <div class="level-item">
                 <i class="far fa-folder has-text-grey">&nbsp;</i>
@@ -147,7 +151,7 @@
                 <span class="level-item has-text-grey is-hidden-mobile">
                     
                     
-                    2 minutes read (About 361 words)
+                    3 minutes read (About 393 words)
                 </span>
                 
                 
@@ -169,29 +173,31 @@
 <a id="more"></a>
 
 <br>
-&emsp;&emsp;折腾半天把 Homebrew 更新完，发现 MongoDB 不再支持 Homebrew 安装了 = =！
 
 
-<h2 id="官网下载压缩包"><a href="#官网下载压缩包" class="headerlink" title="官网下载压缩包"></a>官网下载压缩包</h2><p>&emsp;&emsp;<a href="https://www.mongodb.com/try/download/community">MongoDB官网</a> 选择相应版本并下载压缩包，解压后将文件夹放至喜欢的地方，用喜欢的名字重命名，我放在了 Home 目录下。</p>
+<h2 id="官网下载压缩包"><a href="#官网下载压缩包" class="headerlink" title="官网下载压缩包"></a>官网下载压缩包</h2><p><a href="https://www.mongodb.com/try/download/community">MongoDB官网</a> 选择相应版本并下载压缩包，解压后将文件夹放至喜欢的地方，用喜欢的名字重命名，我放在了 Home 目录下。</p>
 <img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/21/05/09/20210509202344.png" width="50%" height="50%" />
 
 
-<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>&emsp;&emsp;打开终端修改以下文件。</p>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>打开终端修改以下文件。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~&#x2F;.zshrc</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;添加以下内容，地址为 MongoDB 的二进制文件夹地址。</p>
+<p>添加以下内容，地址为 MongoDB 的二进制文件夹地址。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH&#x3D;&#x2F;Users&#x2F;kainzhang&#x2F;mongodb&#x2F;bin:$&#123;PATH&#125;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;保存退出，使环境变量生效</p>
+<p>保存退出，使环境变量生效</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~&#x2F;.zshrc</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="启动-MongoDB"><a href="#启动-MongoDB" class="headerlink" title="启动 MongoDB"></a>启动 MongoDB</h2><p>&emsp;&emsp;成果配置环境变量后，在喜欢的位置为 MongoDB 创建 data 文件夹，我在 Home 目录下创建了 <code>mongodb-data</code>。终端使用如下代码运行启动 MongoDB server，同时指定 dbpath。服务器默认在 27017 端口，不清楚为啥 4.4.5 的 log 显示成这样，4.0.24 的挺好的。</p>
+<h2 id="启动-MongoDB"><a href="#启动-MongoDB" class="headerlink" title="启动 MongoDB"></a>启动 MongoDB</h2><p>成果配置环境变量后，在喜欢的位置为 MongoDB 创建 data 文件夹，我在 Home 目录下创建了 <code>mongodb-data</code>。终端使用如下代码运行启动 MongoDB server，同时指定 dbpath。服务器默认在 27017 端口，不清楚为啥 4.4.5 的 log 显示成这样，4.0.24 的挺好的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --dbpath &#x2F;Users&#x2F;kainzhang&#x2F;mongodb-data</span><br></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/21/05/09/20210509203531.png" alt="mongod"></p>
-<p>&emsp;&emsp;cmd + t 打开新的终端 tab，启动 MongoDB Shell 连接 Server。</p>
+<p>cmd + t 打开新的终端 tab，启动 MongoDB Shell 连接 Server。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongo</span><br></pre></td></tr></table></figure>
 <p><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/21/05/09/20210509203910.png" alt="mongo"></p>
-<p>&emsp;&emsp;一些基础操作。<br><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/21/05/09/20210509204826.png"></p>
-<h2 id="关闭-MongoDB"><a href="#关闭-MongoDB" class="headerlink" title="关闭 MongoDB"></a>关闭 MongoDB</h2><p>&emsp;&emsp;推荐使用如下命令关闭 Server，否则会导致端口占用，影响下次使用。在 Shell 这边输入如下指令。<br><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/21/05/09/20210509204833.png" width="50%" height="50%" /></p>
+<p>一些基础操作。<br><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/21/05/09/20210509204826.png"></p>
+<h2 id="关闭-MongoDB"><a href="#关闭-MongoDB" class="headerlink" title="关闭 MongoDB"></a>关闭 MongoDB</h2><p>推荐使用如下命令关闭 Server，否则会导致端口占用，影响下次使用。在 Shell 这边输入如下指令。<br><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/blog/21/05/09/20210509204833.png" width="40%" height="40%" /></p>
+<h2 id="安装-MongoDB-Compass"><a href="#安装-MongoDB-Compass" class="headerlink" title="安装 MongoDB Compass"></a>安装 MongoDB Compass</h2><p>MongoDB 的图形化界面，<a href="https://www.mongodb.com/try/download/compass">官网下载</a>安装或者运行压缩包中的install_compass，配置过环境变量后可以直接终端执行命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install_compass</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.jsdelivr.net/gh/kainzhang/kz-img/img/21/05/11/20210511103523.png" alt="MongoDB Compass界面"></p>
 
         </div>
         
@@ -429,6 +435,10 @@
         <a class="is-flex" href="#关闭-MongoDB">
         <span class="has-mr-6">4</span>
         <span>关闭 MongoDB</span>
+        </a></li><li>
+        <a class="is-flex" href="#安装-MongoDB-Compass">
+        <span class="has-mr-6">5</span>
+        <span>安装 MongoDB Compass</span>
         </a></li></ul>
             </div>
         </div>
